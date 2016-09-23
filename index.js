@@ -22,6 +22,11 @@ $(function(){
 
 	});
 
+	// disable touch move
+	$("html, body").on("touchmove", function(e){
+		e.preventDefault();
+	});
+
 	$(".nextPage").on("click", function(e) {
 
 		e.preventDefault();
