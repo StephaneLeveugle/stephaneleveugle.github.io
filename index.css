@@ -1,0 +1,34 @@
+html, body {
+	height: auto;
+	overflow: hidden;
+}
+
+.content{
+	height: 100%;
+	min-height: 100%;
+}
+
+.row.expanded > .columns {
+	padding: 0;
+	margin: 0;
+}
+
+
+/*.page {
+	display: inline;
+}*/
+
+.home{
+	background-color: #CCC;
+	color: #000;
+}
+
+.portfolio {
+	background-color: #333;
+	color: #FFF;
+}
+
+.contact {
+	background-color: #008080;
+	color: #FFF;
+}
