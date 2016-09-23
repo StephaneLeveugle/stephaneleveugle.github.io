@@ -32,7 +32,7 @@ $(function(){
 		e.preventDefault();
 
 		$("html, body").animate({
-			scrollLeft: "+=" + getViewport().width 
+			scrollLeft: $($(this).attr("href")).offset().left
 		}, 1000);
 		
 	});
@@ -42,7 +42,7 @@ $(function(){
 		e.preventDefault();
 
 		$("html, body").animate({
-			scrollLeft: "-=" + getViewport().width 
+			scrollLeft: $($(this).attr("href")).offset().left 
 		}, 1000);
 
 	});
@@ -52,7 +52,7 @@ $(function(){
 		e.preventDefault();
 
 		$("html, body").animate({
-			scrollTop: "+=" + getViewport().height
+			scrollTop: $($(this).attr("href")).offset().top
 		}, 1000);
 
 	});
@@ -62,7 +62,7 @@ $(function(){
 		e.preventDefault();
 
 		$("html, body").animate({
-			scrollTop: "-=" + getViewport().height
+			scrollTop: $($(this).attr("href")).offset().top
 		}, 1000);
 
 	});
