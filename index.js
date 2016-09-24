@@ -56,9 +56,9 @@ $(function(){
 	    if ($(e.target).parents('#projectDetails')[0] ) {
 	    	
 	    	if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 15);	
 	    	} else {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 15);
 	    	}
 
 	    	// if(e.originalEvent.touches[0].pageY - lastY > 0) {
