@@ -34,7 +34,7 @@ $(function(){
 	});
 
 	// disable touch move
-	$("html, body").on("touchmove", function(e){
+	$(document).bind("touchmove", function(e){
 		$("#logs").text($("#logs").text() + e.touches[0].clientX);
 		$("#testInput").val(e.touches[0].clientX);
 	});
