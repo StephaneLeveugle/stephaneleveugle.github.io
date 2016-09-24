@@ -37,7 +37,7 @@ $(function(){
 	    if (!$(e.target).parents('#projectDetails')[0]) {
 	        e.preventDefault();
 	    }
-	    $("#testLogs").text(JSON.stringify(e));
+	    $("#testLogs").text(e);
 	});
 
 	$(".nextPage").on("click", function(e) {
