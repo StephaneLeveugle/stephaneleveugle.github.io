@@ -11,6 +11,14 @@ $(function(){
 	$(".page").css("height", viewport.height);
 	$(".page").css("overflow-y", "auto");
 
+	$(".page").each(function(){
+
+		if($(this).height() > viewport.height) {
+			$(this).addClass("scrollable");
+		}
+
+	});
+
 	// $(".page").each(function(){
 	// 	$(this).css("height", $(this).css("height"));
 	// });
@@ -34,9 +42,17 @@ $(function(){
 	});
 
 	$(document).on('touchmove', function(e) {
-	    if (!$(e.target).parents('#projectDetails')[0]) {
+	    if (!$(e.target).parents('.scrollable')[0] ) {
+	    	// e.originalEvent.touches[0].pageX;
+
 	        e.preventDefault();
 	    }
+	    else {
+	    	if(e.originalEvent.touches[0].pageX !== lastX || lastX === -1) {
+	    		e.preventDefault();
+	    	}
+	    }
+	    lastX = e.originalEvent.touches[0].pageX;
 	    $("#testLogs").text(e);
 	});
 
