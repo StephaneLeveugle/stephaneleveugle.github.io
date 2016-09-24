@@ -1,6 +1,6 @@
 $(function(){
 
-
+	var lastX = -1;
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
@@ -35,7 +35,7 @@ $(function(){
 
 	// disable touch move
 	$("html, body").on("touchmove", function(e){
-		e.preventDefault();
+		$("#logs").text($("#logs").text() + e.touches[0].clientX);
 	});
 
 	$(".nextPage").on("click", function(e) {
