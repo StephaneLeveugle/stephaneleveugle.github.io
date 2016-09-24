@@ -35,7 +35,7 @@ $(function(){
 
 	// disable touch move
 	$("html, body").on("touchmove", function(e){
-		$("#logs").text(JSON.stringify($(this)));
+		$("#logs").text(JSON.stringify(this));
 		if($(this).height() <= getViewport().height){
 			$("#testInput").val("prevented!");
 			e.preventDefault();
