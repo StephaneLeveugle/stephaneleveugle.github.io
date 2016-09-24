@@ -33,9 +33,15 @@ $(function(){
 
 	});
 
+	$(".page").on("scroll", function(e){
+		$("#testLogs").text(JSON.stringify(e));
+	});
+
 	// disable touch move
-	$("html, body").on("touchmove", function(e){
+	$(".page").on("touchmove", function(e){
 		$("#logs").text(JSON.stringify(e));
+		$("#testLogs").text(JSON.stringify(e));
+		$("#testLogs2").text($(this));
 		if($(this).height() <= getViewport().height){
 			$("#testInput").val("prevented!");
 			e.preventDefault();
