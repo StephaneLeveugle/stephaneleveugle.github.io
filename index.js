@@ -78,7 +78,7 @@ $(function(){
 		  //   	} 
 	   //  	}
 	    	
-	    	// lastY = e.originalEvent.touches[0].pageY;
+	    	lastY = e.originalEvent.touches[0].pageY;
 	    	// lastY_timestamp = e.timeStamp;
 	    }
 	});
