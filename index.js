@@ -4,6 +4,7 @@ $(function(){
 	var touchStartX = 0;
 
 	var lastY = 0;
+	var lastY_timestamp = 10000;
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
@@ -54,12 +55,22 @@ $(function(){
 		e.preventDefault();
 	    if ($(e.target).parents('#projectDetails')[0] ) {
 	    	
-	    	if(e.originalEvent.touches[0].pageY > lastY) {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 20);	
-	    	} else {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 20);
-	    	}
+	    	// if(e.originalEvent.touches[0].pageY - lastY > 0) {
+	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY + lastY));	
+	    	// } else {
+	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + (e.originalEvent.touches[0].pageY - lastY));
+	    	// }
+	    	if(e.originalEvent.touches[0].pageY - lastY !== 0 && Math.abs(e.timeStamp - lastY_timestamp) < 200) {
+    		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
+	    	} 
+	    	else if(e.originalEvent.touches[0].pageY - lastY > 0) {
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
+	    	} 
+	    	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
+	    	} 
 	    	lastY = e.originalEvent.touches[0].pageY;
+	    	lastY_timestamp = e.timeStamp;
 	    }
 	});
 
