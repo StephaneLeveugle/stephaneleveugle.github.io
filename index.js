@@ -47,11 +47,10 @@ $(function(){
 	});
 
 	$(document).on("touchend", function(e){
-		// if(Math.abs(e.originalEvent.changedTouches[0].pageX - touchStartX) > 30) {
-		// 	e.preventDefault();
-		// }
-		// console.log("kk");
-		e.preventDefault();
+		if(Math.abs(e.originalEvent.changedTouches[0].pageX - touchStartX) > 30) {
+			e.preventDefault();
+		}
+		console.log("kk");
 	});
 
 	// $(document).on("touchstart", function(e){
