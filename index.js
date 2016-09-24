@@ -34,8 +34,10 @@ $(function(){
 	});
 
 	// disable touch move
-	$("html, body").on("touchmove", function(e){
-		$("#logs").text(JSON.stringify(e));
+	$(".page").on("touchmove", function(e){
+		if($(this).height() <= getViewport().height){
+			e.preventDefault();
+		}
 	});
 
 	$(".nextPage").on("click", function(e) {
