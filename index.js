@@ -8,7 +8,18 @@ $(function(){
 	$("html, body").css("min-width", viewport.width * 3);
 
 	$(".page").css("width", viewport.width);
-	$(".page").css("min-height", viewport.height);
+	$(".page").css("height", viewport.height);
+	$(".page").css("overflow-y", "auto");
+
+	// $(".page").each(function(){
+	// 	$(this).css("height", $(this).css("height"));
+	// });
+
+	// $(".page").each(function(){
+	// 	if($(this).height() > viewport.height){
+	// 		$(this).css("overflow-y", "auto");	
+	// 	}
+	// });
 
 	$(".hollow.secondary").on("click", function(e){
 
