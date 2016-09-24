@@ -33,24 +33,10 @@ $(function(){
 
 	});
 
-	// $(".page").on("scroll", function(e){
-	// 	$("#testLogs").text(JSON.stringify(e));
-	// });
-
-	// disable touch move
-	$(document).on("touchmove", function(e){
-		// $("#logs").text(JSON.stringify(e));
-		// $("#testLogs").text(JSON.stringify(e));
-		// $("#testLogs2").text($(this));
-		// if($(this).height() <= getViewport().height){
-		// 	$("#testInput").val("prevented!");
-		// 	e.preventDefault();
-		// 	return;
-		// }
-		$("#testLogs").text(JSON.stringify(e));
-		$("#testLogs2").text(JSON.stringify($(this)));
-
-		e.preventDefault();
+	$(document).on('touchmove', function(e) {
+	    if (!$(e.target).parents('#projectDetails')[0]) {
+	        e.preventDefault();
+	    }
 	});
 
 	$(".nextPage").on("click", function(e) {
