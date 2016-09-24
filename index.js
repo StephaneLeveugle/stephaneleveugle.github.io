@@ -38,7 +38,7 @@ $(function(){
 	// });
 
 	// disable touch move
-	$(document).bind("touchmove", function(e){
+	$("html, body").on("touchmove", function(e){
 		// $("#logs").text(JSON.stringify(e));
 		// $("#testLogs").text(JSON.stringify(e));
 		// $("#testLogs2").text($(this));
