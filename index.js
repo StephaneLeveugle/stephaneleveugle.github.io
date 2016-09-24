@@ -60,15 +60,18 @@ $(function(){
 	    	// } else {
 	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + (e.originalEvent.touches[0].pageY - lastY));
 	    	// }
-	    	if(e.originalEvent.touches[0].pageY - lastY !== 0 && Math.abs(e.timeStamp - lastY_timestamp) < 200) {
+	    	if(Math.abs(e.timeStamp - lastY_timestamp) < 200) {
     		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
-	    	} 
-	    	else if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
-	    	} 
-	    	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
-	    	} 
+	    	}
+	    	else if(Math.abs(e.timeStamp - lastY_timestamp) < 1000) {
+				if(e.originalEvent.touches[0].pageY - lastY > 0) {
+		    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
+		    	} 
+		    	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
+		    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
+		    	} 
+	    	}
+	    	
 	    	lastY = e.originalEvent.touches[0].pageY;
 	    	lastY_timestamp = e.timeStamp;
 	    }
