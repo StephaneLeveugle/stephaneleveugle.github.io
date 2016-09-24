@@ -44,18 +44,20 @@ $(function(){
 
 	});
 
-	$(document).on("swipe", function(e){
-		e.preventDefault();
-	});
+	// $(document).on("swipe", function(e){
+	// 	e.preventDefault();
+	// });
+
+
 
 	$(document).on('touchmove', function(e) {
 		e.preventDefault();
 	    if ($(e.target).parents('#projectDetails')[0] ) {
 	    	
 	    	if(e.originalEvent.touches[0].pageY > lastY) {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 5);	
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 20);	
 	    	} else {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 5);
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 20);
 	    	}
 	    	lastY = e.originalEvent.touches[0].pageY;
 	    }
