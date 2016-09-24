@@ -33,12 +33,12 @@ $(function(){
 
 	});
 
-	$(".page").on("scroll", function(e){
-		$("#testLogs").text(JSON.stringify(e));
-	});
+	// $(".page").on("scroll", function(e){
+	// 	$("#testLogs").text(JSON.stringify(e));
+	// });
 
 	// disable touch move
-	$("html, body").on("touchmove", function(e){
+	$(document).bind("touchmove", function(e){
 		// $("#logs").text(JSON.stringify(e));
 		// $("#testLogs").text(JSON.stringify(e));
 		// $("#testLogs2").text($(this));
@@ -47,6 +47,9 @@ $(function(){
 		// 	e.preventDefault();
 		// 	return;
 		// }
+		$("#testLogs").text(JSON.stringify(e));
+		$("#testLogs2").text(JSON.stringify($(this)));
+
 		e.preventDefault();
 	});
 
