@@ -1,6 +1,7 @@
 $(function(){
 
 	var lastX = -1;
+	var touchStartX = 0;
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
@@ -39,6 +40,18 @@ $(function(){
 			$(this).removeClass("animated fadeInUp");
 		});
 
+	});
+
+	$(document).on("touchstart", function(e){
+		touchStartX = e.originalEvent.changedTouches[0].pageX;
+	});
+
+	$(document).on("touchend", function(e){
+		// if(Math.abs(e.originalEvent.changedTouches[0].pageX - touchStartX) > 30) {
+		// 	e.preventDefault();
+		// }
+		// console.log("kk");
+		e.preventDefault();
 	});
 
 	// $(document).on("touchstart", function(e){
