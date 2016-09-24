@@ -42,7 +42,7 @@ $(function(){
 	});
 
 	$(document).on('touchmove', function(e) {
-	    if (!$(e.target).parents('.scrollable')[0] ) {
+	    if (!$(e.target).parents('#projectDetails')[0] ) {
 	    	// e.originalEvent.touches[0].pageX;
 
 	        e.preventDefault();
