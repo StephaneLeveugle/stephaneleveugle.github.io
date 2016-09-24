@@ -3,6 +3,8 @@ $(function(){
 	var lastX = -1;
 	var touchStartX = 0;
 
+	var lastY = 0;
+
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
 
@@ -42,34 +44,21 @@ $(function(){
 
 	});
 
-	$(document).on("touchstart", function(e){
-		touchStartX = e.originalEvent.changedTouches[0].pageX;
+	$(document).on("swipe", function(e){
+		e.preventDefault();
 	});
-
-	$(document).on("touchend", function(e){
-		if(Math.abs(e.originalEvent.changedTouches[0].pageX - touchStartX) > 30) {
-			e.preventDefault();
-		}
-		console.log("kk");
-	});
-
-	// $(document).on("touchstart", function(e){
-	// 	console.log(e);
-	// });
 
 	$(document).on('touchmove', function(e) {
-	    if (!$(e.target).parents('#projectDetails')[0] ) {
-	    	// e.originalEvent.touches[0].pageX;
-
-	        e.preventDefault();
+		e.preventDefault();
+	    if ($(e.target).parents('#projectDetails')[0] ) {
+	    	
+	    	if(e.originalEvent.touches[0].pageY > lastY) {
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 5);	
+	    	} else {
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 5);
+	    	}
+	    	lastY = e.originalEvent.touches[0].pageY;
 	    }
-	    // else {
-	    // 	if(e.originalEvent.touches[0].pageX !== lastX || lastX === -1) {
-	    // 		e.preventDefault();
-	    // 	}
-	    // }
-	    // lastX = e.originalEvent.touches[0].pageX;
-	    // $("#testLogs").text(e);
 	});
 
 	$(".nextPage").on("click", function(e) {
