@@ -41,19 +41,23 @@ $(function(){
 
 	});
 
+	// $(document).on("touchstart", function(e){
+	// 	console.log(e);
+	// });
+
 	$(document).on('touchmove', function(e) {
 	    if (!$(e.target).parents('#projectDetails')[0] ) {
 	    	// e.originalEvent.touches[0].pageX;
 
 	        e.preventDefault();
 	    }
-	    else {
-	    	if(e.originalEvent.touches[0].pageX !== lastX || lastX === -1) {
-	    		e.preventDefault();
-	    	}
-	    }
-	    lastX = e.originalEvent.touches[0].pageX;
-	    $("#testLogs").text(e);
+	    // else {
+	    // 	if(e.originalEvent.touches[0].pageX !== lastX || lastX === -1) {
+	    // 		e.preventDefault();
+	    // 	}
+	    // }
+	    // lastX = e.originalEvent.touches[0].pageX;
+	    // $("#testLogs").text(e);
 	});
 
 	$(".nextPage").on("click", function(e) {
