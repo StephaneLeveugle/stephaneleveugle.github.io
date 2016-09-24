@@ -55,25 +55,31 @@ $(function(){
 		e.preventDefault();
 	    if ($(e.target).parents('#projectDetails')[0] ) {
 	    	
+	    	if(e.originalEvent.touches[0].pageY - lastY > 0) {
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
+	    	} else {
+	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
+	    	}
+
 	    	// if(e.originalEvent.touches[0].pageY - lastY > 0) {
 	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY + lastY));	
 	    	// } else {
 	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + (e.originalEvent.touches[0].pageY - lastY));
 	    	// }
-	    	if(Math.abs(e.timeStamp - lastY_timestamp) < 200) {
-    		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
-	    	}
-	    	else if(Math.abs(e.timeStamp - lastY_timestamp) < 1000) {
-				if(e.originalEvent.touches[0].pageY - lastY > 0) {
-		    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
-		    	} 
-		    	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
-		    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
-		    	} 
-	    	}
+	   //  	if(Math.abs(e.timeStamp - lastY_timestamp) < 200) {
+    // 		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
+	   //  	}
+	   //  	else if(Math.abs(e.timeStamp - lastY_timestamp) < 1000) {
+				// if(e.originalEvent.touches[0].pageY - lastY > 0) {
+		  //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
+		  //   	} 
+		  //   	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
+		  //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
+		  //   	} 
+	   //  	}
 	    	
-	    	lastY = e.originalEvent.touches[0].pageY;
-	    	lastY_timestamp = e.timeStamp;
+	    	// lastY = e.originalEvent.touches[0].pageY;
+	    	// lastY_timestamp = e.timeStamp;
 	    }
 	});
 
