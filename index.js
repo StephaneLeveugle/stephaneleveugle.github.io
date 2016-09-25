@@ -38,7 +38,7 @@ $(function(){
 	// 	e.preventDefault();
 	// });
 
-	$(document).on("touchmove", function(e){
+	$(document.body).on("touchmove", function(e){
 		e.preventDefault();
 	});
 
