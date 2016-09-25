@@ -34,9 +34,9 @@ $(function(){
 
 	});
 
-	document.ontouchmove = function(e){
-		e.preventDefault();
-	};
+	// document.ontouchmove = function(e){
+	// 	e.preventDefault();
+	// };
 
 	// $("#projectDetails").swipe({allowPageScroll: "vertical"});
 
