@@ -34,7 +34,7 @@ html, body {
 }
 
 
-/*::-webkit-scrollbar {
+::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
@@ -55,7 +55,7 @@ html, body {
 ::-webkit-scrollbar-track {
     border-radius: 10px;  
     background-color: #ffffff; 
-}*/
+}
 
 #projectDetails {
 	overflow-y: scroll;
