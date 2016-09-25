@@ -33,33 +33,35 @@ $(function(){
 	});
 
 	$(document).on('touchstart', function(e){
-		if($(e.target).parents("#projectDetails")[0]) {
-			touchStartX = e.originalEvent.touches[0].pageX;
-			touchStartY = e.originalEvent.touches[0].pageY;
+		// if($(e.target).parents("#projectDetails")[0]) {
+		// 	touchStartX = e.originalEvent.touches[0].pageX;
+		// 	touchStartY = e.originalEvent.touches[0].pageY;
+		// }
+	});
 
-			// var $this = $(this);
-		 //    var scroller = $("#projectDetails").get(0);
-
-		 //    if ($this.scrollTop() === 0) $this.scrollTop(1);
-		 //    var scrollTop = scroller.scrollTop;
-		 //    var scrollHeight = scroller.scrollHeight;
-		 //    var offsetHeight = scroller.offsetHeight;
-		 //    var contentHeight = scrollHeight - offsetHeight;
-		 //    if (contentHeight == scrollTop) $this.scrollTop(scrollTop-1);
+	$("body").on("touchstart", "#projectDetails", function(e){
+		if (e.currentTarget.scrollTop === 0) {
+			e.currentTarget.scrollTop = 1;
+		} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
+			e.currentTarget.scrollTop -= 1;
 		}
 	});
 
+	$('body').on('touchmove', "#projectDetails", function(e) {
+	  e.stopPropagation();
+	});
+
 	$(document).on('touchmove', function(e) {
-		// e.preventDefault();
-	    if ($(e.target).parents('#projectDetails')[0] ) {
+		e.preventDefault();
+	    // if ($(e.target).parents('#projectDetails')[0] ) {
 	    	
-	    	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
-	    		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
-	    		e.preventDefault();
-	    	}
-	    } else {
-	    	e.preventDefault();
-	    }
+	    // 	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
+	    // 		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
+	    // 		e.preventDefault();
+	    // 	}
+	    // } else {
+	    // 	e.preventDefault();
+	    // }
 	});
 
 	$(".nextPage").on("click", function(e) {
