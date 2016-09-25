@@ -46,6 +46,9 @@ $(function(){
 			e.currentTarget.scrollTop -= 1;
 		}
 
+		touchStartX = e.originalEvent.touches[0].pageX;
+		touchStartY = e.originalEvent.touches[0].pageY;
+
 		// if(e.currentTarget.scrollLeft === 0) {
 		// 	e.currentTarget.scrollLeft = 1;
 		// } else if (e.currentTarget.scrollWidth === e.currentTarget.scrollLeft + e.currentTarget.offsetWidth) {
@@ -54,7 +57,11 @@ $(function(){
 	});
 
 	$('body').on('touchmove', "#projectDetails", function(e) {
-	  e.stopPropagation();
+		e.stopPropagation();
+	  	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
+	    		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
+    		e.preventDefault();
+    	}
 	});
 
 	$(document).on('touchmove', function(e) {
