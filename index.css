@@ -1,6 +1,7 @@
 html, body {
 	height: auto;
 	overflow: hidden;
+	position: fixed;
 }
 
 .content{
@@ -58,5 +59,6 @@ html, body {
 }
 
 #projectDetails {
+	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 }

@@ -12,7 +12,7 @@ $(function(){
 
 	$(".page").css("width", viewport.width);
 	$(".page").css("height", viewport.height);
-	$(".page").css("overflow-y", "auto");
+	// $(".page").css("overflow-y", "auto");
 
 	$(".page").each(function(){
 
@@ -38,7 +38,7 @@ $(function(){
 		e.preventDefault();
 	};
 
-	$("#projectDetails").swipe({allowPageScroll: "vertical"});
+	// $("#projectDetails").swipe({allowPageScroll: "vertical"});
 
 	$(".nextPage").on("click", function(e) {
 
