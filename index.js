@@ -57,15 +57,15 @@ $(function(){
 	//     }
 	// });
 
-	$("#projectDetails").swipe({
-		swipe:function(event, direction) {
-			$("#testLogs2").text(JSON.stringify(event));
-			$("#testLogs").text(direction);
-			if(direction.toLowerCase() !== "up" && direction.toLowerCase() !== "up") {
-				event.preventDefault();
-			}
-		}
-	});
+	// $("#projectDetails").swipe({
+	// 	swipe:function(event, direction) {
+	// 		$("#testLogs2").text(JSON.stringify(event));
+	// 		$("#testLogs").text(direction);
+	// 		if(direction.toLowerCase() !== "up" && direction.toLowerCase() !== "up") {
+	// 			event.preventDefault();
+	// 		}
+	// 	}
+	// });
 
 	$(".nextPage").on("click", function(e) {
 
