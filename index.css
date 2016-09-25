@@ -58,6 +58,6 @@ html, body {
 }
 
 #projectDetails {
-	overflow-y: scroll;
+	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 }

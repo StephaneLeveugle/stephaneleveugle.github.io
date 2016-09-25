@@ -32,12 +32,12 @@ $(function(){
 
 	});
 
-	$(document).on('touchstart', function(e){
-		// if($(e.target).parents("#projectDetails")[0]) {
-		// 	touchStartX = e.originalEvent.touches[0].pageX;
-		// 	touchStartY = e.originalEvent.touches[0].pageY;
-		// }
-	});
+	// $(document).on('touchstart', function(e){
+	// 	// if($(e.target).parents("#projectDetails")[0]) {
+	// 	// 	touchStartX = e.originalEvent.touches[0].pageX;
+	// 	// 	touchStartY = e.originalEvent.touches[0].pageY;
+	// 	// }
+	// });
 
 	$("body").on("touchstart", "#projectDetails", function(e){
 		if (e.currentTarget.scrollTop === 0) {
