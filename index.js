@@ -45,6 +45,12 @@ $(function(){
 		} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
 			e.currentTarget.scrollTop -= 1;
 		}
+
+		if(e.currentTarget.scrollLeft === 0) {
+			e.currentTarget.scrollLeft = 1;
+		} else if (e.currentTarget.scrollWidth === e.currentTarget.scrollLeft + e.currentTarget.offsetWidth) {
+			e.currentTarget.scrollLeft -= 1;
+		}
 	});
 
 	$('body').on('touchmove', "#projectDetails", function(e) {
