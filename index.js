@@ -36,6 +36,16 @@ $(function(){
 		if($(e.target).parents("#projectDetails")[0]) {
 			touchStartX = e.originalEvent.touches[0].pageX;
 			touchStartY = e.originalEvent.touches[0].pageY;
+
+			var $this = $(this);
+		    var scroller = $("#projectDetails").get(0);
+
+		    if ($this.scrollTop() === 0) $this.scrollTop(1);
+		    var scrollTop = scroller.scrollTop;
+		    var scrollHeight = scroller.scrollHeight;
+		    var offsetHeight = scroller.offsetHeight;
+		    var contentHeight = scrollHeight - offsetHeight;
+		    if (contentHeight == scrollTop) $this.scrollTop(scrollTop-1);
 		}
 	});
 
@@ -47,32 +57,6 @@ $(function(){
 	    		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
 	    		e.preventDefault();
 	    	}
-
-	   //  	if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	   //  		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 15);	
-	   //  	} else {
-	   //  		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 15);
-	   //  	}
-
-	   //  	// if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	   //  	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY + lastY));	
-	   //  	// } else {
-	   //  	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + (e.originalEvent.touches[0].pageY - lastY));
-	   //  	// }
-	   // //  	if(Math.abs(e.timeStamp - lastY_timestamp) < 200) {
-    // // 		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
-	   // //  	}
-	   // //  	else if(Math.abs(e.timeStamp - lastY_timestamp) < 1000) {
-				// // if(e.originalEvent.touches[0].pageY - lastY > 0) {
-		  // //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
-		  // //   	} 
-		  // //   	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
-		  // //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
-		  // //   	} 
-	   // //  	}
-	    	
-	   //  	lastY = e.originalEvent.touches[0].pageY;
-	   //  	// lastY_timestamp = e.timeStamp;
 	    } else {
 	    	e.preventDefault();
 	    }
