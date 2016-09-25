@@ -34,7 +34,11 @@ $(function(){
 
 	});
 
-	$(document).on("swipe", function(e){
+	// $(document).on("swipe", function(e){
+	// 	e.preventDefault();
+	// });
+
+	$("html, body").on("touchmove", function(e){
 		e.preventDefault();
 	});
 
