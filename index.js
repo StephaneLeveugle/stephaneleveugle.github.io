@@ -37,15 +37,15 @@ $(function(){
 			touchStartX = e.originalEvent.touches[0].pageX;
 			touchStartY = e.originalEvent.touches[0].pageY;
 
-			var $this = $(this);
-		    var scroller = $("#projectDetails").get(0);
+			// var $this = $(this);
+		 //    var scroller = $("#projectDetails").get(0);
 
-		    if ($this.scrollTop() === 0) $this.scrollTop(1);
-		    var scrollTop = scroller.scrollTop;
-		    var scrollHeight = scroller.scrollHeight;
-		    var offsetHeight = scroller.offsetHeight;
-		    var contentHeight = scrollHeight - offsetHeight;
-		    if (contentHeight == scrollTop) $this.scrollTop(scrollTop-1);
+		 //    if ($this.scrollTop() === 0) $this.scrollTop(1);
+		 //    var scrollTop = scroller.scrollTop;
+		 //    var scrollHeight = scroller.scrollHeight;
+		 //    var offsetHeight = scroller.offsetHeight;
+		 //    var contentHeight = scrollHeight - offsetHeight;
+		 //    if (contentHeight == scrollTop) $this.scrollTop(scrollTop-1);
 		}
 	});
 
