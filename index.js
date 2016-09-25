@@ -4,7 +4,6 @@ $(function(){
 	var touchStartX = 0;
 
 	var lastY = 0;
-	var lastY_timestamp = 10000;
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
@@ -22,16 +21,6 @@ $(function(){
 		}
 
 	});
-
-	// $(".page").each(function(){
-	// 	$(this).css("height", $(this).css("height"));
-	// });
-
-	// $(".page").each(function(){
-	// 	if($(this).height() > viewport.height){
-	// 		$(this).css("overflow-y", "auto");	
-	// 	}
-	// });
 
 	$(".hollow.secondary").on("click", function(e){
 
@@ -51,36 +40,29 @@ $(function(){
 
 
 
-	$(document).on('touchmove', function(e) {
-		e.preventDefault();
-	    if ($(e.target).parents('#projectDetails')[0] ) {
+	// $(document).on('touchmove', function(e) {
+	// 	e.preventDefault();
+	//     if ($(e.target).parents('#projectDetails')[0] ) {
 	    	
-	    	if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 15);	
-	    	} else {
-	    		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 15);
-	    	}
+	//     	if(e.originalEvent.touches[0].pageY - lastY > 0) {
+	//     		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 5);	
+	//     	} else {
+	//     		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 5);
+	//     	}
 
-	    	// if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY + lastY));	
-	    	// } else {
-	    	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + (e.originalEvent.touches[0].pageY - lastY));
-	    	// }
-	   //  	if(Math.abs(e.timeStamp - lastY_timestamp) < 200) {
-    // 		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
-	   //  	}
-	   //  	else if(Math.abs(e.timeStamp - lastY_timestamp) < 1000) {
-				// if(e.originalEvent.touches[0].pageY - lastY > 0) {
-		  //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
-		  //   	} 
-		  //   	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
-		  //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
-		  //   	} 
-	   //  	}
 	    	
-	    	lastY = e.originalEvent.touches[0].pageY;
-	    	// lastY_timestamp = e.timeStamp;
-	    }
+	//     	lastY = e.originalEvent.touches[0].pageY;
+	//     }
+	// });
+
+	$("#projectDetails").swipe({
+		swipe:function(event, direction) {
+			$("#testLogs2").text(JSON.stringify(event));
+			$("#testLogs").text(direction);
+			if(direction.toLowerCase() !== "up" && direction.toLowerCase() !== "up") {
+				event.preventDefault();
+			}
+		}
 	});
 
 	$(".nextPage").on("click", function(e) {
