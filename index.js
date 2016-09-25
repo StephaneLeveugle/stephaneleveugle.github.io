@@ -34,13 +34,13 @@ $(function(){
 
 	});
 
-	// $(document).on("swipe", function(e){
-	// 	e.preventDefault();
-	// });
-
-	$(document.body).on("touchmove", function(e){
+	$(document).on("swipe", function(e){
 		e.preventDefault();
 	});
+
+	// $(document.body).on("touchmove", function(e){
+	// 	e.preventDefault();
+	// });
 
 	// $(document).on('touchmove', function(e) {
 	// 	e.preventDefault();
