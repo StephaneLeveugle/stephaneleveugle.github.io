@@ -38,34 +38,7 @@ $(function(){
 		e.preventDefault();
 	};
 
-	// $(document.body).on("touchmove", function(e){
-	// 	e.preventDefault();
-	// });
-
-	// $(document).on('touchmove', function(e) {
-	// 	e.preventDefault();
-	//     if ($(e.target).parents('#projectDetails')[0] ) {
-	    	
-	//     	if(e.originalEvent.touches[0].pageY - lastY > 0) {
-	//     		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 5);	
-	//     	} else {
-	//     		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 5);
-	//     	}
-
-	    	
-	//     	lastY = e.originalEvent.touches[0].pageY;
-	//     }
-	// });
-
-	// $("#projectDetails").swipe({
-	// 	swipe:function(event, direction) {
-	// 		$("#testLogs2").text(JSON.stringify(event));
-	// 		$("#testLogs").text(direction);
-	// 		if(direction.toLowerCase() !== "up" && direction.toLowerCase() !== "up") {
-	// 			event.preventDefault();
-	// 		}
-	// 	}
-	// });
+	$("#projectDetails").swipe({allowPageScroll: "vertical"});
 
 	$(".nextPage").on("click", function(e) {
 
