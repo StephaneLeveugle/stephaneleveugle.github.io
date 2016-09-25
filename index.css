@@ -56,3 +56,7 @@ html, body {
     border-radius: 10px;  
     background-color: #ffffff; 
 }
+
+#projectDetails {
+	-webkit-overflow-scrolling: touch;
+}
