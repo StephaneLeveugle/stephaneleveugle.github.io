@@ -1,9 +1,7 @@
 $(function(){
 
-	var lastX = -1;
 	var touchStartX = 0;
-
-	var lastY = 0;
+	var touchStartY = 0;
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
@@ -34,11 +32,51 @@ $(function(){
 
 	});
 
-	document.ontouchmove = function(e){
-		e.preventDefault();
-	};
+	$(document).on('touchstart', function(e){
+		if($(e.target).parents("#projectDetails")[0]) {
+			touchStartX = e.originalEvent.touches[0].pageX;
+			touchStartY = e.originalEvent.touches[0].pageY;
+		}
+	});
 
-	// $("#projectDetails").swipe({allowPageScroll: "vertical"});
+	$(document).on('touchmove', function(e) {
+		// e.preventDefault();
+	    if ($(e.target).parents('#projectDetails')[0] ) {
+	    	
+	    	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
+	    		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
+	    		e.preventDefault();
+	    	}
+
+	   //  	if(e.originalEvent.touches[0].pageY - lastY > 0) {
+	   //  		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 15);	
+	   //  	} else {
+	   //  		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 15);
+	   //  	}
+
+	   //  	// if(e.originalEvent.touches[0].pageY - lastY > 0) {
+	   //  	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY + lastY));	
+	   //  	// } else {
+	   //  	// 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + (e.originalEvent.touches[0].pageY - lastY));
+	   //  	// }
+	   // //  	if(Math.abs(e.timeStamp - lastY_timestamp) < 200) {
+    // // 		 	$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - (e.originalEvent.touches[0].pageY - lastY));
+	   // //  	}
+	   // //  	else if(Math.abs(e.timeStamp - lastY_timestamp) < 1000) {
+				// // if(e.originalEvent.touches[0].pageY - lastY > 0) {
+		  // //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() - 25);	
+		  // //   	} 
+		  // //   	else if(e.originalEvent.touches[0].pageY - lastY < 0) {
+		  // //   		$("#projectDetails").scrollTop($("#projectDetails").scrollTop() + 25);
+		  // //   	} 
+	   // //  	}
+	    	
+	   //  	lastY = e.originalEvent.touches[0].pageY;
+	   //  	// lastY_timestamp = e.timeStamp;
+	    } else {
+	    	e.preventDefault();
+	    }
+	});
 
 	$(".nextPage").on("click", function(e) {
 
