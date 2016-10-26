@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "Jaapokki";
+	src: url("../fonts/Jaapokki-font-package-1.0/Regular/web/jaapokki-regular.eot");
+	src: url("../fonts/Jaapokki-font-package-1.0/Regular/web/jaapokki-regular.ttf") format("truetype"),
+		 url("../fonts/Jaapokki-font-package-1.0/Regular/web/jaapokki-regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: "JaapokkiEnchance";
+	src: url("../fonts/Jaapokki-font-package-1.0/enchance/web/jaapokkienchance-regular.eot");
+	src: url("../fonts/Jaapokki-font-package-1.0/enchance/web/jaapokkienchance-regular.ttf") format("truetype"),
+		 url("../fonts/Jaapokki-font-package-1.0/enchance/web/jaapokkienchance-regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: "JaapokkiSubtract";
+	src: url("../fonts/Jaapokki-font-package-1.0/subtract/web/jaapokkisubtract-regular.eot");
+	src: url("../fonts/Jaapokki-font-package-1.0/subtract/web/jaapokkisubtract-regular.ttf") format("truetype"),
+		 url("../fonts/Jaapokki-font-package-1.0/subtract/web/jaapokkisubtract-regular.woff") format("woff");
+}

@@ -1,0 +1,320 @@
+@charset 'utf-8';
+
+@import 'settings/settings';
+@import 'foundation';
+
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
+// @include foundation-breadcrumbs;
+// @include foundation-button-group;
+// @include foundation-callout;
+// @include foundation-close-button;
+@include foundation-menu;
+// @include foundation-menu-icon;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown;
+// @include foundation-dropdown-menu;
+// @include foundation-flex-video;
+// @include foundation-label;
+// @include foundation-media-object;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+//@include foundation-slider;
+
+ 
+
+
+
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+// @include foundation-table;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
+// @include foundation-title-bar;
+// @include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+
+@-webkit-keyframes rightArrow {
+	0% { right: 2% }
+	100% { right: 1% }
+}
+
+@-moz-keyframes rightArrow {
+	0% { right: 2% }
+	100% { right: 1% }
+}
+
+@-o-keyframes rightArrow {
+	0% { right: 2% }
+	100% { right: 1% }
+}
+
+@keyframes rightArrow {
+	0% { right: 2% }
+	100% { right: 1% }
+}
+
+@mixin animate($animationName, $duration, $timing, $delay, $iterationCount) {
+	-webkit-animation: $animationName $duration $timing $delay $iterationCount;
+	-moz-animation: $animationName $duration $timing $delay $iterationCount;
+	-o-animation: $animationName $duration $timing $delay $iterationCount;
+	animation: $animationName $duration $timing $delay $iterationCount;
+}
+
+@mixin animation-delay($delay) {
+	-webkit-animation-delay: $delay;
+	-moz-animation-delay: $delay;
+	-o-animation-delay: $delay;
+	animation-delay: $delay;
+}
+
+html, body {
+	height: auto;
+	overflow: hidden;
+}
+
+.content{
+	height: 100%;
+	min-height: 100%;
+}
+
+.row.expanded > .columns {
+	padding: 0;
+	margin: 0;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;  
+    background-color: #ffffff; 
+}
+
+#projectDetails {
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+
+$flat-color-asbestos : #7f8c8d;
+$flat-color-concrete : #95a5a6;
+$flat-color-silver : #bdc3c7;
+$flat-color-clouds : #ecf0f1;
+$flat-color-midnightBlue : #2c3e50;
+$flat-color-belizeHole : #2980b9;
+$flat-color-wetAsphalt : #34495e;
+$flat-color-peterRiver: #3498db;
+$flat-color-greenSea : #16a085;
+$flat-color-alizarin: #e74c3c;
+$flat-color-turquoise: #1abc9c;
+$flat-color-pomegranate: #c0392b;
+
+$flat-color-ebonyClay: #22313F;
+$flat-color-dark: #171719;
+$flat-color-darkBlue: #1c202b;
+
+$metro-color-darken: #1d1d1d;
+
+
+
+#home {
+
+	font-family: "Jaapokki";
+
+	// background-image: linear-gradient(to bottom, $flat-color-midnightBlue, $flat-color-wetAsphalt);
+	background-color: $flat-color-darkBlue;
+	color: $flat-color-clouds;
+
+	h1 {
+		font-family: "Jaapokki";
+		font-size: 4rem;
+		margin-top: 3rem;
+	}
+
+	.basicInfoContainer {
+		margin-top: 5rem;
+		margin-bottom: 5rem;
+		padding: 3rem 0;
+		background-color: $flat-color-clouds;
+		color: $flat-color-darkBlue;
+	}
+
+	.button {
+		display: inline-block;
+		// text-align: center;
+		font-size: 1.5rem;
+		padding: 1rem;
+		margin-top: 2rem;
+	}
+
+
+	p {
+		font-size: 2rem;
+	}
+}
+
+.fa {
+	// padding: 0 0.7rem;
+	border-radius: 100%;
+	background-color: $flat-color-darkBlue;
+	color: $flat-color-clouds;
+}
+
+.top-bar {
+
+	@include top-bar-container;
+
+	margin: 0 1rem;
+	padding-top: 1rem;
+	padding-bottom: 0;
+	
+	a {
+		color: $flat-color-clouds;
+	}
+
+	.top-bar-title {
+		font-family: "JaapokkiSubtract";
+		font-size: 1.5rem;
+	}
+
+	.top-bar-menu {
+		list-style-type: none;
+		font-size: 1.3rem;
+
+		li a {
+			&:hover, &:focus {
+				.customBorder {
+					background-color: $flat-color-clouds !important;
+				}
+			}
+		}
+	}
+
+	.myName {
+		&:hover, &:focus {
+			.customBorder {
+				background-color: $flat-color-clouds !important;
+			}
+		}
+	}
+
+	.customBorder {
+		// margin-top: 0.3rem;
+		margin: 0.3rem auto 0 auto;
+		width: 40%;
+		height: 1px;
+		background-color: $flat-color-darkBlue;
+	}
+}
+
+.hollowDarkBlueBtn {
+	
+	@include button-style($flat-color-clouds, $flat-color-darkBlue, $flat-color-darkBlue);
+
+	border-color: $flat-color-darkBlue;
+
+	&:hover, &:focus {
+		color: $flat-color-clouds;
+	}
+}
+
+.darkBlueBtn {
+	@include button-style($flat-color-darkBlue, $flat-color-clouds, $flat-color-clouds);
+
+	border-color: $flat-color-darkBlue;
+
+	&:hover, &:focus {
+		color: $flat-color-darkBlue;
+	}
+}
+
+.fa-angle-right {
+	font-size: 2.5rem;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	padding-left: 14px;
+	right: 1%;
+	top: 50%;
+	color: $flat-color-clouds;
+	overflow: hidden;
+	cursor: pointer;
+
+	-webkit-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+
+	&:hover {
+		background-color: $flat-color-clouds;
+		color: $flat-color-darkBlue;
+	}
+	
+	//@include animate(rightArrow, 1s, linear, 1s, 3);
+}
+
+
+
+// .colorShift {
+	
+// 	position: relative;
+// 	display: inline-block;
+// 	overflow: hidden;
+// 	white-space: pre;
+
+// 	&:hover {
+// 		&:before {
+// 			width: 100%;
+// 		}
+// 	}
+
+// 	&:before {
+// 		display:block;
+// 		z-index:1;
+// 		position:absolute;
+// 		top:0;
+// 		left:0;
+// 		width: 0%;
+// 		content: attr(data-content); /* dynamic content for the pseudo element */
+// 		overflow:hidden;
+// 		color: $flat-color-peterRiver;
+// 		-webkit-transition: all 0.3s ease-in;
+// 		transition: all 0.3s ease-in;
+// 	}
+// }
+
+
+
+
+
+
