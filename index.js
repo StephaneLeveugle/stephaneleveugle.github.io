@@ -182,6 +182,9 @@ function resizePages() {
 
 	if($(".activePage").length > 0) {
 		var $activePageOffset = $(".activePage").offset();
+		$activePageOffset.pageWidth = $(".page").width();
+		$activePageOffset.pageHeight = $(".page").height();
+		alert(JSON.stringify($activePageOffset));
 		window.scrollTo($activePageOffset.left, $activePageOffset.top);
 	}
 }
