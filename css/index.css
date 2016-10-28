@@ -2823,40 +2823,100 @@ html, body {
   border-radius: 10px;
   background-color: #ffffff; }
 
-#projectDetails {
-  overflow: scroll;
+.page {
+  position: relative;
+  background-color: #1c202b;
+  color: #ecf0f1; }
+  .page .seeMore,
+  .page .seeLess {
+    padding-right: 12px;
+    display: block;
+    width: 100%; }
+  .page .seeMore {
+    position: absolute;
+    bottom: 5px; }
+
+.pageContent {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch; }
 
-#home {
-  font-family: "Jaapokki";
-  background-color: #1c202b;
-  color: #ecf0f1; }
-  #home h1 {
-    font-family: "Jaapokki";
-    font-size: 4rem;
-    margin-top: 3rem; }
-  #home .basicInfoContainer {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    padding: 3rem 0;
-    background-color: #ecf0f1;
-    color: #1c202b; }
-  #home .button {
-    display: inline-block;
-    font-size: 1.5rem;
-    padding: 1rem;
-    margin-top: 2rem; }
-  #home p {
-    font-size: 2rem; }
+.scrollable .seeMore,
+.scrollable .seeLess {
+  padding-right: 0px; }
 
-.fa {
-  border-radius: 100%;
-  background-color: #1c202b;
-  color: #ecf0f1; }
+.scrollable .seeMore {
+  position: static;
+  display: block;
+  width: 100%; }
+
+.scrollable .fa-angle-right {
+  right: 12px; }
+
+body {
+  font-family: "Jaapokki", "Sans Serif"; }
+
+h1,
+h2,
+p {
+  padding-left: 5%;
+  padding-right: 5%; }
+
+#home h1 {
+  margin-bottom: 0;
+  padding-top: 2rem;
+  padding-bottom: 5rem; }
+
+#home #homeHeader {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../images/backlit_keyboard_good.jpg"); }
+
+#home .basicInfoContainer {
+  margin-bottom: 2rem;
+  padding: 3rem 3rem;
+  background-color: #ecf0f1;
+  color: #1c202b; }
+
+#home .button {
+  margin-top: 2rem; }
+
+#home .homeFooter {
+  padding: 1rem 0; }
+
+@media (min-width: 1024px) {
+  #home .homeFooter {
+    padding-top: 3rem; } }
+
+#portfolio {
+  background-color: #ecf0f1;
+  color: #1c202b; }
+  #portfolio .top-bar a {
+    color: #1c202b; }
+  #portfolio .top-bar .top-bar-menu li a:hover .customBorder, #portfolio .top-bar .top-bar-menu li a:focus .customBorder {
+    background-color: #1c202b; }
+
+h1 {
+  font-family: "Jaapokki", "Sans Serif";
+  font-size: 2rem; }
+
+h2 {
+  font-size: 1.5rem; }
+
+.button {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 1rem; }
+
+p {
+  font-size: 1rem; }
 
 .top-bar {
   padding: 1rem;
-  margin: 0 1rem;
+  width: 100%;
+  margin: 0;
   padding-top: 1rem;
   padding-bottom: 0; }
   .top-bar::before, .top-bar::after {
@@ -2878,20 +2938,57 @@ html, body {
   .top-bar a {
     color: #ecf0f1; }
   .top-bar .top-bar-title {
-    font-family: "JaapokkiSubtract";
-    font-size: 1.5rem; }
+    font-family: "JaapokkiSubtract", "Sans Serif";
+    font-size: 1.1rem; }
+  .top-bar .top-bar-right {
+    font-size: 1rem; }
   .top-bar .top-bar-menu {
-    list-style-type: none;
-    font-size: 1.3rem; }
-    .top-bar .top-bar-menu li a:hover .customBorder, .top-bar .top-bar-menu li a:focus .customBorder {
-      background-color: #ecf0f1 !important; }
-  .top-bar .myName:hover .customBorder, .top-bar .myName:focus .customBorder {
-    background-color: #ecf0f1 !important; }
+    margin-left: 0;
+    margin-bottom: 0;
+    list-style-type: none; }
+    .top-bar .top-bar-menu li {
+      display: table-cell; }
+    .top-bar .top-bar-menu li a {
+      display: block;
+      padding: 0.2rem 0.6rem;
+      line-height: 1; }
+      .top-bar .top-bar-menu li a:hover .customBorder, .top-bar .top-bar-menu li a:focus .customBorder {
+        background-color: #ecf0f1; }
   .top-bar .customBorder {
     margin: 0.3rem auto 0 auto;
     width: 40%;
     height: 1px;
-    background-color: #1c202b; }
+    background-color: transparent; }
+  @media (max-width: 349px) {
+    .top-bar {
+      padding-left: 0;
+      padding-right: 0; }
+    .top-bar .top-bar-menu li a {
+      padding: 0 0.5rem; } }
+  @media (max-width: 639px) {
+    .top-bar .top-bar-title,
+    .top-bar .top-bar-menu {
+      width: 100%; }
+    .top-bar .top-bar-menu {
+      margin: 0 auto;
+      text-align: center; }
+      .top-bar .top-bar-menu li {
+        display: inline-block; } }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .top-bar .top-bar-title {
+      font-size: 1.3rem; }
+    .top-bar .top-bar-right {
+      font-size: 1.15rem; }
+    .top-bar .top-bar-menu li a {
+      padding: 0.6rem 0.8rem; } }
+  @media (min-width: 1024px) {
+    .top-bar .top-bar-title {
+      font-size: 1.5rem;
+      margin: 0 1rem; }
+    .top-bar .top-bar-right {
+      font-size: 1.3rem; }
+    .top-bar .top-bar-menu li a {
+      padding: 0.7rem 1rem; } }
 
 .hollowDarkBlueBtn {
   background-color: #ecf0f1;
@@ -2913,18 +3010,32 @@ html, body {
   .darkBlueBtn:hover, .darkBlueBtn:focus {
     color: #1c202b; }
 
-.fa-angle-right {
-  font-size: 2.5rem;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  padding-left: 14px;
-  right: 1%;
-  top: 50%;
-  color: #ecf0f1;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.2s linear; }
-  .fa-angle-right:hover {
-    background-color: #ecf0f1;
-    color: #1c202b; }
+@media (min-width: 640px) and (max-width: 1023px) {
+  h1,
+  h2,
+  p {
+    padding-left: 5%;
+    padding-right: 5%; }
+  h1 {
+    font-size: 3rem; }
+  h2 {
+    font-size: 2rem; }
+  .button {
+    font-size: 1.25rem; }
+  p {
+    font-size: 1.5rem; } }
+
+@media (min-width: 1024px) {
+  h1,
+  h2,
+  p {
+    padding-left: 4%;
+    padding-right: 4%; }
+  h1 {
+    font-size: 4rem; }
+  h2 {
+    font-size: 2.5rem; }
+  .button {
+    font-size: 1.5rem; }
+  p {
+    font-size: 1.75rem; } }

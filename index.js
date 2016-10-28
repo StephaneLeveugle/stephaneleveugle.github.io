@@ -1,3 +1,4 @@
+"use strict";
 $(function(){
 
 	var touchStartX = 0;
@@ -6,19 +7,12 @@ $(function(){
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
 
-	$("html, body").css("min-width", viewport.width * 3);
 
-	$(".page").css("width", viewport.width);
-	$(".page").css("height", viewport.height);
-	// $(".page").css("overflow-y", "auto");
-
-	$(".page").each(function(){
-
-		if($(this).height() > viewport.height) {
-			$(this).addClass("scrollable");
-		}
-
+	$(window).on("resize", function(e){
+		resizePages();
 	});
+
+	resizePages();
 
 	$(".hollow.secondary").on("click", function(e){
 
@@ -32,14 +26,7 @@ $(function(){
 
 	});
 
-	// $(document).on('touchstart', function(e){
-	// 	// if($(e.target).parents("#projectDetails")[0]) {
-	// 	// 	touchStartX = e.originalEvent.touches[0].pageX;
-	// 	// 	touchStartY = e.originalEvent.touches[0].pageY;
-	// 	// }
-	// });
-
-	$("body").on("touchstart", "#projectDetails", function(e){
+	$("body").on("touchstart", ".scrollable", function(e){
 		if (e.currentTarget.scrollTop === 0) {
 			e.currentTarget.scrollTop = 1;
 		} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
@@ -48,15 +35,9 @@ $(function(){
 
 		touchStartX = e.originalEvent.touches[0].pageX;
 		touchStartY = e.originalEvent.touches[0].pageY;
-
-		// if(e.currentTarget.scrollLeft === 0) {
-		// 	e.currentTarget.scrollLeft = 1;
-		// } else if (e.currentTarget.scrollWidth === e.currentTarget.scrollLeft + e.currentTarget.offsetWidth) {
-		// 	e.currentTarget.scrollLeft -= 1;
-		// }
 	});
 
-	$('body').on('touchmove', "#projectDetails", function(e) {
+	$('body').on('touchmove', ".scrollable", function(e) {
 		e.stopPropagation();
 	  	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
 	    		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
@@ -66,58 +47,158 @@ $(function(){
 
 	$(document).on('touchmove', function(e) {
 		e.preventDefault();
-	    // if ($(e.target).parents('#projectDetails')[0] ) {
-	    	
-	    // 	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
-	    // 		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
-	    // 		e.preventDefault();
-	    // 	}
-	    // } else {
-	    // 	e.preventDefault();
-	    // }
 	});
 
 	$(".nextPage").on("click", function(e) {
 
 		e.preventDefault();
 
-		$("html, body").animate({
-			scrollLeft: $($(this).attr("href")).offset().left
-		}, 1000);
-		
+		goToNextPageHorizontal($(this));
 	});
 
 	$(".previousPage").on("click", function(e){
 
 		e.preventDefault();
 
-		$("html, body").animate({
-			scrollLeft: $($(this).attr("href")).offset().left 
-		}, 1000);
-
+		goToPreviousPageHorizontal($(this));
 	});
 
 	$(".seeMore").on("click", function(e){
 
 		e.preventDefault();
 
-		$("html, body").animate({
-			scrollTop: $($(this).attr("href")).offset().top
-		}, 1000);
-
+		goToNextPageVertical($(this));
 	});
 
 	$(".seeLess").on("click", function(e){
 
 		e.preventDefault();
 
-		$("html, body").animate({
-			scrollTop: $($(this).attr("href")).offset().top
-		}, 1000);
+		goToPreviousPageVertical($(this));
+	});
 
+	$(".top-bar a, .anchor").on("click", function(e){
+
+		e.preventDefault();
+
+		var $linkTarget = $($(this).attr("href"));
+
+		if($linkTarget && $linkTarget.offset()) {
+
+			$(".activePage").addClass("animated fadeOut").one(animationEndVendors, function() {
+
+				$(this).removeClass("animated fadeOut");
+
+				$(window).scrollLeft($linkTarget.offset().left);
+				$(window).scrollTop($linkTarget.offset().top);
+
+				$(".activePage").addClass("animated fadeIn").one(animationEndVendors, function() {
+					$(this).removeClass("animated fadeIn");
+				});
+			});
+
+			setNewActivePage($(this));
+		}
+	});
+
+	// listen to keydown event 
+	// to allow arrow navigation
+	$("body").on("keydown", function(e){
+		switch(e.keyCode) {
+			case 37:
+				console.log("left");
+				if($(".activePage .previousPage").length > 0) {
+					goToPreviousPageHorizontal($(".activePage .previousPage"));
+				}
+				break;
+			case 38:
+				console.log("up");
+				// make sure the user hasn't scrolled down
+				if($(".activePage > .pageContent").scrollTop() === 0) {
+					if($(".activePage .seeLess").length > 0) {
+						goToPreviousPageVertical($(".activePage .seeLess"));
+					}
+				}
+				break;
+			case 39:
+				console.log("right");
+				if($(".activePage .nextPage").length > 0) {
+					goToNextPageHorizontal($(".activePage .nextPage"));
+				}
+				break;
+			case 40:
+				console.log("down");
+				// make sure the user has scrolled down to the bottom
+				if($(".activePage > .pageContent").prop("scrollHeight") 
+					=== $(".activePage > .pageContent").height() + $(".activePage > .pageContent").scrollTop()) {
+
+					if($(".activePage .seeMore").length > 0) {
+						goToNextPageVertical($(".activePage .seeMore"));
+					}
+				}
+				break;
+			default:
+				return;
+		}
 	});
 
 });
+
+$(window).on("load", function(){
+
+	setInitialActivePage();
+
+});
+
+function resizePages() {
+
+	var viewport = getViewport();
+
+	$("html, body").css("min-width", viewport.width * 4);
+	
+	$(".page").each(function(){
+
+		$(this).css("width", viewport.width);
+		$(this).css("height", viewport.height);
+
+		$(this).find(".pageContent").css("width", viewport.width);
+		$(this).find(".pageContent").css("height", viewport.height);
+
+		if($(this).hasClass("activePage")){
+			var $activePageOffset = $(this).offset();
+			$(window).scrollLeft($activePageOffset.left);
+			$(window).scrollTop($activePageOffset.top);
+		}
+
+		if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
+			$(this).addClass("scrollable");
+		} else {
+			if($(this).hasClass("scrollable")) {
+				$(this).removeClass("scrollable");
+			}
+		}
+	});
+}
+
+function setInitialActivePage() {
+
+	var windowScrollLeft = $(window).scrollLeft(),
+		windowScrollTop = $(window).scrollTop();
+
+	$(".page").each(function(){
+
+		if(Math.abs($(this).offset().left - windowScrollLeft) < 1 
+			&& Math.abs($(this).offset().top - windowScrollTop) < 1) {
+			$(this).addClass("activePage");
+		}
+
+	});
+}
+
+function setNewActivePage($link) {
+	$(".activePage").removeClass("activePage");
+	$($link.attr("href")).addClass("activePage");
+}
 
 function getViewport() {
     var container = window, property = "inner";
@@ -126,4 +207,84 @@ function getViewport() {
        container = document.documentElement || document.body;
     }
     return { width : container[property + "Width"], height : container[property + "Height"]};
+}
+
+function goToNextPageHorizontal($link) {
+
+	if(!$(".content").hasClass("isPageScrolling")) {
+
+		setNewActivePage($link);
+
+		$(".content").addClass("isPageScrolling");
+
+		$("html, body").animate({
+			scrollLeft: $(window).scrollLeft() + $(".page").width()
+		}, 
+		{
+			duration: 800,
+			complete: function() {
+				$(".content").removeClass("isPageScrolling");
+			}
+		});
+	}
+}
+
+function goToPreviousPageHorizontal($link) {
+
+	if(!$(".content").hasClass("isPageScrolling")) {
+
+		setNewActivePage($link);
+
+		$(".content").addClass("isPageScrolling");
+
+		$("html, body").animate({
+			scrollLeft: $(window).scrollLeft() - $(".page").width()
+		}, 
+		{
+			duration: 800,
+			complete: function() {
+				$(".content").removeClass("isPageScrolling");
+			}
+		});
+	}
+}
+
+function goToNextPageVertical($link) {
+
+	if(!$(".content").hasClass("isPageScrolling")) {
+
+		setNewActivePage($link);
+
+		$(".content").addClass("isPageScrolling");
+
+		$("html, body").animate({
+			scrollTop: $(window).scrollTop() + $(".page").height()
+		}, 
+		{
+			duration: 800,
+			complete: function() {
+				$(".content").removeClass("isPageScrolling");
+			}
+		});
+	}
+}
+
+function goToPreviousPageVertical($link) {
+
+	if(!$(".content").hasClass("isPageScrolling")) {
+
+		setNewActivePage($link);
+
+		$(".content").addClass("isPageScrolling");
+
+		$("html, body").animate({
+			scrollTop: $(window).scrollTop() - $(".page").height()
+		}, 
+		{
+			duration: 800,
+			complete: function() {
+				$(".content").removeClass("isPageScrolling");
+			}
+		});
+	}
 }

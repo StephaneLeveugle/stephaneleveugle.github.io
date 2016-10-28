@@ -1,0 +1,123 @@
+$flat-color-asbestos : #7f8c8d;
+$flat-color-concrete : #95a5a6;
+$flat-color-silver : #bdc3c7;
+$flat-color-clouds : #ecf0f1;
+$flat-color-midnightBlue : #2c3e50;
+$flat-color-belizeHole : #2980b9;
+$flat-color-wetAsphalt : #34495e;
+$flat-color-peterRiver: #3498db;
+$flat-color-greenSea : #16a085;
+$flat-color-alizarin: #e74c3c;
+$flat-color-turquoise: #1abc9c;
+$flat-color-pomegranate: #c0392b;
+
+$flat-color-ebonyClay: #22313F;
+$flat-color-dark: #171719;
+$flat-color-darkBlue: #1c202b;
+
+$metro-color-darken: #1d1d1d;
+
+$small-breakpoint: 350px;
+$medium-breakpoint: 640px;
+$large-breakpoint: 1024px;
+
+.fa-angle-right,
+.fa-angle-left {
+	position: absolute;
+	top: 50%;
+
+	// -ms-transform: translateY(-50%); /*IE 9*/
+	// -webkit-transform: translateY(-50%); /*Safari*/
+	// transform: translateY(-50%);
+}
+
+.fa-angle-right {
+
+	right: 5px;
+	padding-left: 9px;
+	
+	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		padding-left: 12px;
+	}
+
+	@media (min-width: $large-breakpoint) {
+		padding-left: 14px;
+	}
+}
+
+.fa-angle-left {
+
+	left: 5px;
+	padding-left: 0px;
+
+	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		padding-left: 8px;
+	}
+
+	@media (min-width: $large-breakpoint) {
+		padding-left: 10px;
+	}
+}
+
+.fa-angle-down,
+.fa-angle-up {
+
+	display: block;
+	margin: 0 auto;
+
+	padding-left: 5px;
+
+	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		padding-left: 6px;
+	}
+	@media (min-width: $large-breakpoint) {
+		padding-left: 7px;
+	}
+}
+
+.fa-angle-up,
+.fa-angle-right,
+.fa-angle-down,
+.fa-angle-left {
+
+	border-radius: 100%;
+	background-color: $flat-color-darkBlue;
+	color: $flat-color-clouds;
+
+	font-size: 1.5rem;
+	width: 25px;
+	height: 25px;
+
+	overflow: hidden;
+	cursor: pointer;
+
+	-webkit-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+
+	&:hover {
+		background-color: $flat-color-clouds;
+		color: $flat-color-darkBlue;
+	}
+}
+
+@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		font-size: 2rem;
+		width: 32px;
+		height: 32px;
+	}
+}
+
+@media (min-width: $large-breakpoint) {
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		font-size: 2.5rem;
+		width: 40px;
+		height: 40px;
+	}
+}

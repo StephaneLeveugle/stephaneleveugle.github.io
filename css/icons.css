@@ -1,0 +1,76 @@
+.fa-angle-right,
+.fa-angle-left {
+  position: absolute;
+  top: 50%; }
+
+.fa-angle-right {
+  right: 5px;
+  padding-left: 9px; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .fa-angle-right {
+      padding-left: 12px; } }
+  @media (min-width: 1024px) {
+    .fa-angle-right {
+      padding-left: 14px; } }
+
+.fa-angle-left {
+  left: 5px;
+  padding-left: 0px; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .fa-angle-left {
+      padding-left: 8px; } }
+  @media (min-width: 1024px) {
+    .fa-angle-left {
+      padding-left: 10px; } }
+
+.fa-angle-down,
+.fa-angle-up {
+  display: block;
+  margin: 0 auto;
+  padding-left: 5px; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .fa-angle-down,
+    .fa-angle-up {
+      padding-left: 6px; } }
+  @media (min-width: 1024px) {
+    .fa-angle-down,
+    .fa-angle-up {
+      padding-left: 7px; } }
+
+.fa-angle-up,
+.fa-angle-right,
+.fa-angle-down,
+.fa-angle-left {
+  border-radius: 100%;
+  background-color: #1c202b;
+  color: #ecf0f1;
+  font-size: 1.5rem;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s linear; }
+  .fa-angle-up:hover,
+  .fa-angle-right:hover,
+  .fa-angle-down:hover,
+  .fa-angle-left:hover {
+    background-color: #ecf0f1;
+    color: #1c202b; }
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .fa-angle-up,
+  .fa-angle-right,
+  .fa-angle-down,
+  .fa-angle-left {
+    font-size: 2rem;
+    width: 32px;
+    height: 32px; } }
+
+@media (min-width: 1024px) {
+  .fa-angle-up,
+  .fa-angle-right,
+  .fa-angle-down,
+  .fa-angle-left {
+    font-size: 2.5rem;
+    width: 40px;
+    height: 40px; } }
