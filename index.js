@@ -154,7 +154,7 @@ function resizePages() {
 
 	var viewport = getViewport();
 
-	alert(JSON.stringify(viewport));
+	// alert(JSON.stringify(viewport));
 
 	$("html, body").css("min-width", viewport.width * 4);
 	
@@ -168,8 +168,9 @@ function resizePages() {
 
 		if($(this).hasClass("activePage")){
 			var $activePageOffset = $(this).offset();
-			$("html, body").scrollLeft($activePageOffset.left);
-			$("html, body").scrollTop($activePageOffset.top);
+			// $("html, body").scrollLeft($activePageOffset.left);
+			// $("html, body").scrollTop($activePageOffset.top);
+			window.scrollTo($activePageOffset.left, $activePageOffset.top);
 		}
 
 		if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
