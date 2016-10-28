@@ -152,6 +152,8 @@ $(window).on("load", function(){
 
 function resizePages() {
 
+	alert("resize");
+
 	var viewport = getViewport();
 
 	$("html, body").css("min-width", viewport.width * 4);
