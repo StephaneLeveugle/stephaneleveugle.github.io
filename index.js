@@ -181,11 +181,25 @@ function resizePages() {
 	});
 
 	if($(".activePage").length > 0) {
-		var $activePageOffset = $(".activePage").offset();
-		$activePageOffset.pageWidth = $(".page").width();
-		$activePageOffset.pageHeight = $(".page").height();
-		alert(JSON.stringify($activePageOffset));
-		window.scrollTo($activePageOffset.left, $activePageOffset.top);
+
+		if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+
+			setTimeout(function(){
+				var $activePageOffset = $(".activePage").offset();
+				$activePageOffset.pageWidth = $(".page").width();
+				$activePageOffset.pageHeight = $(".page").height();
+				
+				window.scrollTo($activePageOffset.left, $activePageOffset.top);
+				alert(JSON.stringify($activePageOffset));
+			}, 500);
+
+		} else {
+			var $activePageOffset = $(".activePage").offset();
+			$activePageOffset.pageWidth = $(".page").width();
+			$activePageOffset.pageHeight = $(".page").height();
+			window.scrollTo($activePageOffset.left, $activePageOffset.top);
+		}
+		
 	}
 }
 
