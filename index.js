@@ -152,9 +152,9 @@ $(window).on("load", function(){
 
 function resizePages() {
 
-	$(".homeFooter").text($(".homeFooter").text() + "la");
-
 	var viewport = getViewport();
+
+	alert(JSON.stringify(viewport));
 
 	$("html, body").css("min-width", viewport.width * 4);
 	
