@@ -152,7 +152,7 @@ $(window).on("load", function(){
 
 function resizePages() {
 
-	alert("resize");
+	$(".homeFooter").text($(".homeFooter").text() + "la");
 
 	var viewport = getViewport();
 
