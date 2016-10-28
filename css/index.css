@@ -2863,32 +2863,29 @@ p {
   padding-left: 5%;
   padding-right: 5%; }
 
-#home h1 {
-  margin-bottom: 0;
-  padding-top: 2rem;
-  padding-bottom: 5rem; }
-
-#home #homeHeader {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../images/backlit_keyboard_good.jpg"); }
-
-#home .basicInfoContainer {
-  margin-bottom: 2rem;
-  padding: 3rem 3rem;
-  background-color: #ecf0f1;
-  color: #1c202b; }
-
-#home .button {
-  margin-top: 2rem; }
-
-#home .homeFooter {
-  padding: 1rem 0; }
-
-@media (min-width: 1024px) {
+#home {
+  background-color: pink; }
+  #home h1 {
+    margin-bottom: 0;
+    padding-top: 2rem;
+    padding-bottom: 5rem; }
+  #home #homeHeader {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../images/backlit_keyboard_good.jpg"); }
+  #home .basicInfoContainer {
+    margin-bottom: 2rem;
+    padding: 3rem 3rem;
+    background-color: #ecf0f1;
+    color: #1c202b; }
+  #home .button {
+    margin-top: 2rem; }
   #home .homeFooter {
-    padding-top: 3rem; } }
+    padding: 1rem 0; }
+  @media (min-width: 1024px) {
+    #home .homeFooter {
+      padding-top: 3rem; } }
 
 #portfolio {
   background-color: #ecf0f1;
