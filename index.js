@@ -166,8 +166,8 @@ function resizePages() {
 
 		if($(this).hasClass("activePage")){
 			var $activePageOffset = $(this).offset();
-			$(window).scrollLeft($activePageOffset.left);
-			$(window).scrollTop($activePageOffset.top);
+			$("html, body").scrollLeft($activePageOffset.left);
+			$("html, body").scrollTop($activePageOffset.top);
 		}
 
 		if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
