@@ -166,17 +166,10 @@ function resizePages() {
 		$(this).find(".pageContent").css("width", viewport.width);
 		$(this).find(".pageContent").css("height", viewport.height);
 
-		if($(this).hasClass("activePage")){
-			var $activePageOffset = $(this).offset();
-			// $("html, body").scrollLeft($activePageOffset.left);
-			// $("html, body").scrollTop($activePageOffset.top);
-			
-
-			// alert(JSON.stringify($activePageOffset));
-
-
-			window.scrollTo($activePageOffset.left, $activePageOffset.top);
-		}
+		// if($(this).hasClass("activePage")){
+		// 	var $activePageOffset = $(this).offset();
+		// 	window.scrollTo($activePageOffset.left, $activePageOffset.top);
+		// }
 
 		if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
 			$(this).addClass("scrollable");
@@ -186,6 +179,11 @@ function resizePages() {
 			}
 		}
 	});
+
+	if($(".activePage").length > 0) {
+		var $activePageOffset = $(".activePage").offset();
+		window.scrollTo($activePageOffset.left, $activePageOffset.top);
+	}
 }
 
 function setInitialActivePage() {
