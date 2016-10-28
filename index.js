@@ -184,14 +184,16 @@ function resizePages() {
 
 		if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
 
+			$("body").css("opacity", 0);
+
 			setTimeout(function(){
 				var $activePageOffset = $(".activePage").offset();
 				$activePageOffset.pageWidth = $(".page").width();
 				$activePageOffset.pageHeight = $(".page").height();
 				
 				window.scrollTo($activePageOffset.left, $activePageOffset.top);
-				alert(JSON.stringify($activePageOffset));
-			}, 500);
+				$("body").css("opacity", 1);
+			}, 200);
 
 		} else {
 			var $activePageOffset = $(".activePage").offset();
