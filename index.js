@@ -157,7 +157,7 @@ function resizePages() {
 	// alert(JSON.stringify(viewport));
 
 	$("html, body").css("min-width", viewport.width * 4);
-	
+
 	$(".page").each(function(){
 
 		$(this).css("width", viewport.width);
