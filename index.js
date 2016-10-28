@@ -193,7 +193,7 @@ function resizePages() {
 				
 				window.scrollTo($activePageOffset.left, $activePageOffset.top);
 				$("body").css("opacity", 1);
-			}, 200);
+			}, 500);
 
 		} else {
 			var $activePageOffset = $(".activePage").offset();
