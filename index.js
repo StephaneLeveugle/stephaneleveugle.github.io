@@ -170,7 +170,11 @@ function resizePages() {
 			var $activePageOffset = $(this).offset();
 			// $("html, body").scrollLeft($activePageOffset.left);
 			// $("html, body").scrollTop($activePageOffset.top);
-			alert(JSON.stringify($activePageOffset));
+			
+
+			// alert(JSON.stringify($activePageOffset));
+
+
 			window.scrollTo($activePageOffset.left, $activePageOffset.top);
 		}
 
