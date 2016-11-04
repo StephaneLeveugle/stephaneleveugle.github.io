@@ -1,11 +1,12 @@
 {
-  "name": "Stephane Leveugle Portfolio",
+  "name": "Stephane_Leveugle_Portfolio",
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
+    "chartist": "^0.10.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1"
   },

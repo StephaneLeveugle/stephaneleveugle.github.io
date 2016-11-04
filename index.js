@@ -6,13 +6,17 @@ $(function(){
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
-
+	var currViewport;
 
 	$(window).on("resize", function(e){
-		resizePages();
+		currViewport = getViewport();
+		if(currViewport.width < 1440) {
+			$(".humanSkills").css("padding-top", 0);
+		}
+		resizePages(currViewport);
 	});
 
-	resizePages();
+	resizePages(viewport);
 
 	$(".hollow.secondary").on("click", function(e){
 
@@ -106,40 +110,62 @@ $(function(){
 	$("body").on("keydown", function(e){
 		switch(e.keyCode) {
 			case 37:
-				console.log("left");
 				if($(".activePage .previousPage").length > 0) {
-					goToPreviousPageHorizontal($(".activePage .previousPage"));
+					goToPreviousPageHorizontal($(".activePage .previousPage")[0]);
 				}
 				break;
 			case 38:
-				console.log("up");
 				// make sure the user hasn't scrolled down
 				if($(".activePage > .pageContent").scrollTop() === 0) {
 					if($(".activePage .seeLess").length > 0) {
-						goToPreviousPageVertical($(".activePage .seeLess"));
+						goToPreviousPageVertical($(".activePage .seeLess")[0]);
 					}
 				}
 				break;
 			case 39:
-				console.log("right");
 				if($(".activePage .nextPage").length > 0) {
-					goToNextPageHorizontal($(".activePage .nextPage"));
+					goToNextPageHorizontal($(".activePage .nextPage")[0]);
 				}
 				break;
 			case 40:
-				console.log("down");
 				// make sure the user has scrolled down to the bottom
 				if($(".activePage > .pageContent").prop("scrollHeight") 
-					=== $(".activePage > .pageContent").height() + $(".activePage > .pageContent").scrollTop()) {
+					=== $(".activePage").height() + $(".activePage > .pageContent").scrollTop()) {
 
 					if($(".activePage .seeMore").length > 0) {
-						goToNextPageVertical($(".activePage .seeMore"));
+						goToNextPageVertical($(".activePage .seeMore")[0]);
 					}
 				}
 				break;
 			default:
 				return;
 		}
+	});
+
+	var topBarHeight = 86;
+
+	$("#aboutMeSkills .pageContent").scroll(function(e) {
+
+		if(getViewport().width >= 1024) {
+			var $el = $(".humanSkills");
+			var padding = 0;
+
+			// check we're low enough to need the scroll
+			if($el.offset().top - $(".page").height() - topBarHeight < 0) {
+				// check there is still space below
+				padding = Math.min(
+						$el.prop("scrollHeight") - $(".humanSkillsInner").height() - 20,
+						Math.abs($el.offset().top - $(".page").height() - topBarHeight)
+					);
+
+				$el.css("padding-top", padding);
+
+			} else {
+				$el.css("padding-top", 0);
+			}	
+		} 
+
+
 	});
 
 });
@@ -150,59 +176,63 @@ $(window).on("load", function(){
 
 });
 
-function resizePages() {
+function resizePages(viewport) {
 
-	var viewport = getViewport();
+	// var viewport = getViewport();
 
-	// alert(JSON.stringify(viewport));
+	if(viewport) {
 
-	$("html, body").css("min-width", viewport.width * 4);
+		$("html, body").css("min-width", viewport.width * 4);
 
-	$(".page").each(function(){
+		$(".page").each(function(){
 
-		$(this).css("width", viewport.width);
-		$(this).css("height", viewport.height);
+			$(this).css("width", viewport.width);
+			$(this).css("height", viewport.height);
 
-		$(this).find(".pageContent").css("width", viewport.width);
-		$(this).find(".pageContent").css("height", viewport.height);
+			$(this).find(".pageContent").css("width", viewport.width);
+			$(this).find(".pageContent").css("height", viewport.height);
 
-		// if($(this).hasClass("activePage")){
-		// 	var $activePageOffset = $(this).offset();
-		// 	window.scrollTo($activePageOffset.left, $activePageOffset.top);
-		// }
+			// if($(this).hasClass("activePage")){
+			// 	var $activePageOffset = $(this).offset();
+			// 	window.scrollTo($activePageOffset.left, $activePageOffset.top);
+			// }
 
-		if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
-			$(this).addClass("scrollable");
-		} else {
-			if($(this).hasClass("scrollable")) {
-				$(this).removeClass("scrollable");
+			if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
+				$(this).addClass("scrollable");
+			} else {
+				if($(this).hasClass("scrollable")) {
+					$(this).removeClass("scrollable");
+				}
 			}
-		}
-	});
+		});
+		
 
-	if($(".activePage").length > 0) {
+		if($(".activePage").length > 0) {
 
-		if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+			if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
 
-			$("body").css("opacity", 0);
+				$("body").css("opacity", 0);
 
-			setTimeout(function(){
+				setTimeout(function(){
+					var $activePageOffset = $(".activePage").offset();
+					$activePageOffset.pageWidth = $(".page").width();
+					$activePageOffset.pageHeight = $(".page").height();
+					
+					window.scrollTo($activePageOffset.left, $activePageOffset.top);
+					$("body").css("opacity", 1);
+				}, 500);
+
+			} else {
 				var $activePageOffset = $(".activePage").offset();
 				$activePageOffset.pageWidth = $(".page").width();
 				$activePageOffset.pageHeight = $(".page").height();
-				
 				window.scrollTo($activePageOffset.left, $activePageOffset.top);
-				$("body").css("opacity", 1);
-			}, 500);
-
-		} else {
-			var $activePageOffset = $(".activePage").offset();
-			$activePageOffset.pageWidth = $(".page").width();
-			$activePageOffset.pageHeight = $(".page").height();
-			window.scrollTo($activePageOffset.left, $activePageOffset.top);
+			}
+			
 		}
-		
+
 	}
+
 }
 
 function setInitialActivePage() {
@@ -222,7 +252,16 @@ function setInitialActivePage() {
 
 function setNewActivePage($link) {
 	$(".activePage").removeClass("activePage");
-	$($link.attr("href")).addClass("activePage");
+	var newActivePageId; 
+	// if a link has been clicked
+	if($link.length) {
+		newActivePageId = $link.attr("href");
+	} 
+	// else it was a keyboard event
+	else {
+		newActivePageId = $link.attributes && $link.attributes.href && $link.attributes.href.value;
+	}
+	$(newActivePageId).addClass("activePage");
 }
 
 function getViewport() {
@@ -313,3 +352,17 @@ function goToPreviousPageVertical($link) {
 		});
 	}
 }
+
+
+// function createLanguageChart() {
+// 	new Chartist.Bar("#languageChart", {
+// 		// labels: ["Débutant", "Intermédiaire", "Avancé", "Courant", "Langue maternelle"],
+// 		labels: ["Espagnol", "Anglais", "Français"],
+// 		// series: ["Débutant", "Courant", "Langue Maternelle"]
+// 		series: [
+// 			["Débutant", "Courant", "Langue Maternelle"]
+// 		]
+// 	}, {
+// 		horizontalBars: true
+// 	});
+// }

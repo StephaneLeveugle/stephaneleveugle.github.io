@@ -3,7 +3,8 @@ var $    = require('gulp-load-plugins')();
 
 var sassPaths = [
   './node_modules/foundation-sites/scss',
-  './node_modules/foundation-sites/assets'
+  './node_modules/foundation-sites/assets',
+  './node_modules/chartist/dist/scss'
 ];
 
 gulp.task('sass', function() {

@@ -4,7 +4,7 @@
 @import 'foundation';
 
 @include foundation-global-styles;
-@include foundation-grid;
+//@include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-typography;
 @include foundation-button;
@@ -50,39 +50,8 @@
 @include foundation-float-classes;
 @include foundation-flex-classes;
 
-@-webkit-keyframes rightArrow {
-	0% { right: 2% }
-	100% { right: 1% }
-}
-
-@-moz-keyframes rightArrow {
-	0% { right: 2% }
-	100% { right: 1% }
-}
-
-@-o-keyframes rightArrow {
-	0% { right: 2% }
-	100% { right: 1% }
-}
-
-@keyframes rightArrow {
-	0% { right: 2% }
-	100% { right: 1% }
-}
-
-@mixin animate($animationName, $duration, $timing, $delay, $iterationCount) {
-	-webkit-animation: $animationName $duration $timing $delay $iterationCount;
-	-moz-animation: $animationName $duration $timing $delay $iterationCount;
-	-o-animation: $animationName $duration $timing $delay $iterationCount;
-	animation: $animationName $duration $timing $delay $iterationCount;
-}
-
-@mixin animation-delay($delay) {
-	-webkit-animation-delay: $delay;
-	-moz-animation-delay: $delay;
-	-o-animation-delay: $delay;
-	animation-delay: $delay;
-}
+@import "./chartist-settings.scss";
+@import "chartist";
 
 html, body {
 	height: auto;
@@ -99,7 +68,14 @@ html, body {
 	margin: 0;
 }
 
+.row-center {
+	@include flex-grid-row() {
+
+	}
+}
+
 ::-webkit-scrollbar {
+		z-index: 2;
     -webkit-appearance: none;
 }
 
@@ -126,48 +102,60 @@ html, body {
 
 
 $flat-color-asbestos : #7f8c8d;
-$flat-color-concrete : #95a5a6;
 $flat-color-silver : #bdc3c7;
-$flat-color-clouds : #ecf0f1;
 $flat-color-midnightBlue : #2c3e50;
 $flat-color-belizeHole : #2980b9;
 $flat-color-wetAsphalt : #34495e;
 $flat-color-peterRiver: #3498db;
 $flat-color-greenSea : #16a085;
-$flat-color-alizarin: #e74c3c;
 $flat-color-turquoise: #1abc9c;
+$flat-color-emerald: #2ecc71;
+$flat-color-nephritis: #27ae60;
 $flat-color-pomegranate: #c0392b;
+$flat-color-pumpkin: #d35400;
+
+$flat-color-fuck: #FF5C4A;
+$flat-color-orange: #FF6052;
+$flat-color-madison: #2c3e50;
+
+$flat-color-nightBlue: #192545;
 
 $flat-color-ebonyClay: #22313F;
 $flat-color-darkBlue: #1c202b;
 
 $metro-color-darken: #1d1d1d;
 
+$flat-color-pickledBluewood: #34495E;
+$flat-color-cinnabar: #E74C3C;
+
 $small-breakpoint: 350px;
 $medium-breakpoint: 640px;
 $large-breakpoint: 1024px;
+$xxlarge-breakpoint: 1440px;
+
+$flat-color-concrete : #95a5a6;
+$flat-color-clouds : #ecf0f1;
+$flat-color-alizarin: #e74c3c;
+$flat-color-carrot: #e67e22;
+$flat-color-sunFlower: #f1c40f;
 
 $page-background-color: $flat-color-darkBlue;
 $page-color: $flat-color-clouds;
 
-
 .page {
 
-	// overflow-y: auto;
-	// overflow-x: hidden;
-	// -webkit-overflow-scrolling: touch;
 	position: relative;
 	background-color: $page-background-color;
 	color: $page-color;
 
-	.seeMore,
-	.seeLess {
-		padding-right: 12px;
+	.seeMore.arrow,
+	.seeLess.arrow {
+		padding-left: 0;
 		display: block;
 		width: 100%;
 	}
 
-	.seeMore {
+	.seeMore.arrow {
 		position: absolute;
 		bottom: 5px;
 	}
@@ -175,6 +163,9 @@ $page-color: $flat-color-clouds;
 }
 
 .pageContent {
+
+	padding-top: 100px;
+
 	position: relative;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -183,12 +174,13 @@ $page-color: $flat-color-clouds;
 
 .scrollable {
 
-	.seeMore,
-	.seeLess {
-		padding-right: 0px;
+	.seeMore.arrow,
+	.seeLess.arrow {
+		padding-left: 12px;
 	}
 
-	.seeMore {
+	.seeMore.arrow {
+		margin-top: 2rem;
 		position: static;
 		display: block;
 		width: 100%;
@@ -199,11 +191,10 @@ $page-color: $flat-color-clouds;
 		right: 12px;
 	}
 
-	// .fa-angle-down {
-	// 	display: block;
-	// 	position: static;
-	// 	margin: 0 auto;
-	// }
+	.top-bar {
+		right: 12px;
+		width: calc(100% - 12px);
+	}
 }
 
 body {
@@ -220,9 +211,9 @@ p {
 
 #home {
 
-	background-color: blue;
-
-	// background-image: linear-gradient(to bottom, $flat-color-midnightBlue, $flat-color-wetAsphalt);
+	.pageContent {
+		padding-top: 0;
+	}
 
 	h1 {
 		margin-bottom: 0;
@@ -237,22 +228,22 @@ p {
 
 		background-image: 
 		   -webkit-linear-gradient(
-				rgba(0, 0, 0, 0.9),
-				rgba(0, 0, 0, 0.9)
+				rgba(0, 0, 0, 0.8),
+				rgba(0, 0, 0, 0.8)
 			),
 			url("../images/backlit_keyboard_good.jpg");	
 
 		background-image: 
 		   -o-linear-gradient(
-				rgba(0, 0, 0, 0.9),
-				rgba(0, 0, 0, 0.9)
+				rgba(0, 0, 0, 0.8),
+				rgba(0, 0, 0, 0.8)
 			),
 			url("../images/backlit_keyboard_good.jpg");	
 
 		background-image: 
 		   linear-gradient(
-				rgba(0, 0, 0, 0.9),
-				rgba(0, 0, 0, 0.9)
+				rgba(0, 0, 0, 0.8),
+				rgba(0, 0, 0, 0.8)
 			),
 			url("../images/backlit_keyboard_good.jpg");	
 	}
@@ -272,6 +263,10 @@ p {
 		padding: 1rem 0;
 	}
 
+	.top-bar {
+		position: static;
+	}
+
 	@media (min-width: $large-breakpoint) {
 		.homeFooter {
 			padding-top: 3rem;
@@ -282,19 +277,428 @@ p {
 
 #portfolio {
 
-	background-color: $flat-color-clouds;
-	color: $flat-color-darkBlue;
+	$bckgrnd: $flat-color-darkBlue;
+	$spur: $flat-color-orange;
+
+	background-color: $bckgrnd;
 
 	.top-bar {
 		a {
-			color: $flat-color-darkBlue;
+			color: black;
 		}
 		.top-bar-menu li a {
 			&:hover, &:focus {
 				.customBorder {
-					background-color: $flat-color-darkBlue;
+					background-color: black;
 				}	
 			}
+		}
+	}
+
+	h1{
+		color: $spur;
+		font-family: "Jaapokki", "Sans Serif";
+	}
+
+	h2 {
+		margin-bottom: 1.5rem;
+		color: $flat-color-clouds;
+	}
+	
+	p {
+		// text-align: center;
+		color: $spur;
+		span {
+			color: $flat-color-clouds;
+		}
+	}
+
+	.spurIndexScreenshot {
+		img {
+			width: 80%;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+
+	.whiteHollowBtn {
+		@include button-style($bckgrnd, $flat-color-clouds, $flat-color-clouds);
+
+		border-color: $flat-color-clouds;
+		margin-top: 2rem;
+
+		&:hover, &:focus {
+			color: $bckgrnd;
+		}
+	}
+
+	.orangeHollowBtn {
+		@include button-style($bckgrnd, $flat-color-orange, $flat-color-orange);
+
+		border-color: $flat-color-orange;
+		// margin-top: 2rem;
+		display: inside-block;
+		margin-bottom: 1.5rem;
+
+		&:hover, &:focus {
+			color: $bckgrnd;
+		}
+	}
+
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		color: $flat-color-clouds;
+		background-color: $bckgrnd;
+		
+		&:hover, &:focus {
+			color: black;
+		}
+	}
+
+	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		p {
+			font-size: 1.25rem;
+		}
+	}
+
+	@media (min-width: $large-breakpoint) {
+		h1, h2 {
+			margin-bottom: 3rem;
+		}
+		.orangeHollowBtn {
+			margin-top: 2rem;
+			margin-bottom: 4rem;
+		}
+		.whiteHollowBtn {
+			margin-top: 4rem;
+		}
+		p {
+			font-size: 1.5rem;
+			padding-left: 4rem;
+		}
+	}
+
+}
+
+#spurDetails {
+	.pageContent {
+		text-align: center;
+	}
+	p {
+		margin-bottom: 0;
+		text-align: center;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		color: $flat-color-clouds;
+		background-color: $flat-color-darkBlue;
+		
+		&:hover, &:focus {
+			color: black;
+		}
+	}
+}
+
+#aboutMe {
+	.top-bar a {
+		color: $flat-color-orange;
+	}
+
+	.aboutMeInfos {
+		//padding-top: 5em;
+		// padding-bottom: 5em;
+		padding-bottom: 1em;
+		background-color: $flat-color-orange;
+
+		p {
+			padding-left: 2em;
+			padding-right: 2em;
+			// font-size: 1.5rem;
+		}
+		img {
+			margin-bottom: 2em;
+		}
+		h2 {
+			font-family: "JaapokkiSubtract", "Sans Serif";
+			margin-bottom: 1rem;
+		}
+		.aboutMeHeader {
+			margin-top: 3rem;
+		}
+		
+	}
+	
+	.seeMore.arrow {
+		margin-top: 0;
+		padding-bottom: 1rem;
+		background-color: $flat-color-orange;
+	}
+
+	h1 {
+		margin-bottom: 1em;
+	}
+
+	#seeMySkillsBtn {
+
+		margin-top: 1em;
+
+		@include button-style(transparent, $flat-color-clouds, $flat-color-clouds);
+
+		border-color: $flat-color-clouds;
+
+		&:hover, &:focus {
+			background-color: $flat-color-darkBlue;
+			border-color: $flat-color-darkBlue;
+		}
+	}
+
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		color: $flat-color-clouds;
+		background-color: $flat-color-orange;
+		
+		&:hover, &:focus {
+			color: black;
+		}
+	}
+
+	@media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		.aboutMeInfos {
+			padding-top: 2em;
+			padding-bottom: 2em;
+			p {
+				font-size: 1.25em;
+			}
+			img {
+				margin-bottom: 3em;
+			}
+		}
+		#seeMySkillsBtn {
+			margin-top: 2em;
+		}
+	}
+
+	@media (min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
+		.aboutMeInfos {
+			padding-top: 3em;
+			padding-bottom: 3em;
+			img {
+				margin-bottom: 4em;
+			}
+		}
+		#seeMySkillsBtn {
+			margin-top: 2em;
+		}
+	}
+
+	@media (min-width: $large-breakpoint) {
+		.aboutMeInfos {
+			p {
+				font-size: 1.5em;
+			}
+		}
+	}
+
+	@media (min-width: $xxlarge-breakpoint) {
+		.aboutMeInfos {
+			padding-top: 5em;
+			padding-bottom: 5em;
+			img {
+				margin-bottom: 0;
+				margin-left: 5em;
+			}
+			#seeMySkillsBtn {
+				margin-top: 2em;
+			}
+		}
+			
+	}
+
+	.xxlarge-shrink {
+		@media (min-width: $xxlarge-breakpoint) {
+			ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+			max-width: 100%;
+		}
+	}
+
+}
+
+#aboutMeSkills {
+	.top-bar a {
+		color: $flat-color-orange;
+	}
+	.pageContent {
+		h1 {
+			font-family: "JaapokkiEnchance", "Sans Serif";
+			margin-bottom: 1em;
+		}
+		h2 {
+			font-family: "JaapokkiSubtract", "Sans Serif";
+			// font-size: 2em;
+			font-size: 1.25em;
+			padding-top: 1em;
+			// padding-bottom: 1em;
+			padding-bottom: 0.7em;
+			.fa {
+				margin-right: 0.3em;
+			}
+		}
+		h3 {
+			font-family: "JaapokkiEnchance", "Sans Serif";
+			//font-size: 1.75em;
+			font-size: 1.25em;
+			padding-bottom: 0.5em;
+			color: $flat-color-darkBlue;
+		}
+		.technicalSkills {
+			background-color: $flat-color-orange;
+			color: $flat-color-clouds;
+		}
+		.humanSkills {
+			background-color: $flat-color-clouds;
+			color: $flat-color-orange;
+			position: relative;
+			// .humanSkillsInner {
+			// 	width: 100%;
+			// 	position: absolute;
+			// 	top: 1em;
+			// 	transform: translateY(50%);
+			// }
+		}
+	}
+
+	table {
+		margin: 0 auto 3em auto;
+		font-size: 13px;
+		th {
+			// padding-left: 2em;
+			// padding-right: 2em;
+			padding-right: 0.4em;
+		}
+		td {
+			text-align: center;
+			// padding-top: 1em;
+			// padding-bottom: 1em;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+		}
+
+	}
+
+	@media (min-width: 400px) and (max-width: $medium-breakpoint - 1) {
+		.pageContent {
+			h2 {
+				font-size: 1.5em;
+			}
+		}
+		table {
+			font-size: 15px;
+			th {
+				padding-right: 0.5em;
+				padding-left: 0.5em;
+			}
+			td {
+				padding-top: 0.5em;
+				padding-bottom: 0.5em;
+			}
+		}
+	}
+
+	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		.pageContent {
+			h2 {
+				font-size: 1.75em;
+				padding-bottom: 1em;
+			}
+			h3 {
+				font-size: 1.5em;
+				padding-bottom: 0.7em;
+			}
+		}
+		table {
+			font-size: 16px;
+			th {
+				padding-right: 1.5em;
+				padding-left: 1.5em;
+			}
+			td {
+				padding-top: 0.7em;
+				padding-bottom: 0.7em;
+			}
+		}
+	}
+
+	@media (min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
+		.pageContent {
+			p {
+				font-size: 1.5em;
+			}
+			h2 {
+				font-size: 1.75em;
+				padding-bottom: 1em;
+			}
+			h3 {
+				font-size: 1.5em;
+				padding-bottom: 0.9em;
+			}
+		}
+		table {
+			font-size: 17px;
+			th {
+				padding-left: 0.8em;
+			}
+			td {
+				padding-top: 0.7em;
+				padding-bottom: 0.7em;
+			}
+		}
+	}
+
+	@media (min-width: $xxlarge-breakpoint) {
+		.pageContent {
+			p {
+				font-size: 1.5em;
+			}
+			h2 {
+				font-size: 2em;
+				padding-bottom: 1em;
+			}
+			h3 {
+				font-size: 1.75em;
+				padding-bottom: 1em;
+			}
+		}
+		table {
+			font-size: 19px;
+			th {
+				padding-right: 1.5em;
+				padding-left: 1.5em;
+			}
+			td {
+				padding-top: 1em;
+				padding-bottom: 1em;
+			}
+		}
+	}
+
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		color: $flat-color-clouds;
+		background-color: $flat-color-darkBlue;
+		
+		&:hover, &:focus {
+			color: black;
 		}
 	}
 
@@ -326,10 +730,15 @@ p {
 
 	@include top-bar-container;
 
+	position: absolute;
+	top: 0;
+
 	width: 100%;
 	margin: 0;
 	padding-top: 1rem;
 	padding-bottom: 0;
+
+	z-index: 1;
 
 	a {
 		color: $page-color;
@@ -351,7 +760,7 @@ p {
 		list-style-type: none;
 
 		li {
-			display: table-cell;
+			display: inline-block;
 		}
 
 		li a {
@@ -446,8 +855,23 @@ p {
 	}
 }
 
+.whiteBackground {
+	background-color: $flat-color-clouds;
+	color: $flat-color-darkBlue;
+}
 
+.orangeBackground {
+	background-color: $flat-color-orange;
+	color: $flat-color-darkBlue;
+}
 
+.orangeText {
+	color: $flat-color-orange;
+}
+
+.darkBlueText {
+	color: $flat-color-darkBlue;
+}
 
 
 @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
