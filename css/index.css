@@ -3275,6 +3275,63 @@ p {
   #aboutMeSkills .fa-angle-left:focus {
     color: black; }
 
+#contact {
+  background-color: #1abc9c; }
+  #contact .pageContent {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center; }
+  #contact .top-bar {
+    background-color: #1c202b; }
+    #contact .top-bar a {
+      color: #ecf0f1; }
+    #contact .top-bar .top-bar-menu {
+      margin-bottom: 0.2em; }
+      #contact .top-bar .top-bar-menu li a:hover .customBorder, #contact .top-bar .top-bar-menu li a:focus .customBorder {
+        background-color: #ecf0f1; }
+  #contact h1 {
+    font-size: 1.25em;
+    margin-bottom: 1em; }
+    #contact h1 span {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em; }
+  #contact p {
+    margin-top: 2em;
+    font-size: 1.25em; }
+    #contact p span {
+      display: inline-block;
+      padding-top: 0.5em; }
+  @media (min-width: 350px) and (max-width: 639px) {
+    #contact h1, #contact p {
+      font-size: 1.5em; } }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    #contact h1, #contact p {
+      font-size: 1.75em; } }
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    #contact h1, #contact p {
+      font-size: 2em; } }
+  @media (min-width: 1440px) {
+    #contact h1, #contact p {
+      font-size: 2.5em; } }
+  #contact .fa-angle-up,
+  #contact .fa-angle-right,
+  #contact .fa-angle-down,
+  #contact .fa-angle-left {
+    background-color: transparent;
+    color: #ecf0f1; }
+    #contact .fa-angle-up:hover, #contact .fa-angle-up:focus,
+    #contact .fa-angle-right:hover,
+    #contact .fa-angle-right:focus,
+    #contact .fa-angle-down:hover,
+    #contact .fa-angle-down:focus,
+    #contact .fa-angle-left:hover,
+    #contact .fa-angle-left:focus {
+      color: black; }
+
 h1 {
   font-family: "Jaapokki", "Sans Serif";
   font-size: 2rem; }

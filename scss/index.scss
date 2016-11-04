@@ -567,7 +567,7 @@ p {
 			}
 		}
 	}
-	
+
 	.pageContent {
 		h1 {
 			font-family: "JaapokkiEnchance", "Sans Serif";
@@ -734,6 +734,97 @@ p {
 		}
 	}
 
+}
+
+#contact {
+
+	background-color: $flat-color-turquoise;
+
+	.pageContent {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		// max-height: 100%;
+		// .contentWrapper {
+		// 	padding-top: 200px;
+		// }
+	}
+	
+	.top-bar {
+		background-color: $flat-color-darkBlue;
+
+		a {
+			color: $flat-color-clouds;			
+		}
+		.top-bar-menu {
+			margin-bottom: 0.2em;
+			li a {
+				&:hover, &:focus {
+					.customBorder {
+						background-color: $flat-color-clouds;
+					}	
+				}
+			}
+		}
+	}
+
+	h1 {
+
+		font-size: 1.25em;
+		margin-bottom: 1em;
+		span{
+			display: block;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+	}
+
+	p {
+		margin-top: 2em;
+		font-size: 1.25em;
+		span {
+			display: inline-block;
+			padding-top: 0.5em;
+		}
+	}
+	
+	@media(min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+		h1, p {
+			font-size: 1.5em;
+		}
+	}
+
+	@media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		h1, p {
+			font-size: 1.75em;
+		}
+	}
+
+	@media(min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
+		h1, p {
+			font-size: 2em;
+		}
+	}
+
+	@media(min-width: $xxlarge-breakpoint) {
+		h1, p {
+			font-size: 2.5em;
+		}
+	}
+
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		background-color: transparent;
+		color: $flat-color-clouds;
+		// color: $flat-color-alizarin;
+		// background-color: $flat-color-clouds;
+		
+		&:hover, &:focus {
+			color: black;
+		}
+	}
 }
 
 h1 {
