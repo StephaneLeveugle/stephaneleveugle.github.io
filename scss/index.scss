@@ -267,6 +267,19 @@ p {
 		position: static;
 	}
 
+	#contactMeBtn {
+		@include button-style(transparent, $flat-color-clouds, $flat-color-clouds);
+
+		border-color: $flat-color-clouds;
+
+
+		&:hover, &:focus {
+			background-color: $flat-color-clouds;
+			border-color: $flat-color-darkBlue;
+			color: $flat-color-darkBlue;
+		}
+	}
+
 	@media (min-width: $large-breakpoint) {
 		.homeFooter {
 			padding-top: 3rem;
@@ -406,8 +419,17 @@ p {
 }
 
 #aboutMe {
-	.top-bar a {
-		color: $flat-color-orange;
+	.top-bar {
+		a {
+			color: $flat-color-orange;			
+		}
+		.top-bar-menu li a {
+			&:hover, &:focus {
+				.customBorder {
+					background-color: $flat-color-orange;
+				}	
+			}
+		}
 	}
 
 	.aboutMeInfos {
@@ -533,9 +555,19 @@ p {
 }
 
 #aboutMeSkills {
-	.top-bar a {
-		color: $flat-color-orange;
+	.top-bar {
+		a {
+			color: $flat-color-orange;			
+		}
+		.top-bar-menu li a {
+			&:hover, &:focus {
+				.customBorder {
+					background-color: $flat-color-orange;
+				}	
+			}
+		}
 	}
+	
 	.pageContent {
 		h1 {
 			font-family: "JaapokkiEnchance", "Sans Serif";

@@ -195,12 +195,6 @@ $(function(){
 
 	});
 
-	$(window).scroll(function(e){
-
-		e.preventDefault();
-		console.log("huehuehue");
-	});
-
 });
 
 $(window).on("load", function(){

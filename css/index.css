@@ -2948,6 +2948,18 @@ p {
 #home .top-bar {
   position: static; }
 
+#home #contactMeBtn {
+  background-color: transparent;
+  color: #ecf0f1;
+  border-color: #ecf0f1; }
+  #home #contactMeBtn:hover, #home #contactMeBtn:focus {
+    background-color: #ecf0f1;
+    color: #ecf0f1; }
+  #home #contactMeBtn:hover, #home #contactMeBtn:focus {
+    background-color: #ecf0f1;
+    border-color: #1c202b;
+    color: #1c202b; }
+
 @media (min-width: 1024px) {
   #home .homeFooter {
     padding-top: 3rem; } }
@@ -3049,6 +3061,9 @@ p {
 #aboutMe .top-bar a {
   color: #FF6052; }
 
+#aboutMe .top-bar .top-bar-menu li a:hover .customBorder, #aboutMe .top-bar .top-bar-menu li a:focus .customBorder {
+  background-color: #FF6052; }
+
 #aboutMe .aboutMeInfos {
   padding-bottom: 1em;
   background-color: #FF6052; }
@@ -3141,6 +3156,9 @@ p {
 
 #aboutMeSkills .top-bar a {
   color: #FF6052; }
+
+#aboutMeSkills .top-bar .top-bar-menu li a:hover .customBorder, #aboutMeSkills .top-bar .top-bar-menu li a:focus .customBorder {
+  background-color: #FF6052; }
 
 #aboutMeSkills .pageContent h1 {
   font-family: "JaapokkiEnchance", "Sans Serif";
