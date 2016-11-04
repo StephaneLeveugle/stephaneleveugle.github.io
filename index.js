@@ -3,10 +3,14 @@ $(function(){
 
 	var touchStartX = 0;
 	var touchStartY = 0;
+	var touchMoveDiffY = 0;
+	var touchMoveDiffX = 0;
 
 	var animationEndVendors = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 	var viewport = getViewport();
 	var currViewport;
+
+
 
 	$(window).on("resize", function(e){
 		currViewport = getViewport();
@@ -18,17 +22,17 @@ $(function(){
 
 	resizePages(viewport);
 
-	$(".hollow.secondary").on("click", function(e){
+	// $(".hollow.secondary").on("click", function(e){
 
-		e.preventDefault();
+	// 	e.preventDefault();
 
-		$("#testInput").css("-webkit-animation-duration", "0.5s");
-		$("#testInput").css("-webkit-animation-delay", "0s");
-		$("#testInput").addClass("animated fadeInUp").one(animationEndVendors, function() {
-			$(this).removeClass("animated fadeInUp");
-		});
+	// 	$("#testInput").css("-webkit-animation-duration", "0.5s");
+	// 	$("#testInput").css("-webkit-animation-delay", "0s");
+	// 	$("#testInput").addClass("animated fadeInUp").one(animationEndVendors, function() {
+	// 		$(this).removeClass("animated fadeInUp");
+	// 	});
 
-	});
+	// });
 
 	$("body").on("touchstart", ".scrollable", function(e){
 		if (e.currentTarget.scrollTop === 0) {
@@ -42,11 +46,34 @@ $(function(){
 	});
 
 	$('body').on('touchmove', ".scrollable", function(e) {
-		e.stopPropagation();
-	  	if(Math.abs(touchStartX - e.originalEvent.touches[0].pageX)
-	    		> Math.abs(touchStartY - e.originalEvent.touches[0].pageY)) {
-    		e.preventDefault();
-    	}
+		
+		if($(this).hasClass("activePage")) {
+			e.stopPropagation();		
+			touchMoveDiffX = touchStartX - e.originalEvent.touches[0].pageX;
+			touchMoveDiffY = touchStartY - e.originalEvent.touches[0].pageY;
+
+			var $pageContent = $(this).find(".pageContent");
+
+			// console.log(touchMoveDiffY);
+
+		  	if(Math.abs(touchMoveDiffX)
+		    		> Math.abs(touchMoveDiffY)) {
+	    		e.preventDefault();
+	    		return;
+	    	}
+	    	
+	    	if(touchMoveDiffY > 0) {
+	    		if( Math.abs($pageContent.prop("scrollHeight") -  ($pageContent.scrollTop() + $pageContent.innerHeight())) <= 3) {
+	    			e.preventDefault();
+	    		}
+	    	}
+	    	else if(touchMoveDiffY < 0) {
+	    		if($pageContent.scrollTop() < 1) {
+	    			e.preventDefault();
+	    		}
+	    	}	
+		}
+
 	});
 
 	$(document).on('touchmove', function(e) {
@@ -166,6 +193,12 @@ $(function(){
 		} 
 
 
+	});
+
+	$(window).scroll(function(e){
+
+		e.preventDefault();
+		console.log("huehuehue");
 	});
 
 });
