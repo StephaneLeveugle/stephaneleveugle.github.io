@@ -199,9 +199,17 @@ $(function(){
 
 $(window).on("load", function(){
 
-	setInitialActivePage();
+	$(".pageLoadingPanel").fadeOut(500, function() {
+
+		// $(".pageLoadedPanel").css("display", "static");
+		$(".pageLoadedPanel").fadeIn(500);
+
+		setInitialActivePage();
+	});
 
 });
+
+
 
 function resizePages(viewport) {
 
