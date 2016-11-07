@@ -10,6 +10,7 @@ $(function(){
 	var viewport = getViewport();
 	var currViewport;
 
+	var scrollBarWidth = getScrollBarWidth();
 
 
 	$(window).on("resize", function(e){
@@ -18,6 +19,7 @@ $(function(){
 			$(".humanSkills").css("padding-top", 0);
 		}
 		resizePages(currViewport);
+		resizeTopBarWidth(scrollBarWidth);
 	});
 
 
@@ -201,12 +203,14 @@ $(window).on("load", function(){
 	$(".pageLoadedPanel").css("display", "block");
 	
 	resizePages(getViewport());
-	setInitialActivePage();
+	resizeTopBarWidth(getScrollBarWidth());
 
 	$(".pageLoadingPanel").fadeOut(500, function() {
 	
 		$(".pageLoadedPanel").hide();
 		$(".pageLoadedPanel").fadeIn(500);
+		setInitialActivePage();
+
 
 	});
 
@@ -394,6 +398,23 @@ function goToPreviousPageVertical($link) {
 	}
 }
 
+function resizeTopBarWidth(scrollBarWidth) {
+	$(".page").each(function resizeTopBarWidthEachPage(){
+		if($(this).hasClass("scrollable")) {
+			var scrollBarWidthPx = scrollBarWidth + "px";
+			$(this).find(".top-bar").css({right: scrollBarWidth, width: "calc(100% - " + scrollBarWidthPx + ")"});
+		} else {
+			$(this).find(".top-bar").css({right: 0, width: "100%"});
+		}
+	});
+}
+
+function getScrollBarWidth () {
+    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+    $outer.remove();
+    return 100 - widthWithScroll;
+};
 
 // function createLanguageChart() {
 // 	new Chartist.Bar("#languageChart", {

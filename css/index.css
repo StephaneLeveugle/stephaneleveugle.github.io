@@ -2953,10 +2953,6 @@ html, body {
 .scrollable .fa-angle-right {
   right: 12px; }
 
-.scrollable .top-bar {
-  right: 12px;
-  width: calc(100% - 12px); }
-
 body {
   font-family: "Jaapokki", "Sans Serif"; }
 
