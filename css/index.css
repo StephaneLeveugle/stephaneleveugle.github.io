@@ -3118,7 +3118,9 @@ p {
     padding-left: 2em;
     padding-right: 2em; }
   #aboutMe .aboutMeInfos img {
-    margin-bottom: 2em; }
+    margin-bottom: 2em;
+    max-height: 75vh;
+    max-width: 100%; }
   #aboutMe .aboutMeInfos h2 {
     font-family: "JaapokkiSubtract", "Sans Serif";
     margin-bottom: 1rem; }

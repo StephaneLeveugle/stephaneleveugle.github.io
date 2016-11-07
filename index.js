@@ -20,7 +20,6 @@ $(function(){
 		resizePages(currViewport);
 	});
 
-	resizePages(viewport);
 
 	// $(".hollow.secondary").on("click", function(e){
 
@@ -199,15 +198,20 @@ $(function(){
 
 $(window).on("load", function(){
 
-	$(".pageLoadingPanel").fadeOut(500, function() {
+	$(".pageLoadedPanel").css("display", "block");
+	
+	resizePages(getViewport());
+	setInitialActivePage();
 
-		// $(".pageLoadedPanel").css("display", "static");
+	$(".pageLoadingPanel").fadeOut(500, function() {
+	
+		$(".pageLoadedPanel").hide();
 		$(".pageLoadedPanel").fadeIn(500);
 
 	});
 
-	setInitialActivePage();
-	
+
+
 
 });
 
