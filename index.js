@@ -204,8 +204,10 @@ $(window).on("load", function(){
 		// $(".pageLoadedPanel").css("display", "static");
 		$(".pageLoadedPanel").fadeIn(500);
 
-		setInitialActivePage();
 	});
+
+	setInitialActivePage();
+	
 
 });
 
