@@ -211,6 +211,8 @@ $(window).on("load", function(){
 		$(".pageLoadedPanel").fadeIn(500);
 		setInitialActivePage();
 
+		alert(getScrollBarWidth());
+
 
 	});
 
