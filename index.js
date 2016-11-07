@@ -211,7 +211,8 @@ $(window).on("load", function(){
 		$(".pageLoadedPanel").fadeIn(500);
 		setInitialActivePage();
 
-		alert(getScrollBarWidth());
+		$("#home #homeHeader h1").css("color", "pink");
+		$("#home #homeHeader h1").text(getScrollBarWidth());
 
 
 	});
