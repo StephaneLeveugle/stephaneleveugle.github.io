@@ -3323,12 +3323,7 @@ p {
 #contact {
   background-color: #1abc9c; }
   #contact .pageContent {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: center;
-        justify-content: center; }
+    padding-top: 120px; }
   #contact .top-bar {
     background-color: #1c202b; }
     #contact .top-bar a {
@@ -3337,6 +3332,17 @@ p {
       margin-bottom: 0.2em; }
       #contact .top-bar .top-bar-menu li a:hover .customBorder, #contact .top-bar .top-bar-menu li a:focus .customBorder {
         background-color: #ecf0f1; }
+  #contact .downloadResumeBtn {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    background-color: #1abc9c;
+    color: #ecf0f1;
+    border-color: #ecf0f1; }
+    #contact .downloadResumeBtn:hover, #contact .downloadResumeBtn:focus {
+      background-color: #1c202b;
+      color: #ecf0f1; }
+    #contact .downloadResumeBtn:hover, #contact .downloadResumeBtn:focus {
+      border-color: #1c202b; }
   #contact h1 {
     font-size: 1.25em;
     margin-bottom: 1em; }
@@ -3345,23 +3351,30 @@ p {
       margin-top: 1em;
       margin-bottom: 1em; }
   #contact p {
-    margin-top: 2em;
     font-size: 1.25em; }
     #contact p span {
       display: inline-block;
       padding-top: 0.5em; }
   @media (min-width: 350px) and (max-width: 639px) {
     #contact h1, #contact p {
-      font-size: 1.5em; } }
+      font-size: 1.5em; }
+    #contact .pageContent {
+      padding-top: 150px; } }
   @media (min-width: 640px) and (max-width: 1023px) {
     #contact h1, #contact p {
-      font-size: 1.75em; } }
+      font-size: 1.75em; }
+    #contact .pageContent {
+      padding-top: 200px; } }
   @media (min-width: 1024px) and (max-width: 1439px) {
     #contact h1, #contact p {
-      font-size: 2em; } }
+      font-size: 2em; }
+    #contact .pageContent {
+      padding-top: 200px; } }
   @media (min-width: 1440px) {
     #contact h1, #contact p {
-      font-size: 2.5em; } }
+      font-size: 2.5em; }
+    #contact .pageContent {
+      padding-top: 170px; } }
   #contact .fa-angle-up,
   #contact .fa-angle-right,
   #contact .fa-angle-down,

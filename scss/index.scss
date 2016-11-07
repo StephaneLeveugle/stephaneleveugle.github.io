@@ -811,13 +811,12 @@ p {
 	background-color: $flat-color-turquoise;
 
 	.pageContent {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		// max-height: 100%;
-		// .contentWrapper {
-		// 	padding-top: 200px;
-		// }
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: center;
+	
+		padding-top: 120px;
+
 	}
 	
 	.top-bar {
@@ -838,6 +837,20 @@ p {
 		}
 	}
 
+	.downloadResumeBtn {
+
+		margin-top: 1em;
+		margin-bottom: 2em;
+
+		@include button-style($flat-color-turquoise, $flat-color-darkBlue, $flat-color-clouds);
+
+		border-color: $flat-color-clouds;
+
+		&:hover, &:focus {
+			border-color: $flat-color-darkBlue;
+		}
+	}
+
 	h1 {
 
 		font-size: 1.25em;
@@ -850,7 +863,7 @@ p {
 	}
 
 	p {
-		margin-top: 2em;
+		// margin-top: 2em;
 		font-size: 1.25em;
 		span {
 			display: inline-block;
@@ -862,11 +875,17 @@ p {
 		h1, p {
 			font-size: 1.5em;
 		}
+		.pageContent {
+			padding-top: 150px;
+		}
 	}
 
 	@media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 		h1, p {
 			font-size: 1.75em;
+		}
+		.pageContent {
+			padding-top: 200px;
 		}
 	}
 
@@ -874,11 +893,17 @@ p {
 		h1, p {
 			font-size: 2em;
 		}
+		.pageContent {
+			padding-top: 200px;
+		}
 	}
 
 	@media(min-width: $xxlarge-breakpoint) {
 		h1, p {
 			font-size: 2.5em;
+		}
+		.pageContent {
+			padding-top: 170px;
 		}
 	}
 
