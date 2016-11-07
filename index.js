@@ -22,6 +22,9 @@ $(function(){
 		resizeTopBarWidth(scrollBarWidth);
 	});
 
+	if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+		$(".top-bar").css({right: 0, width: "100%"});
+	}
 
 	// $(".hollow.secondary").on("click", function(e){
 
@@ -210,11 +213,6 @@ $(window).on("load", function(){
 		$(".pageLoadedPanel").hide();
 		$(".pageLoadedPanel").fadeIn(500);
 		setInitialActivePage();
-
-		$("#home #homeHeader h1").css("color", "pink");
-		$("#home #homeHeader h1").text(getScrollBarWidth());
-
-
 	});
 
 
@@ -402,14 +400,17 @@ function goToPreviousPageVertical($link) {
 }
 
 function resizeTopBarWidth(scrollBarWidth) {
-	$(".page").each(function resizeTopBarWidthEachPage(){
-		if($(this).hasClass("scrollable")) {
-			var scrollBarWidthPx = scrollBarWidth + "px";
-			$(this).find(".top-bar").css({right: scrollBarWidth, width: "calc(100% - " + scrollBarWidthPx + ")"});
-		} else {
-			$(this).find(".top-bar").css({right: 0, width: "100%"});
-		}
-	});
+	if(!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
+		$(".page").each(function resizeTopBarWidthEachPage(){
+			if($(this).hasClass("scrollable")) {
+				var scrollBarWidthPx = scrollBarWidth + "px";
+				$(this).find(".top-bar").css({right: scrollBarWidth, width: "calc(100% - " + scrollBarWidthPx + ")"});
+			} else {
+				$(this).find(".top-bar").css({right: 0, width: "100%"});
+			}
+		});
+	}
+	
 }
 
 function getScrollBarWidth () {
