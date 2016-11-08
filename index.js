@@ -26,18 +26,6 @@ $(function(){
 		$(".top-bar").css({right: 0, width: "100%"});
 	}
 
-	// $(".hollow.secondary").on("click", function(e){
-
-	// 	e.preventDefault();
-
-	// 	$("#testInput").css("-webkit-animation-duration", "0.5s");
-	// 	$("#testInput").css("-webkit-animation-delay", "0s");
-	// 	$("#testInput").addClass("animated fadeInUp").one(animationEndVendors, function() {
-	// 		$(this).removeClass("animated fadeInUp");
-	// 	});
-
-	// });
-
 	$("body").on("touchstart", ".scrollable", function(e){
 		if (e.currentTarget.scrollTop === 0) {
 			e.currentTarget.scrollTop = 1;
@@ -224,7 +212,6 @@ $(window).on("load", function(){
 
 function resizePages(viewport) {
 
-	// var viewport = getViewport();
 
 	if(viewport) {
 
@@ -237,11 +224,6 @@ function resizePages(viewport) {
 
 			$(this).find(".pageContent").css("width", viewport.width);
 			$(this).find(".pageContent").css("height", viewport.height);
-
-			// if($(this).hasClass("activePage")){
-			// 	var $activePageOffset = $(this).offset();
-			// 	window.scrollTo($activePageOffset.left, $activePageOffset.top);
-			// }
 
 			if($(this).find(".pageContent").prop("scrollHeight") > viewport.height) {
 				$(this).addClass("scrollable");
@@ -399,6 +381,9 @@ function goToPreviousPageVertical($link) {
 	}
 }
 
+// disabled for iPad/iPhone/iPod because the scroll-bar is basically invisible
+// which leaves a gap between scrollbar and top-bar no matter what
+// so it is assumed for this case that the scroll-bar width is 0 
 function resizeTopBarWidth(scrollBarWidth) {
 	if(!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
 		$(".page").each(function resizeTopBarWidthEachPage(){
@@ -413,6 +398,9 @@ function resizeTopBarWidth(scrollBarWidth) {
 	
 }
 
+// clever way to get the scroll bar width found on SO
+// the scroll bar width is needed to make sure there is no gap
+// between the scroll-bar and the top-bar
 function getScrollBarWidth () {
     var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
         widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
@@ -420,15 +408,3 @@ function getScrollBarWidth () {
     return 100 - widthWithScroll;
 };
 
-// function createLanguageChart() {
-// 	new Chartist.Bar("#languageChart", {
-// 		// labels: ["Débutant", "Intermédiaire", "Avancé", "Courant", "Langue maternelle"],
-// 		labels: ["Espagnol", "Anglais", "Français"],
-// 		// series: ["Débutant", "Courant", "Langue Maternelle"]
-// 		series: [
-// 			["Débutant", "Courant", "Langue Maternelle"]
-// 		]
-// 	}, {
-// 		horizontalBars: true
-// 	});
-// }

@@ -50,8 +50,8 @@
 @include foundation-float-classes;
 @include foundation-flex-classes;
 
-@import "./chartist-settings.scss";
-@import "chartist";
+// @import "./chartist-settings.scss";
+// @import "chartist";
 
 html, body {
 	height: auto;
@@ -99,6 +99,7 @@ html, body {
 }
 
 
+// the panel visible before the page has fully loaded
 .pageLoadingPanel {
 	background-color: #222;
 	min-height: 100vh;
@@ -106,16 +107,16 @@ html, body {
 	width: 100vw;
 	max-width: 100%;
 	position: relative;
-}
 
-.pageLoadingPanel p {
-	color: #FFF;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%); /*IE 9*/
-	-webkit-transform: translate(-50%, -50%); /*Safari*/
-	transform: translate(-50%, -50%);
+	p {
+		color: #FFF;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%); /*IE 9*/
+		-webkit-transform: translate(-50%, -50%); /*Safari*/
+		transform: translate(-50%, -50%);
+	}
 }
 
 .one {
@@ -208,6 +209,9 @@ $flat-color-sunFlower: #f1c40f;
 $page-background-color: $flat-color-darkBlue;
 $page-color: $flat-color-clouds;
 
+// each .page contains a window
+// it is set to be exactly 100% height and width in JS
+// careful when changing this
 .page {
 
 	position: relative;
@@ -228,8 +232,10 @@ $page-color: $flat-color-clouds;
 
 }
 
+// can exceed the height of page
 .pageContent {
 
+	// because of the top-bar which is in position absolute
 	padding-top: 100px;
 
 	position: relative;
@@ -238,10 +244,10 @@ $page-color: $flat-color-clouds;
 	-webkit-overflow-scrolling: touch;
 }
 
+// class added when a pageContent height
+// is greater than the page height
 .scrollable {
 	
-	// overflow-y: scroll;
-
 	.seeMore.arrow,
 	.seeLess.arrow {
 		padding-left: 12px;
@@ -259,10 +265,6 @@ $page-color: $flat-color-clouds;
 		right: 12px;
 	}
 
-	// .top-bar {
-	// 	right: 12px;
-	// 	width: calc(100% - 12px);
-	// }
 }
 
 body {
@@ -277,10 +279,20 @@ p {
 
 }
 
+// -----------------------------
+// 			EACH PAGE STYLING
+// -----------------------------
+
+// the landing page 
 #home {
 
+	// because in this page only, the top-bar isn't absolute
 	.pageContent {
 		padding-top: 0;
+	}
+
+	.top-bar {
+		position: static;
 	}
 
 	h1 {
@@ -289,6 +301,7 @@ p {
 		padding-bottom: 5rem;
 	}
 
+	// contains top-bar + h1
 	#homeHeader {
 		background-position: center center;
 		background-size: cover;
@@ -316,6 +329,7 @@ p {
 			url("../images/backlit_keyboard_good.jpg");	
 	}
 
+	// white panel that's in the middle 
 	.basicInfoContainer {
 		margin-bottom: 2rem;
 		padding: 3rem 3rem;
@@ -331,9 +345,6 @@ p {
 		padding: 1rem 0;
 	}
 
-	.top-bar {
-		position: static;
-	}
 
 	#contactMeBtn {
 		@include button-style(transparent, $flat-color-clouds, $flat-color-clouds);
@@ -358,10 +369,7 @@ p {
 
 #portfolio {
 
-	$bckgrnd: $flat-color-darkBlue;
-	$spur: $flat-color-orange;
-
-	background-color: $bckgrnd;
+	background-color: $flat-color-darkBlue;
 
 	.top-bar {
 		a {
@@ -377,7 +385,7 @@ p {
 	}
 
 	h1{
-		color: $spur;
+		color: $flat-color-orange;
 		font-family: "Jaapokki", "Sans Serif";
 	}
 
@@ -387,42 +395,44 @@ p {
 	}
 	
 	p {
-		// text-align: center;
-		color: $spur;
+		color: $flat-color-orange;
 		span {
 			color: $flat-color-clouds;
 		}
 	}
 
+	// contains the spur screenshot + spur summary (role, technologies used etc..)
 	.spurIndexScreenshot {
 		img {
 			width: 80%;
 			margin: 0 auto;
 			display: block;
 		}
+		p {
+			white-space: nowrap;
+		}
 	}
 
 	.whiteHollowBtn {
-		@include button-style($bckgrnd, $flat-color-clouds, $flat-color-clouds);
+		@include button-style($flat-color-darkBlue, $flat-color-clouds, $flat-color-clouds);
 
 		border-color: $flat-color-clouds;
 		margin-top: 2rem;
 
 		&:hover, &:focus {
-			color: $bckgrnd;
+			color: $flat-color-darkBlue;
 		}
 	}
 
 	.orangeHollowBtn {
-		@include button-style($bckgrnd, $flat-color-orange, $flat-color-orange);
+		@include button-style($flat-color-darkBlue, $flat-color-orange, $flat-color-orange);
 
 		border-color: $flat-color-orange;
-		// margin-top: 2rem;
 		display: inside-block;
 		margin-bottom: 1.5rem;
 
 		&:hover, &:focus {
-			color: $bckgrnd;
+			color: $flat-color-darkBlue;
 		}
 	}
 
@@ -431,7 +441,7 @@ p {
 	.fa-angle-down,
 	.fa-angle-left {
 		color: $flat-color-clouds;
-		background-color: $bckgrnd;
+		background-color: $flat-color-darkBlue;
 		
 		&:hover, &:focus {
 			color: black;
@@ -501,15 +511,12 @@ p {
 	}
 
 	.aboutMeInfos {
-		//padding-top: 5em;
-		// padding-bottom: 5em;
 		padding-bottom: 1em;
 		background-color: $flat-color-orange;
 
 		p {
 			padding-left: 2em;
 			padding-right: 2em;
-			// font-size: 1.5rem;
 		}
 		img {
 			margin-bottom: 2em;
@@ -645,10 +652,8 @@ p {
 		}
 		h2 {
 			font-family: "JaapokkiSubtract", "Sans Serif";
-			// font-size: 2em;
 			font-size: 1.25em;
 			padding-top: 1em;
-			// padding-bottom: 1em;
 			padding-bottom: 0.7em;
 			.fa {
 				margin-right: 0.3em;
@@ -656,7 +661,6 @@ p {
 		}
 		h3 {
 			font-family: "JaapokkiEnchance", "Sans Serif";
-			//font-size: 1.75em;
 			font-size: 1.25em;
 			padding-bottom: 0.5em;
 			color: $flat-color-darkBlue;
@@ -669,12 +673,6 @@ p {
 			background-color: $flat-color-clouds;
 			color: $flat-color-orange;
 			position: relative;
-			// .humanSkillsInner {
-			// 	width: 100%;
-			// 	position: absolute;
-			// 	top: 1em;
-			// 	transform: translateY(50%);
-			// }
 		}
 	}
 
@@ -682,18 +680,17 @@ p {
 		margin: 0 auto 3em auto;
 		font-size: 13px;
 		th {
-			// padding-left: 2em;
-			// padding-right: 2em;
 			padding-right: 0.4em;
 		}
 		td {
 			text-align: center;
-			// padding-top: 1em;
-			// padding-bottom: 1em;
 			padding-top: 0.5em;
 			padding-bottom: 0.5em;
 		}
+	}
 
+	.languages p {
+		white-space: nowrap;
 	}
 
 	@media (min-width: 400px) and (max-width: $medium-breakpoint - 1) {
@@ -752,6 +749,7 @@ p {
 				font-size: 1.5em;
 				padding-bottom: 0.9em;
 			}
+
 		}
 		table {
 			font-size: 17px;
@@ -806,6 +804,10 @@ p {
 
 }
 
+// contact uses flex display to center its content vertically
+// it uses additional padding-top on .pageContent to prevent
+// its content from going under top-bar, though not perfectly
+// could/should be improved if content needs to change
 #contact {
 
 	background-color: $flat-color-turquoise;
@@ -860,7 +862,6 @@ p {
 	}
 
 	p {
-		// margin-top: 2em;
 		font-size: 1.25em;
 		span {
 			display: inline-block;
@@ -910,14 +911,16 @@ p {
 	.fa-angle-left {
 		background-color: transparent;
 		color: $flat-color-clouds;
-		// color: $flat-color-alizarin;
-		// background-color: $flat-color-clouds;
 		
 		&:hover, &:focus {
 			color: black;
 		}
 	}
 }
+
+// ------------------------------------
+// 					BASIC STYLES
+// ------------------------------------
 
 h1 {
 	font-family: "Jaapokki", "Sans Serif";
@@ -930,17 +933,18 @@ h2 {
 
 .button {
 	display: inline-block;
-	// font-size: 1.5rem;
 	font-size: 1rem;
 	padding: 1rem;
 }
 
 p {
-	// font-size: 2rem;
 	font-size: 1rem;
 }
 
-
+// is repeated each page with position absolute
+// to emulate a fixed top-bar 
+// can't use a single top-bar as fixed because
+// custom styling is needed depending on the page
 .top-bar {
 
 	@include top-bar-container;
