@@ -4,8 +4,10 @@
   top: 50%; }
 
 .fa-angle-right {
-  right: 5px;
   padding-left: 9px; }
+  @media (min-width: 640px) {
+    .fa-angle-right {
+      right: 5px; } }
   @media (min-width: 640px) and (max-width: 1023px) {
     .fa-angle-right {
       padding-left: 12px; } }
@@ -14,8 +16,10 @@
       padding-left: 14px; } }
 
 .fa-angle-left {
-  left: 5px;
   padding-left: 6px; }
+  @media (min-width: 640px) {
+    .fa-angle-left {
+      left: 5px; } }
   @media (min-width: 640px) and (max-width: 1023px) {
     .fa-angle-left {
       padding-left: 8px; } }

@@ -33,9 +33,12 @@ $large-breakpoint: 1024px;
 
 .fa-angle-right {
 
-	right: 5px;
 	padding-left: 9px;
 	
+	@media (min-width: $medium-breakpoint) {
+		right: 5px;
+	}
+
 	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 		padding-left: 12px;
 	}
@@ -47,8 +50,11 @@ $large-breakpoint: 1024px;
 
 .fa-angle-left {
 
-	left: 5px;
 	padding-left: 6px;
+
+	@media (min-width: $medium-breakpoint) {
+		left: 5px;
+	}
 
 	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 		padding-left: 8px;

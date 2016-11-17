@@ -180,6 +180,8 @@ $flat-color-emerald: #2ecc71;
 $flat-color-nephritis: #27ae60;
 $flat-color-pomegranate: #c0392b;
 $flat-color-pumpkin: #d35400;
+$flat-color-amethyst: #9b59b6;
+$flat-color-wisteria: #8e44ad;
 
 $flat-color-fuck: #FF5C4A;
 $flat-color-orange: #FF6052;
@@ -209,6 +211,12 @@ $flat-color-sunFlower: #f1c40f;
 $page-background-color: $flat-color-darkBlue;
 $page-color: $flat-color-clouds;
 
+$flat-color-mist: #90AFC5;
+$flat-color-stone: #336B87;
+$flat-color-shadow: #2A3132;
+$flat-color-blueShadow: #2A3139;
+$flat-color-autumnFoliage: #763626;
+
 // each .page contains a window
 // it is set to be exactly 100% height and width in JS
 // careful when changing this
@@ -229,6 +237,7 @@ $page-color: $flat-color-clouds;
 		position: absolute;
 		bottom: 5px;
 	}
+
 
 }
 
@@ -369,7 +378,155 @@ p {
 
 #portfolio {
 
+	.top-bar {
+		background-color: $flat-color-darkBlue;
+		a {
+			color: $flat-color-mist;			
+		}
+		.top-bar-menu li a {
+			&:hover, &:focus {
+				.customBorder {
+					background-color: $flat-color-mist;
+				}	
+			}
+		}
+	}
+
+	.contentWrapper {
+		max-width: 110rem;
+		margin-bottom: 2em;
+	}   
+
+	.fa-angle-up,
+	.fa-angle-right,
+	.fa-angle-down,
+	.fa-angle-left {
+		color: $flat-color-clouds;
+		background-color: $flat-color-stone;
+		
+		&:hover, &:focus {
+			color: $flat-color-shadow;
+		}
+	}
+
+	.projectPreviewContainer {
+		margin-bottom: 2em;
+
+		p {
+			color: $flat-color-mist;
+		}
+	}
+
+	background-color: $flat-color-stone;
+
+	.projectPreviewImage {
+
+		position: relative;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+
+		img {
+			vertical-align: top;
+			width: 100%;
+			min-height: 100%;
+			opacity: 0;
+		}
+
+
+		&:hover, &:focus {
+			p {
+				opacity: 1;
+			}
+		}
+
+		p {
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+
+			opacity: 0;
+		}
+	}
+
+	.spurPreviewImage {
+
+		background-image: url("../images/spur_index_screenshot.jpg");
+
+		&:hover {
+			background-image: 
+				linear-gradient(
+					rgba(42, 49, 57, 0.9),
+					rgba(42, 49, 57, 0.9)
+				),
+				url("../images/spur_index_screenshot.jpg");
+		}
+	}
+
+	.coupdepoucePreviewImage {
+		background-image: url("../images/coupdepouce_index_screenshot.jpg");
+
+		&:hover {
+			background-image: 
+				linear-gradient(
+					rgba(42, 49, 57, 0.9),
+					rgba(42, 49, 57, 0.9)
+				),
+				url("../images/coupdepouce_index_screenshot.jpg");
+		}
+
+		// p {
+		// 	color: $flat-color-mist;
+		// }
+	}
+
+	h1 {
+		font-family: "JaapokkiSubtract", "Sans Serif";
+		color: $flat-color-mist;
+		// margin-bottom: 1em;
+
+		& + hr {
+			width: 2%;
+			border-bottom-color: $flat-color-mist;
+			margin-top: 1.5em;
+			margin-bottom: 0.5em;
+		}
+	}
+
+	.previewImageBtn {
+		@include button-style(transparent, $flat-color-mist, $flat-color-mist);
+
+		border-color: $flat-color-mist;
+		border-width: 3px;
+
+		&:hover, &:focus {
+			color: $flat-color-blueShadow;
+		}
+	}
+
+	h2 {
+		font-family: "Jaapokki", "Sans Serif";
+		color: $flat-color-blueShadow;
+		margin-bottom: 1em;
+		margin-top: 1em;
+
+		@media (min-width: $large-breakpoint) {
+			font-size: 3rem;
+		}
+	}
+}
+
+.project {
+
 	background-color: $flat-color-darkBlue;
+
+	h1,
+	h2,
+	p {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
 
 	.top-bar {
 		a {
@@ -401,16 +558,15 @@ p {
 		}
 	}
 
-	// contains the spur screenshot + spur summary (role, technologies used etc..)
-	.spurIndexScreenshot {
+	// contains the project screenshot + project summary (role, technologies used etc..)
+	.projectSummaryAndImage {
 		img {
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			display: block;
 		}
-		p {
-			white-space: nowrap;
-		}
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.whiteHollowBtn {
@@ -448,9 +604,42 @@ p {
 		}
 	}
 
+	@media (max-width: $small-breakpoint - 1) {
+		h1 {
+			font-size: 1.75rem;
+		}
+		h2 {
+			font-size: 1.25rem;
+		}
+		p {
+			font-size: 0.9rem;
+		}
+	}
+
+	@media (min-width: $medium-breakpoint) {
+		.projectSummaryAndImage {
+			p {
+				white-space: nowrap;
+			}
+			img {
+				width: 80%;
+			}
+		}
+	}
+
+	@media (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+
+	}
+
 	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 		p {
 			font-size: 1.25rem;
+		}
+		h1,
+		h2,
+		p {
+			padding-left: 32px;
+			padding-right: 32px;
 		}
 	}
 
@@ -469,11 +658,17 @@ p {
 			font-size: 1.5rem;
 			padding-left: 4rem;
 		}
+		h1,
+		h2 {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
 	}
 
 }
 
-#spurDetails {
+// #spurDetails {
+.projectDetails {
 	.pageContent {
 		text-align: center;
 	}
@@ -722,6 +917,11 @@ p {
 				font-size: 1.5em;
 				padding-bottom: 0.7em;
 			}
+			.formations {
+				p {
+					font-size: 1.25em;
+				}
+			}
 		}
 		table {
 			font-size: 16px;
@@ -945,6 +1145,7 @@ p {
 // to emulate a fixed top-bar 
 // can't use a single top-bar as fixed because
 // custom styling is needed depending on the page
+
 .top-bar {
 
 	@include top-bar-container;
@@ -954,8 +1155,9 @@ p {
 
 	width: 100%;
 	margin: 0;
-	padding-top: 1rem;
-	padding-bottom: 0;
+	// padding-top: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.25rem;
 
 	z-index: 1;
 
@@ -969,7 +1171,8 @@ p {
 	}
 
 	.top-bar-right {
-		font-size: 1rem;
+		// padding-top: 1rem;
+		font-size: 0.8rem;
 	}
 
 	.top-bar-menu {
@@ -1025,6 +1228,11 @@ p {
 			li {
 				display: inline-block;
 			}
+		}
+	}
+	@media (min-width: $medium-breakpoint) {
+		.top-bar-right {
+			padding-top: 1rem;
 		}
 	}
 	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
@@ -1092,6 +1300,11 @@ p {
 	color: $flat-color-darkBlue;
 }
 
+// default behavior is for non touch devices
+// so the content for touch devices is hidden by default
+.show-for-touchscreen {
+	display: none;
+}
 
 @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 	h1,

@@ -10,7 +10,16 @@ $(function(){
 	var viewport = getViewport();
 	var currViewport;
 
+	var nbOfPagesHorizontally = $(".content > .row > .columns").length;
+
 	var scrollBarWidth = getScrollBarWidth();
+
+
+	// hide or show content depending on whether the device has a touch functionality
+	if(isTouchDevice()){
+		showTouchscreenContent();
+		hideNonTouchscreenContent();
+	}
 
 
 	$(window).on("resize", function(e){
@@ -18,10 +27,11 @@ $(function(){
 		if(currViewport.width < 1440) {
 			$(".humanSkills").css("padding-top", 0);
 		}
-		resizePages(currViewport);
+		resizePages(currViewport, nbOfPagesHorizontally);
 		resizeTopBarWidth(scrollBarWidth);
 	});
 
+	// because of the weird behavior of ios devices on the scrollbar
 	if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
 		$(".top-bar").css({right: 0, width: "100%"});
 	}
@@ -68,6 +78,7 @@ $(function(){
 
 	});
 
+	// disable default touchmove
 	$(document).on('touchmove', function(e) {
 		e.preventDefault();
 	});
@@ -100,6 +111,7 @@ $(function(){
 		goToPreviousPageVertical($(this));
 	});
 
+	// links that switch the user from a page to another without scrolling
 	$(".top-bar a, .anchor").on("click", function(e){
 
 		e.preventDefault();
@@ -161,7 +173,7 @@ $(function(){
 		}
 	});
 
-	var topBarHeight = 86;
+	var topBarHeight = 82;
 
 	$("#aboutMeSkills .pageContent").scroll(function(e) {
 
@@ -193,7 +205,7 @@ $(window).on("load", function(){
 
 	$(".pageLoadedPanel").css("display", "block");
 	
-	resizePages(getViewport());
+	resizePages(getViewport(), $(".content > .row > .columns").length);
 	resizeTopBarWidth(getScrollBarWidth());
 
 	$(".pageLoadingPanel").fadeOut(500, function() {
@@ -210,12 +222,12 @@ $(window).on("load", function(){
 
 
 
-function resizePages(viewport) {
+function resizePages(viewport, nbOfPagesHorizontally) {
 
 
 	if(viewport) {
 
-		$("html, body").css("min-width", viewport.width * 4);
+		$("html, body").css("min-width", viewport.width * nbOfPagesHorizontally);
 
 		$(".page").each(function(){
 
@@ -398,6 +410,16 @@ function resizeTopBarWidth(scrollBarWidth) {
 	
 }
 
+// hides elements with .hide-for-touchsreen class
+function hideNonTouchscreenContent() {
+	$(".hide-for-touchscreen").hide();
+}
+
+// shows elements with .show-for-touchscreen class
+function showTouchscreenContent() {
+	$(".show-for-touchscreen").show();
+}
+
 // clever way to get the scroll bar width found on SO
 // the scroll bar width is needed to make sure there is no gap
 // between the scroll-bar and the top-bar
@@ -406,5 +428,12 @@ function getScrollBarWidth () {
         widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
     $outer.remove();
     return 100 - widthWithScroll;
-};
+}
+
+// this is no general support for this at the moment
+// this function will work for 99% cases
+function isTouchDevice() {
+  return 'ontouchstart' in window        // works on most browsers 
+      || navigator.maxTouchPoints;       // works on IE10/11 and Surface
+}
 
