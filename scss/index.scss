@@ -878,6 +878,10 @@ p {
           color: $flat-color-alizarin;
         }
       }
+      .infoOC {
+        font-size: 0.8rem;
+        font-style: italic;
+      }
     }
 	}
 
@@ -930,6 +934,9 @@ p {
 			.formations {
 				p {
 					font-size: 1.25em;
+          .infoOC {
+            font-size: 1rem;
+          }
 				}
 			}
 		}
@@ -959,7 +966,13 @@ p {
 				font-size: 1.5em;
 				padding-bottom: 0.9em;
 			}
-
+      .formations {
+        p {
+          .infoOC {
+            font-size: 1.25rem;
+          }
+        }
+      }
 		}
 		table {
 			font-size: 17px;
@@ -986,6 +999,13 @@ p {
 				font-size: 1.75em;
 				padding-bottom: 1em;
 			}
+      .formations {
+        p {
+          .infoOC {
+            font-size: 1.25rem;
+          }
+        }
+      }
 		}
 		table {
 			font-size: 19px;
