@@ -869,6 +869,16 @@ p {
 			color: $flat-color-orange;
 			position: relative;
 		}
+    .formations {
+      hr {
+        max-width: 1%;
+      }
+      a.orangeText {
+        &:hover {
+          color: $flat-color-alizarin;
+        }
+      }
+    }
 	}
 
 	table {
@@ -1295,6 +1305,8 @@ p {
 .orangeText {
 	color: $flat-color-orange;
 }
+
+
 
 .darkBlueText {
 	color: $flat-color-darkBlue;

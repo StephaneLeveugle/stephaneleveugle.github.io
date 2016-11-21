@@ -2772,6 +2772,12 @@ p {
   color: #FF6052;
   position: relative; }
 
+#aboutMeSkills .pageContent .formations hr {
+  max-width: 1%; }
+
+#aboutMeSkills .pageContent .formations a.orangeText:hover {
+  color: #e74c3c; }
+
 #aboutMeSkills table {
   margin: 0 auto 3em auto;
   font-size: 13px; }
