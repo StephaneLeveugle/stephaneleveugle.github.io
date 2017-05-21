@@ -450,6 +450,20 @@ p {
 		}
 	}
 
+	.cleevenPreviewImage {
+
+		background-image: url("../images/cleeven_homepage_screenshot.jpg");
+
+		&:hover {
+			background-image: 
+				linear-gradient(
+					rgba(42, 49, 57, 0.95),
+					rgba(42, 49, 57, 0.95)
+				),
+				url("../images/cleeven_homepage_screenshot.jpg");
+		}
+	}
+
 	.spurPreviewImage {
 
 		background-image: url("../images/spur_index_screenshot.jpg");
@@ -513,6 +527,48 @@ p {
 
 		@media (min-width: $large-breakpoint) {
 			font-size: 3rem;
+		}
+	}
+}
+
+#cleeven {
+	
+	.myAchievementsMenu {
+		margin: 0 15%;
+		font-size: 1rem;
+		list-style-type: none;
+	}
+	.whiteText {
+		color: $flat-color-clouds;
+	}
+
+	.cleevenSummary {
+		margin: 0 5%;
+	}
+
+	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+		.myAchievementsMenu {
+			font-size: 1.25rem;
+			ul {
+				font-size: 1.15rem;
+			}
+		}
+		
+	}
+
+	@media (min-width: $large-breakpoint) {
+		.myAchievementsMenu {
+			font-size: 1.5rem;
+			margin-bottom: 2rem;
+			ul {
+				font-size: 1.25rem;
+			}
+			.orangeText {
+				margin-top: 1.5rem;
+			}
+		}
+		.cleevenSummary {
+			margin: 1rem 15%;
 		}
 	}
 }
@@ -1317,6 +1373,10 @@ p {
 	color: $flat-color-darkBlue;
 }
 
+.whiteText {
+	color: $flat-color-clouds;
+}
+
 .orangeBackground {
 	background-color: $flat-color-orange;
 	color: $flat-color-darkBlue;
@@ -1325,8 +1385,6 @@ p {
 .orangeText {
 	color: $flat-color-orange;
 }
-
-
 
 .darkBlueText {
 	color: $flat-color-darkBlue;

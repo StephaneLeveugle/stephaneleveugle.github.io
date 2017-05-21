@@ -1,6 +1,8 @@
 "use strict";
 $(function(){
 
+	$(document).foundation();
+
 	var touchStartX = 0;
 	var touchStartY = 0;
 	var touchMoveDiffY = 0;
