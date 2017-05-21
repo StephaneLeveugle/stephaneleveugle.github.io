@@ -21,6 +21,8 @@ $(function(){
 	if(isTouchDevice()){
 		showTouchscreenContent();
 		hideNonTouchscreenContent();
+	} else {
+		enableHoverOnPreviewImages();
 	}
 
 
@@ -420,6 +422,12 @@ function hideNonTouchscreenContent() {
 // shows elements with .show-for-touchscreen class
 function showTouchscreenContent() {
 	$(".show-for-touchscreen").show();
+}
+
+// disables hover on preview images in portfolio page
+// in case of touchscreen device
+function enableHoverOnPreviewImages() {
+	$(".projectPreviewImage").addClass("needsHoverBehavior");
 }
 
 // clever way to get the scroll bar width found on SO

@@ -2485,16 +2485,16 @@ p {
       opacity: 0; }
   #portfolio .cleevenPreviewImage {
     background-image: url("../images/cleeven_homepage_screenshot.jpg"); }
-    #portfolio .cleevenPreviewImage:hover {
-      background-image: linear-gradient(rgba(42, 49, 57, 0.95), rgba(42, 49, 57, 0.95)), url("../images/cleeven_homepage_screenshot.jpg"); }
+  #portfolio .cleevenPreviewImage.needsHoverBehavior:hover {
+    background-image: linear-gradient(rgba(42, 49, 57, 0.95), rgba(42, 49, 57, 0.95)), url("../images/cleeven_homepage_screenshot.jpg"); }
   #portfolio .spurPreviewImage {
     background-image: url("../images/spur_index_screenshot.jpg"); }
-    #portfolio .spurPreviewImage:hover {
-      background-image: linear-gradient(rgba(42, 49, 57, 0.9), rgba(42, 49, 57, 0.9)), url("../images/spur_index_screenshot.jpg"); }
+  #portfolio .spurPreviewImage.needsHoverBehavior:hover {
+    background-image: linear-gradient(rgba(42, 49, 57, 0.9), rgba(42, 49, 57, 0.9)), url("../images/spur_index_screenshot.jpg"); }
   #portfolio .coupdepoucePreviewImage {
     background-image: url("../images/coupdepouce_index_screenshot.jpg"); }
-    #portfolio .coupdepoucePreviewImage:hover {
-      background-image: linear-gradient(rgba(42, 49, 57, 0.9), rgba(42, 49, 57, 0.9)), url("../images/coupdepouce_index_screenshot.jpg"); }
+  #portfolio .coupdepoucePreviewImage.needsHoverBehavior:hover {
+    background-image: linear-gradient(rgba(42, 49, 57, 0.9), rgba(42, 49, 57, 0.9)), url("../images/coupdepouce_index_screenshot.jpg"); }
   #portfolio h1 {
     font-family: "JaapokkiSubtract", "Sans Serif";
     color: #90AFC5; }

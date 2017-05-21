@@ -451,9 +451,10 @@ p {
 	}
 
 	.cleevenPreviewImage {
-
 		background-image: url("../images/cleeven_homepage_screenshot.jpg");
+	}
 
+	.cleevenPreviewImage.needsHoverBehavior {
 		&:hover {
 			background-image: 
 				linear-gradient(
@@ -465,9 +466,10 @@ p {
 	}
 
 	.spurPreviewImage {
-
 		background-image: url("../images/spur_index_screenshot.jpg");
-
+	}
+	
+	.spurPreviewImage.needsHoverBehavior {
 		&:hover {
 			background-image: 
 				linear-gradient(
@@ -480,7 +482,9 @@ p {
 
 	.coupdepoucePreviewImage {
 		background-image: url("../images/coupdepouce_index_screenshot.jpg");
+	}
 
+	.coupdepoucePreviewImage.needsHoverBehavior {
 		&:hover {
 			background-image: 
 				linear-gradient(
@@ -489,10 +493,6 @@ p {
 				),
 				url("../images/coupdepouce_index_screenshot.jpg");
 		}
-
-		// p {
-		// 	color: $flat-color-mist;
-		// }
 	}
 
 	h1 {
