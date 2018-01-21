@@ -546,6 +546,23 @@ p {
 		margin: 0 5%;
 	}
 
+	hr {
+		width: 5%;
+	}
+
+	h3 {
+		font-size: 0.95rem;
+		span {
+			font-weight: bold;
+		}
+	}
+
+	@media (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+		h3 {
+			font-size: 1.1rem;
+		}
+	}
+
 	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 		.myAchievementsMenu {
 			font-size: 1.25rem;
@@ -553,7 +570,9 @@ p {
 				font-size: 1.15rem;
 			}
 		}
-		
+		h3 {
+			font-size: 1.4rem;
+		}
 	}
 
 	@media (min-width: $large-breakpoint) {
@@ -568,7 +587,10 @@ p {
 			}
 		}
 		.cleevenSummary {
-			margin: 1rem 15%;
+			margin: 2rem 15%;
+		}
+		h3 {
+			font-size: 2rem;
 		}
 	}
 }

@@ -2533,11 +2533,25 @@ p {
 #cleeven .cleevenSummary {
   margin: 0 5%; }
 
+#cleeven hr {
+  width: 5%; }
+
+#cleeven h3 {
+  font-size: 0.95rem; }
+  #cleeven h3 span {
+    font-weight: bold; }
+
+@media (min-width: 350px) and (max-width: 639px) {
+  #cleeven h3 {
+    font-size: 1.1rem; } }
+
 @media (min-width: 640px) and (max-width: 1023px) {
   #cleeven .myAchievementsMenu {
     font-size: 1.25rem; }
     #cleeven .myAchievementsMenu ul {
-      font-size: 1.15rem; } }
+      font-size: 1.15rem; }
+  #cleeven h3 {
+    font-size: 1.4rem; } }
 
 @media (min-width: 1024px) {
   #cleeven .myAchievementsMenu {
@@ -2548,7 +2562,9 @@ p {
     #cleeven .myAchievementsMenu .orangeText {
       margin-top: 1.5rem; }
   #cleeven .cleevenSummary {
-    margin: 1rem 15%; } }
+    margin: 2rem 15%; }
+  #cleeven h3 {
+    font-size: 2rem; } }
 
 .project {
   background-color: #1c202b; }
