@@ -21,10 +21,7 @@ $(function(){
 	if(isTouchDevice()){
 		showTouchscreenContent();
 		hideNonTouchscreenContent();
-	} else {
-		enableHoverOnPreviewImages();
 	}
-
 
 	$(window).on("resize", function(e){
 		currViewport = getViewport();
@@ -59,8 +56,6 @@ $(function(){
 			touchMoveDiffY = touchStartY - e.originalEvent.touches[0].pageY;
 
 			var $pageContent = $(this).find(".pageContent");
-
-			// console.log(touchMoveDiffY);
 
 		  	if(Math.abs(touchMoveDiffX)
 		    		> Math.abs(touchMoveDiffY)) {
@@ -422,12 +417,6 @@ function hideNonTouchscreenContent() {
 // shows elements with .show-for-touchscreen class
 function showTouchscreenContent() {
 	$(".show-for-touchscreen").show();
-}
-
-// disables hover on preview images in portfolio page
-// in case of touchscreen device
-function enableHoverOnPreviewImages() {
-	$(".projectPreviewImage").addClass("needsHoverBehavior");
 }
 
 // clever way to get the scroll bar width found on SO

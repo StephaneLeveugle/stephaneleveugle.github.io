@@ -433,13 +433,6 @@ p {
 			opacity: 0;
 		}
 
-
-		&:hover, &:focus {
-			p {
-				opacity: 1;
-			}
-		}
-
 		p {
 			position: absolute;
 			width: 100%;
@@ -454,45 +447,8 @@ p {
 		background-image: url("../images/cleeven_homepage_screenshot.jpg");
 	}
 
-	.cleevenPreviewImage.needsHoverBehavior {
-		&:hover {
-			background-image: 
-				linear-gradient(
-					rgba(42, 49, 57, 0.95),
-					rgba(42, 49, 57, 0.95)
-				),
-				url("../images/cleeven_homepage_screenshot.jpg");
-		}
-	}
-
 	.spurPreviewImage {
 		background-image: url("../images/spur_index_screenshot.jpg");
-	}
-	
-	.spurPreviewImage.needsHoverBehavior {
-		&:hover {
-			background-image: 
-				linear-gradient(
-					rgba(42, 49, 57, 0.9),
-					rgba(42, 49, 57, 0.9)
-				),
-				url("../images/spur_index_screenshot.jpg");
-		}
-	}
-
-	.coupdepoucePreviewImage {
-		background-image: url("../images/coupdepouce_index_screenshot.jpg");
-	}
-
-	.coupdepoucePreviewImage.needsHoverBehavior {
-		&:hover {
-			background-image: 
-				linear-gradient(
-					rgba(42, 49, 57, 0.9),
-					rgba(42, 49, 57, 0.9)
-				),
-				url("../images/coupdepouce_index_screenshot.jpg");
-		}
 	}
 
 	h1 {
@@ -885,7 +841,12 @@ p {
 			padding-bottom: 5em;
 			img {
 				margin-bottom: 0;
-				margin-left: 5em;
+			}
+			#aboutMeInfosTextContainer {
+				margin-left: 10%;
+			}
+			#aboutMeInfosImageContainer {
+				margin-right: 5%;
 			}
 			#seeMySkillsBtn {
 				margin-top: 2em;
@@ -1120,10 +1081,8 @@ p {
 
 	background-color: $flat-color-turquoise;
 
-	.pageContent {
-
-		padding-top: 120px;
-
+	.pageContent > .row {
+		min-height: 100%;
 	}
 	
 	.top-bar {
@@ -1181,17 +1140,11 @@ p {
 		h1, p {
 			font-size: 1.5em;
 		}
-		.pageContent {
-			padding-top: 150px;
-		}
 	}
 
 	@media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
 		h1, p {
 			font-size: 1.75em;
-		}
-		.pageContent {
-			padding-top: 200px;
 		}
 	}
 
@@ -1199,17 +1152,11 @@ p {
 		h1, p {
 			font-size: 2em;
 		}
-		.pageContent {
-			padding-top: 200px;
-		}
 	}
 
 	@media(min-width: $xxlarge-breakpoint) {
 		h1, p {
 			font-size: 2.5em;
-		}
-		.pageContent {
-			padding-top: 170px;
 		}
 	}
 
