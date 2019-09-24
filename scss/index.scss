@@ -768,6 +768,9 @@ p {
         .humanSkills {
             background-color: $flat-color-orange;
             color: $flat-color-clouds;
+            p {
+                margin: 0 1em;
+            }
         }
         .technicalSkills {
             background-color: $flat-color-clouds;
@@ -775,14 +778,14 @@ p {
             position: relative;
         }
         .formations {
-          hr {
-            max-width: 1%;
-          }
-          a.orangeText {
-            &:hover {
-              color: $flat-color-alizarin;
+            hr {
+                max-width: 1%;
             }
-          }
+            a.orangeText {
+                &:hover {
+                    color: $flat-color-alizarin;
+                }
+            }
         }
     }
 
@@ -806,8 +809,12 @@ p {
     .humanSkills,
     .technicalSkills,
     .formations {
-        padding: 0 2rem;
+        h2, p {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
     }
+
 
     @media (min-width: 400px) and (max-width: $medium-breakpoint - 1) {
 
@@ -828,16 +835,25 @@ p {
             }
         }
     }
+    
+    @media (min-width: $medium-breakpoint) {
+        .pageContent {
+            .humanSkills {
+                p {
+                    margin-left: 2em;
+                    margin-right: 2em;
+                }
+            }
+        }    
+    }
 
     @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
         .pageContent {
             h2 {
                 font-size: 1.75em;
-                padding-bottom: 1em;
             }
             h3 {
                 font-size: 1.5em;
-                padding-bottom: 0.7em;
             }
             .formations {
                 p {
@@ -865,11 +881,9 @@ p {
             }
             h2 {
                 font-size: 1.75em;
-                padding-bottom: 1em;
             }
             h3 {
                 font-size: 1.5em;
-                padding-bottom: 0.9em;
             }
         }
         table {
@@ -886,16 +900,20 @@ p {
 
     @media (min-width: $xxlarge-breakpoint) {
         .pageContent {
+            .humanSkills {
+                p {
+                    margin-left: 4em;
+                    margin-right: 4em;
+                }
+            }
             p {
                 font-size: 1.5em;
             }
             h2 {
                 font-size: 2em;
-                padding-bottom: 1em;
             }
             h3 {
                 font-size: 1.75em;
-                padding-bottom: 1em;
             }
         }
         table {

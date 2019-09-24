@@ -2702,6 +2702,8 @@ p {
 #aboutMe .pageContent .humanSkills {
   background-color: #FF6052;
   color: #ecf0f1; }
+  #aboutMe .pageContent .humanSkills p {
+    margin: 0 1em; }
 
 #aboutMe .pageContent .technicalSkills {
   background-color: #ecf0f1;
@@ -2727,10 +2729,13 @@ p {
 #aboutMe .languages p {
   white-space: nowrap; }
 
-#aboutMe .humanSkills,
-#aboutMe .technicalSkills,
-#aboutMe .formations {
-  padding: 0 2rem; }
+#aboutMe .humanSkills h2, #aboutMe .humanSkills p,
+#aboutMe .technicalSkills h2,
+#aboutMe .technicalSkills p,
+#aboutMe .formations h2,
+#aboutMe .formations p {
+  padding-left: 2rem;
+  padding-right: 2rem; }
 
 @media (min-width: 400px) and (max-width: 639px) {
   #aboutMe .pageContent h2 {
@@ -2744,13 +2749,16 @@ p {
       padding-top: 0.5em;
       padding-bottom: 0.5em; } }
 
+@media (min-width: 640px) {
+  #aboutMe .pageContent .humanSkills p {
+    margin-left: 2em;
+    margin-right: 2em; } }
+
 @media (min-width: 640px) and (max-width: 1023px) {
   #aboutMe .pageContent h2 {
-    font-size: 1.75em;
-    padding-bottom: 1em; }
+    font-size: 1.75em; }
   #aboutMe .pageContent h3 {
-    font-size: 1.5em;
-    padding-bottom: 0.7em; }
+    font-size: 1.5em; }
   #aboutMe .pageContent .formations p {
     font-size: 1.25em; }
   #aboutMe table {
@@ -2766,11 +2774,9 @@ p {
   #aboutMe .pageContent p {
     font-size: 1.5em; }
   #aboutMe .pageContent h2 {
-    font-size: 1.75em;
-    padding-bottom: 1em; }
+    font-size: 1.75em; }
   #aboutMe .pageContent h3 {
-    font-size: 1.5em;
-    padding-bottom: 0.9em; }
+    font-size: 1.5em; }
   #aboutMe table {
     font-size: 17px; }
     #aboutMe table th {
@@ -2780,14 +2786,15 @@ p {
       padding-bottom: 0.7em; } }
 
 @media (min-width: 1440px) {
+  #aboutMe .pageContent .humanSkills p {
+    margin-left: 4em;
+    margin-right: 4em; }
   #aboutMe .pageContent p {
     font-size: 1.5em; }
   #aboutMe .pageContent h2 {
-    font-size: 2em;
-    padding-bottom: 1em; }
+    font-size: 2em; }
   #aboutMe .pageContent h3 {
-    font-size: 1.75em;
-    padding-bottom: 1em; }
+    font-size: 1.75em; }
   #aboutMe table {
     font-size: 19px; }
     #aboutMe table th {
