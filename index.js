@@ -26,7 +26,7 @@ $(function(){
 	$(window).on("resize", function(e){
 		currViewport = getViewport();
 		if(currViewport.width < 1440) {
-			$(".humanSkills").css("padding-top", 0);
+			$(".technicalSkills").css("padding-top", 0);
 		}
 		resizePages(currViewport, nbOfPagesHorizontally);
 		resizeTopBarWidth(scrollBarWidth);
@@ -174,18 +174,18 @@ $(function(){
 
 	var topBarHeight = 82;
 
-	$("#aboutMeSkills .pageContent").scroll(function(e) {
+	$("#aboutMe .pageContent").scroll(function(e) {
 
 		if(getViewport().width >= 1024) {
-			var $el = $(".humanSkills");
+			var $el = $(".technicalSkills");
 			var padding = 0;
 
 			// check we're low enough to need the scroll
-			if($el.offset().top - $(".page").height() - topBarHeight < 0) {
+			if($el.offset().top - topBarHeight < 0) {
 				// check there is still space below
 				padding = Math.min(
-						$el.prop("scrollHeight") - $(".humanSkillsInner").height() - 20,
-						Math.abs($el.offset().top - $(".page").height() - topBarHeight)
+						$el.prop("scrollHeight") - $(".technicalSkillsInner").height() - 20,
+						Math.abs($el.offset().top - topBarHeight)
 					);
 
 				$el.css("padding-top", padding);
@@ -193,9 +193,7 @@ $(function(){
 			} else {
 				$el.css("padding-top", 0);
 			}	
-		} 
-
-
+		}
 	});
 
 });
@@ -213,9 +211,6 @@ $(window).on("load", function(){
 		$(".pageLoadedPanel").fadeIn(500);
 		setInitialActivePage();
 	});
-
-
-
 
 });
 

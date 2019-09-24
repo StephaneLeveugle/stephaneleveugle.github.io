@@ -54,28 +54,28 @@
 // @import "chartist";
 
 html, body {
-	height: auto;
-	overflow: hidden;
+    height: auto;
+    overflow: hidden;
 }
 
 .content{
-	height: 100%;
-	min-height: 100%;
+    height: 100%;
+    min-height: 100%;
 }
 
 .row.expanded > .columns {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .row-center {
-	@include flex-grid-row() {
+    @include flex-grid-row() {
 
-	}
+    }
 }
 
 ::-webkit-scrollbar {
-	z-index: 2;
+    z-index: 2;
   -webkit-appearance: none;
 }
 
@@ -101,22 +101,22 @@ html, body {
 
 // the panel visible before the page has fully loaded
 .pageLoadingPanel {
-	background-color: #222;
-	min-height: 100vh;
-	margin-top: 0;
-	width: 100vw;
-	max-width: 100%;
-	position: relative;
+    background-color: #222;
+    min-height: 100vh;
+    margin-top: 0;
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
 
-	p {
-		color: #FFF;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-ms-transform: translate(-50%, -50%); /*IE 9*/
-		-webkit-transform: translate(-50%, -50%); /*Safari*/
-		transform: translate(-50%, -50%);
-	}
+    p {
+        color: #FFF;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%); /*IE 9*/
+        -webkit-transform: translate(-50%, -50%); /*Safari*/
+        transform: translate(-50%, -50%);
+    }
 }
 
 .one {
@@ -222,21 +222,21 @@ $flat-color-autumnFoliage: #763626;
 // careful when changing this
 .page {
 
-	position: relative;
-	background-color: $page-background-color;
-	color: $page-color;
+    position: relative;
+    background-color: $page-background-color;
+    color: $page-color;
 
-	.seeMore.arrow,
-	.seeLess.arrow {
-		padding-left: 0;
-		display: block;
-		width: 100%;
-	}
+    .seeMore.arrow,
+    .seeLess.arrow {
+        padding-left: 0;
+        display: block;
+        width: 100%;
+    }
 
-	.seeMore.arrow {
-		position: absolute;
-		bottom: 5px;
-	}
+    .seeMore.arrow {
+        position: absolute;
+        bottom: 5px;
+    }
 
 
 }
@@ -244,832 +244,684 @@ $flat-color-autumnFoliage: #763626;
 // can exceed the height of page
 .pageContent {
 
-	// because of the top-bar which is in position absolute
-	padding-top: 100px;
+    // because of the top-bar which is in position absolute
+    padding-top: 100px;
 
-	position: relative;
-	overflow-y: auto;
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 // class added when a pageContent height
 // is greater than the page height
 .scrollable {
-	
-	.seeMore.arrow,
-	.seeLess.arrow {
-		padding-left: 12px;
-	}
+    
+    .seeMore.arrow,
+    .seeLess.arrow {
+        padding-left: 12px;
+    }
 
-	.seeMore.arrow {
-		margin-top: 2rem;
-		position: static;
-		display: block;
-		width: 100%;
-	}
+    .seeMore.arrow {
+        margin-top: 2rem;
+        position: static;
+        display: block;
+        width: 100%;
+    }
 
-	// to account for the scroll bar width
-	.fa-angle-right {
-		right: 12px;
-	}
+    // to account for the scroll bar width
+    .fa-angle-right {
+        right: 12px;
+    }
+
+    @media (min-width: $large-breakpoint) {
+        .fa-angle-right {
+            right: 17px;
+        }
+    }
 
 }
 
 body {
-	font-family: "Jaapokki", "Sans Serif";
+    font-family: "Jaapokki", "Sans Serif";
 }
 
 h1,
 h2,
 p {
-	padding-left: 5%;
-	padding-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
 
 }
 
 // -----------------------------
-// 			EACH PAGE STYLING
+//          EACH PAGE STYLING
 // -----------------------------
 
 // the landing page 
 #home {
 
-	// because in this page only, the top-bar isn't absolute
-	.pageContent {
-		padding-top: 0;
-	}
+    // because in this page only, the top-bar isn't absolute
+    .pageContent {
+        padding-top: 0;
+    }
 
-	.top-bar {
-		position: static;
-	}
+    .top-bar {
+        position: static;
+    }
 
-	h1 {
-		margin-bottom: 0;
-		padding-top: 2rem;
-		padding-bottom: 5rem;
-	}
+    h1 {
+        margin-bottom: 0;
+        padding-top: 2rem;
+        padding-bottom: 5rem;
+    }
 
-	// contains top-bar + h1
-	#homeHeader {
-		background-position: center center;
-		background-size: cover;
-		background-repeat: no-repeat;
+    // contains top-bar + h1
+    #homeHeader {
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
 
-		background-image: 
-		   -webkit-linear-gradient(
-				rgba(0, 0, 0, 0.8),
-				rgba(0, 0, 0, 0.8)
-			),
-			url("../images/backlit_keyboard_good.jpg");	
+        background-image: 
+           -webkit-linear-gradient(
+                rgba(0, 0, 0, 0.8),
+                rgba(0, 0, 0, 0.8)
+            ),
+            url("../images/backlit_keyboard_good.jpg"); 
 
-		background-image: 
-		   -o-linear-gradient(
-				rgba(0, 0, 0, 0.8),
-				rgba(0, 0, 0, 0.8)
-			),
-			url("../images/backlit_keyboard_good.jpg");	
+        background-image: 
+           -o-linear-gradient(
+                rgba(0, 0, 0, 0.8),
+                rgba(0, 0, 0, 0.8)
+            ),
+            url("../images/backlit_keyboard_good.jpg"); 
 
-		background-image: 
-		   linear-gradient(
-				rgba(0, 0, 0, 0.8),
-				rgba(0, 0, 0, 0.8)
-			),
-			url("../images/backlit_keyboard_good.jpg");	
-	}
+        background-image: 
+           linear-gradient(
+                rgba(0, 0, 0, 0.8),
+                rgba(0, 0, 0, 0.8)
+            ),
+            url("../images/backlit_keyboard_good.jpg"); 
+    }
 
-	// white panel that's in the middle 
-	.basicInfoContainer {
-		margin-bottom: 2rem;
-		padding: 3rem 3rem;
-		background-color: $flat-color-clouds;
-		color: $flat-color-darkBlue;
-	}
+    // white panel that's in the middle 
+    .basicInfoContainer { 
+        padding: 3rem 3rem;
+        background-color: $flat-color-clouds;
+        color: $flat-color-darkBlue;
+    }
 
-	.button {
-		margin-top: 2rem;
-	}
-	
-	.homeFooter {
-		padding: 1rem 0;
-	}
-
-
-	#contactMeBtn {
-		@include button-style(transparent, $flat-color-clouds, $flat-color-clouds);
-
-		border-color: $flat-color-clouds;
+    .button {
+        margin-top: 2rem;
+    }
+    
+    .homeFooter {
+        padding: 1rem 0;
+    }
 
 
-		&:hover, &:focus {
-			background-color: $flat-color-clouds;
-			border-color: $flat-color-darkBlue;
-			color: $flat-color-darkBlue;
-		}
-	}
+    #contactMeBtn {
+        @include button-style(transparent, $flat-color-clouds, $flat-color-clouds);
 
-	@media (min-width: $large-breakpoint) {
-		.homeFooter {
-			padding-top: 3rem;
-		}
-	}
+        border-color: $flat-color-clouds;
+
+        margin: 3rem 0;
+
+        &:hover, &:focus {
+            background-color: $flat-color-clouds;
+            border-color: $flat-color-darkBlue;
+            color: $flat-color-darkBlue;
+        }
+    }
+
+    @media (min-width: $large-breakpoint) {
+        .homeFooter {
+            padding-top: 3rem;
+        }
+    }
 
 }
 
 #portfolio {
 
-	.top-bar {
-		background-color: $flat-color-darkBlue;
-		a {
-			color: $flat-color-mist;			
-		}
-		.top-bar-menu li a {
-			&:hover, &:focus {
-				.customBorder {
-					background-color: $flat-color-mist;
-				}	
-			}
-		}
-	}
+    .top-bar {
+        background-color: $flat-color-darkBlue;
+        a {
+            color: $flat-color-mist;            
+        }
+        .top-bar-menu li a {
+            &:hover, &:focus {
+                .customBorder {
+                    background-color: $flat-color-mist;
+                }   
+            }
+        }
+    }
 
-	.contentWrapper {
-		max-width: 110rem;
-		margin-bottom: 2em;
-	}   
+    .contentWrapper {
+        max-width: 110rem;
+        margin-bottom: 2em;
+    }   
 
-	.fa-angle-up,
-	.fa-angle-right,
-	.fa-angle-down,
-	.fa-angle-left {
-		color: $flat-color-clouds;
-		background-color: $flat-color-stone;
-		
-		&:hover, &:focus {
-			color: $flat-color-shadow;
-		}
-	}
+    .fa-angle-up,
+    .fa-angle-right,
+    .fa-angle-down,
+    .fa-angle-left {
+        color: $flat-color-clouds;
+        background-color: $flat-color-stone;
+        
+        &:hover, &:focus {
+            color: $flat-color-shadow;
+        }
+    }
 
-	.projectPreviewContainer {
-		margin-bottom: 2em;
+    .projectPreviewContainer {
+        margin-bottom: 2em;
 
-		p {
-			color: $flat-color-mist;
-		}
-	}
+        p {
+            color: $flat-color-mist;
+        }
+    }
 
-	background-color: $flat-color-stone;
+    background-color: $flat-color-stone;
 
-	.projectPreviewImage {
+    .projectPreviewImage {
 
-		position: relative;
-		width: 100%;
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
+        position: relative;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 
-		img {
-			vertical-align: top;
-			width: 100%;
-			min-height: 100%;
-			opacity: 0;
-		}
+        img {
+            vertical-align: top;
+            width: 100%;
+            min-height: 100%;
+            opacity: 0;
+        }
 
-		p {
-			position: absolute;
-			width: 100%;
-			top: 50%;
-			transform: translateY(-50%);
+        p {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
 
-			opacity: 0;
-		}
-	}
+            opacity: 0;
+        }
+    }
 
-	.cleevenPreviewImage {
-		background-image: url("../images/cleeven_homepage_screenshot.jpg");
-	}
+    .cleevenPreviewImage {
+        background-image: url("../images/cleeven_homepage_screenshot.jpg");
+    }
 
-	.spurPreviewImage {
-		background-image: url("../images/spur_index_screenshot.jpg");
-	}
+    .spurPreviewImage {
+        background-image: url("../images/spur_index_screenshot.jpg");
+    }
 
-	h1 {
-		font-family: "JaapokkiSubtract", "Sans Serif";
-		color: $flat-color-mist;
-		// margin-bottom: 1em;
+    h1 {
+        font-family: "JaapokkiSubtract", "Sans Serif";
+        color: $flat-color-mist;
+        // margin-bottom: 1em;
 
-		& + hr {
-			width: 2%;
-			border-bottom-color: $flat-color-mist;
-			margin-top: 1.5em;
-			margin-bottom: 0.5em;
-		}
-	}
+        & + hr {
+            width: 2%;
+            border-bottom-color: $flat-color-mist;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+    }
 
-	.previewImageBtn {
-		@include button-style(transparent, $flat-color-mist, $flat-color-mist);
+    .previewImageBtn {
+        @include button-style(transparent, $flat-color-mist, $flat-color-mist);
 
-		border-color: $flat-color-mist;
-		border-width: 3px;
+        border-color: $flat-color-mist;
+        border-width: 3px;
 
-		&:hover, &:focus {
-			color: $flat-color-blueShadow;
-		}
-	}
+        &:hover, &:focus {
+            color: $flat-color-blueShadow;
+        }
+    }
 
-	h2 {
-		font-family: "Jaapokki", "Sans Serif";
-		color: $flat-color-blueShadow;
-		margin-bottom: 1em;
-		margin-top: 1em;
+    h2 {
+        font-family: "Jaapokki", "Sans Serif";
+        color: $flat-color-blueShadow;
+        margin-bottom: 1em;
+        margin-top: 1em;
 
-		@media (min-width: $large-breakpoint) {
-			font-size: 3rem;
-		}
-	}
+        @media (min-width: $large-breakpoint) {
+            font-size: 3rem;
+        }
+    }
 }
 
 #cleeven {
-	
-	.myAchievementsMenu {
-		margin: 0 15%;
-		font-size: 1rem;
-		list-style-type: none;
-	}
-	.whiteText {
-		color: $flat-color-clouds;
-	}
+    
+    .myAchievementsMenu {
+        margin: 0 15%;
+        font-size: 1rem;
+        list-style-type: none;
+    }
+    .whiteText {
+        color: $flat-color-clouds;
+    }
 
-	.cleevenSummary {
-		margin: 0 5%;
-	}
+    .cleevenSummary {
+        margin: 0 5%;
+    }
 
-	hr {
-		width: 5%;
-	}
+    hr {
+        width: 5%;
+    }
 
-	h3 {
-		font-size: 0.95rem;
-		span {
-			font-weight: bold;
-		}
-	}
+    h3 {
+        font-size: 0.95rem;
+        span {
+            font-weight: bold;
+        }
+    }
 
-	@media (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
-		h3 {
-			font-size: 1.1rem;
-		}
-	}
+    @media (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+        h3 {
+            font-size: 1.05rem;
+        }
+    }
 
-	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-		.myAchievementsMenu {
-			font-size: 1.25rem;
-			ul {
-				font-size: 1.15rem;
-			}
-		}
-		h3 {
-			font-size: 1.4rem;
-		}
-	}
+    @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+        .myAchievementsMenu {
+            font-size: 1.25rem;
+            ul {
+                font-size: 1.15rem;
+            }
+        }
+        h3 {
+            font-size: 1.4rem;
+        }
+    }
 
-	@media (min-width: $large-breakpoint) {
-		.myAchievementsMenu {
-			font-size: 1.5rem;
-			margin-bottom: 2rem;
-			ul {
-				font-size: 1.25rem;
-			}
-			.orangeText {
-				margin-top: 1.5rem;
-			}
-		}
-		.cleevenSummary {
-			margin: 2rem 15%;
-		}
-		h3 {
-			font-size: 2rem;
-		}
-	}
+    @media (min-width: $large-breakpoint) {
+        .myAchievementsMenu {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            ul {
+                font-size: 1.25rem;
+            }
+            .orangeText {
+                margin-top: 1.5rem;
+            }
+        }
+        .cleevenSummary {
+            margin: 2rem 15%;
+        }
+        h3 {
+            font-size: 2rem;
+        }
+    }
 }
 
 .project {
 
-	background-color: $flat-color-darkBlue;
+    background-color: $flat-color-darkBlue;
 
-	h1,
-	h2,
-	p {
-		padding-left: 25px;
-		padding-right: 25px;
-	}
+    h1,
+    h2,
+    p {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
 
-	.top-bar {
-		a {
-			color: black;
-		}
-		.top-bar-menu li a {
-			&:hover, &:focus {
-				.customBorder {
-					background-color: black;
-				}	
-			}
-		}
-	}
+    .top-bar {
+        a {
+            color: black;
+        }
+        .top-bar-menu li a {
+            &:hover, &:focus {
+                .customBorder {
+                    background-color: black;
+                }   
+            }
+        }
+    }
 
-	h1{
-		color: $flat-color-orange;
-		font-family: "Jaapokki", "Sans Serif";
-	}
+    h1{
+        color: $flat-color-orange;
+        font-family: "Jaapokki", "Sans Serif";
+    }
 
-	h2 {
-		margin-bottom: 1.5rem;
-		color: $flat-color-clouds;
-	}
-	
-	p {
-		color: $flat-color-orange;
-		span {
-			color: $flat-color-clouds;
-		}
-	}
+    h2 {
+        margin-bottom: 1.5rem;
+        color: $flat-color-clouds;
+    }
+    
+    p {
+        color: $flat-color-orange;
+        span {
+            color: $flat-color-clouds;
+        }
+    }
 
-	// contains the project screenshot + project summary (role, technologies used etc..)
-	.projectSummaryAndImage {
-		img {
-			width: 90%;
-			margin: 0 auto;
-			display: block;
-		}
-		margin-left: 0;
-		margin-right: 0;
-	}
+    // contains the project screenshot + project summary (role, technologies used etc..)
+    .projectSummaryAndImage {
+        img {
+            width: 90%;
+            margin: 0 auto;
+            display: block;
+        }
+        margin-left: 0;
+        margin-right: 0;
+    }
 
-	.whiteHollowBtn {
-		@include button-style($flat-color-darkBlue, $flat-color-clouds, $flat-color-clouds);
+    .whiteHollowBtn {
+        @include button-style($flat-color-darkBlue, $flat-color-clouds, $flat-color-clouds);
 
-		border-color: $flat-color-clouds;
-		margin-top: 2rem;
+        border-color: $flat-color-clouds;
+        margin-top: 2rem;
 
-		&:hover, &:focus {
-			color: $flat-color-darkBlue;
-		}
-	}
+        &:hover, &:focus {
+            color: $flat-color-darkBlue;
+        }
+    }
 
-	.orangeHollowBtn {
-		@include button-style($flat-color-darkBlue, $flat-color-orange, $flat-color-orange);
+    .orangeHollowBtn {
+        @include button-style($flat-color-darkBlue, $flat-color-orange, $flat-color-orange);
 
-		border-color: $flat-color-orange;
-		display: inside-block;
-		margin-bottom: 1.5rem;
+        border-color: $flat-color-orange;
+        display: inside-block;
+        margin-bottom: 1.5rem;
 
-		&:hover, &:focus {
-			color: $flat-color-darkBlue;
-		}
-	}
+        &:hover, &:focus {
+            color: $flat-color-darkBlue;
+        }
+    }
 
-	.fa-angle-up,
-	.fa-angle-right,
-	.fa-angle-down,
-	.fa-angle-left {
-		color: $flat-color-clouds;
-		background-color: $flat-color-darkBlue;
-		
-		&:hover, &:focus {
-			color: black;
-		}
-	}
+    .fa-angle-up,
+    .fa-angle-right,
+    .fa-angle-down,
+    .fa-angle-left {
+        color: $flat-color-clouds;
+        background-color: $flat-color-darkBlue;
+        
+        &:hover, &:focus {
+            color: black;
+        }
+    }
 
-	@media (max-width: $small-breakpoint - 1) {
-		h1 {
-			font-size: 1.75rem;
-		}
-		h2 {
-			font-size: 1.25rem;
-		}
-		p {
-			font-size: 0.9rem;
-		}
-	}
+    @media (max-width: $small-breakpoint - 1) {
+        h1 {
+            font-size: 1.75rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }
 
-	@media (min-width: $medium-breakpoint) {
-		.projectSummaryAndImage {
-			p {
-				white-space: nowrap;
-			}
-			img {
-				width: 80%;
-			}
-		}
-	}
+    @media (min-width: $medium-breakpoint) {
+        .projectSummaryAndImage {
+            p {
+                white-space: nowrap;
+            }
+            img {
+                width: 80%;
+            }
+        }
+    }
 
-	@media (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+    @media (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
 
-	}
+    }
 
-	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-		p {
-			font-size: 1.25rem;
-		}
-		h1,
-		h2,
-		p {
-			padding-left: 32px;
-			padding-right: 32px;
-		}
-	}
+    @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+        p {
+            font-size: 1.25rem;
+        }
+        h1,
+        h2,
+        p {
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+    }
 
-	@media (min-width: $large-breakpoint) {
-		h1, h2 {
-			margin-bottom: 3rem;
-		}
-		.orangeHollowBtn {
-			margin-top: 2rem;
-			margin-bottom: 4rem;
-		}
-		.whiteHollowBtn {
-			margin-top: 4rem;
-		}
-		p {
-			font-size: 1.5rem;
-			padding-left: 4rem;
-		}
-		h1,
-		h2 {
-			padding-left: 5%;
-			padding-right: 5%;
-		}
-	}
+    @media (min-width: $large-breakpoint) {
+        h1, h2 {
+            margin-bottom: 3rem;
+        }
+        .orangeHollowBtn {
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+        }
+        .whiteHollowBtn {
+            margin-top: 4rem;
+        }
+        p {
+            font-size: 1.5rem;
+            padding-left: 4rem;
+        }
+        h1,
+        h2 {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+    }
 
 }
 
-// #spurDetails {
 .projectDetails {
-	.pageContent {
-		text-align: center;
-	}
-	p {
-		margin-bottom: 0;
-		text-align: center;
-		padding-top: 2rem;
-		padding-bottom: 2rem;
-	}
-	.fa-angle-up,
-	.fa-angle-right,
-	.fa-angle-down,
-	.fa-angle-left {
-		color: $flat-color-clouds;
-		background-color: $flat-color-darkBlue;
-		
-		&:hover, &:focus {
-			color: black;
-		}
-	}
+    .pageContent {
+        text-align: center;
+    }
+    p {
+        margin-bottom: 0;
+        text-align: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .fa-angle-up,
+    .fa-angle-right,
+    .fa-angle-down,
+    .fa-angle-left {
+        color: $flat-color-clouds;
+        background-color: $flat-color-darkBlue;
+        
+        &:hover, &:focus {
+            color: black;
+        }
+    }
 }
 
 #aboutMe {
-	.top-bar {
-		a {
-			color: $flat-color-orange;			
-		}
-		.top-bar-menu li a {
-			&:hover, &:focus {
-				.customBorder {
-					background-color: $flat-color-orange;
-				}	
-			}
-		}
-	}
-
-	.aboutMeInfos {
-		padding-bottom: 1em;
-		background-color: $flat-color-orange;
-
-		p {
-			padding-left: 2em;
-			padding-right: 2em;
-		}
-		img {
-			margin-bottom: 2em;
-			max-height: 75vh;
-			max-width: 100%;
-		}
-		h2 {
-			font-family: "JaapokkiSubtract", "Sans Serif";
-			margin-bottom: 1rem;
-		}
-		.aboutMeHeader {
-			margin-top: 3rem;
-		}
-		
-	}
-	
-	.seeMore.arrow {
-		margin-top: 0;
-		padding-bottom: 1rem;
-		background-color: $flat-color-orange;
-	}
-
-	h1 {
-		margin-bottom: 1em;
-	}
-
-	#seeMySkillsBtn {
-
-		margin-top: 1em;
-
-		@include button-style(transparent, $flat-color-clouds, $flat-color-clouds);
-
-		border-color: $flat-color-clouds;
-
-		&:hover, &:focus {
-			background-color: $flat-color-darkBlue;
-			border-color: $flat-color-darkBlue;
-		}
-	}
-
-	.fa-angle-up,
-	.fa-angle-right,
-	.fa-angle-down,
-	.fa-angle-left {
-		color: $flat-color-clouds;
-		background-color: $flat-color-orange;
-		
-		&:hover, &:focus {
-			color: black;
-		}
-	}
-
-	@media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-		.aboutMeInfos {
-			padding-top: 2em;
-			padding-bottom: 2em;
-			p {
-				font-size: 1.25em;
-			}
-			img {
-				margin-bottom: 3em;
-			}
-		}
-		#seeMySkillsBtn {
-			margin-top: 2em;
-		}
-	}
-
-	@media (min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
-		.aboutMeInfos {
-			padding-top: 3em;
-			padding-bottom: 3em;
-			img {
-				margin-bottom: 4em;
-			}
-		}
-		#seeMySkillsBtn {
-			margin-top: 2em;
-		}
-	}
-
-	@media (min-width: $large-breakpoint) {
-		.aboutMeInfos {
-			p {
-				font-size: 1.5em;
-			}
-		}
-	}
-
-	@media (min-width: $xxlarge-breakpoint) {
-		.aboutMeInfos {
-			padding-top: 5em;
-			padding-bottom: 5em;
-			img {
-				margin-bottom: 0;
-			}
-			#aboutMeInfosTextContainer {
-				margin-left: 10%;
-			}
-			#aboutMeInfosImageContainer {
-				margin-right: 5%;
-			}
-			#seeMySkillsBtn {
-				margin-top: 2em;
-			}
-		}
-			
-	}
-
-	.xxlarge-shrink {
-		@media (min-width: $xxlarge-breakpoint) {
-			ms-flex: 0 0 auto;
-			flex: 0 0 auto;
-			max-width: 100%;
-		}
-	}
-
-}
-
-#aboutMeSkills {
-	.top-bar {
-		a {
-			color: $flat-color-orange;			
-		}
-		.top-bar-menu li a {
-			&:hover, &:focus {
-				.customBorder {
-					background-color: $flat-color-orange;
-				}	
-			}
-		}
-	}
-
-	.pageContent {
-		h1 {
-			font-family: "JaapokkiEnchance", "Sans Serif";
-			margin-bottom: 1em;
-		}
-		h2 {
-			font-family: "JaapokkiSubtract", "Sans Serif";
-			font-size: 1.25em;
-			padding-top: 1em;
-			padding-bottom: 0.7em;
-			.fa {
-				margin-right: 0.3em;
-			}
-		}
-		h3 {
-			font-family: "JaapokkiEnchance", "Sans Serif";
-			font-size: 1.25em;
-			padding-bottom: 0.5em;
-			color: $flat-color-darkBlue;
-		}
-		.technicalSkills {
-			background-color: $flat-color-orange;
-			color: $flat-color-clouds;
-		}
-		.humanSkills {
-			background-color: $flat-color-clouds;
-			color: $flat-color-orange;
-			position: relative;
-		}
-    .formations {
-      hr {
-        max-width: 1%;
-      }
-      a.orangeText {
-        &:hover {
-          color: $flat-color-alizarin;
+    .top-bar {
+        a {
+            color: $flat-color-orange;
         }
-      }
-      .infoOC {
-        font-size: 0.8rem;
-        font-style: italic;
-      }
+        .top-bar-menu li a {
+            &:hover, &:focus {
+                .customBorder {
+                    background-color: $flat-color-orange;
+                }   
+            }
+        }
     }
-	}
 
-	table {
-		margin: 0 auto 3em auto;
-		font-size: 13px;
-		th {
-			padding-right: 0.4em;
-		}
-		td {
-			text-align: center;
-			padding-top: 0.5em;
-			padding-bottom: 0.5em;
-		}
-	}
+    .pageContent {
+        h1 {
+            font-family: "JaapokkiEnchance", "Sans Serif";
+            margin-bottom: 1em;
+        }
+        h2 {
+            font-family: "JaapokkiSubtract", "Sans Serif";
+            font-size: 1.25em;
+            padding-top: 1em;
+            padding-bottom: 0.7em;
+            .fa {
+                margin-right: 0.3em;
+            }
+        }
+        h3 {
+            font-family: "JaapokkiEnchance", "Sans Serif";
+            font-size: 1.25em;
+            padding-bottom: 0.5em;
+            color: $flat-color-darkBlue;
+        }
 
-	.languages p {
-		white-space: nowrap;
-	}
-
-	@media (min-width: 400px) and (max-width: $medium-breakpoint - 1) {
-		.pageContent {
-			h2 {
-				font-size: 1.5em;
-			}
-		}
-		table {
-			font-size: 15px;
-			th {
-				padding-right: 0.5em;
-				padding-left: 0.5em;
-			}
-			td {
-				padding-top: 0.5em;
-				padding-bottom: 0.5em;
-			}
-		}
-	}
-
-	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-		.pageContent {
-			h2 {
-				font-size: 1.75em;
-				padding-bottom: 1em;
-			}
-			h3 {
-				font-size: 1.5em;
-				padding-bottom: 0.7em;
-			}
-			.formations {
-				p {
-					font-size: 1.25em;
-          .infoOC {
-            font-size: 1rem;
+        .humanSkills {
+            background-color: $flat-color-orange;
+            color: $flat-color-clouds;
+        }
+        .technicalSkills {
+            background-color: $flat-color-clouds;
+            color: $flat-color-orange;
+            position: relative;
+        }
+        .formations {
+          hr {
+            max-width: 1%;
           }
-				}
-			}
-		}
-		table {
-			font-size: 16px;
-			th {
-				padding-right: 1.5em;
-				padding-left: 1.5em;
-			}
-			td {
-				padding-top: 0.7em;
-				padding-bottom: 0.7em;
-			}
-		}
-	}
-
-	@media (min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
-		.pageContent {
-			p {
-				font-size: 1.5em;
-			}
-			h2 {
-				font-size: 1.75em;
-				padding-bottom: 1em;
-			}
-			h3 {
-				font-size: 1.5em;
-				padding-bottom: 0.9em;
-			}
-      .formations {
-        p {
-          .infoOC {
-            font-size: 1.25rem;
+          a.orangeText {
+            &:hover {
+              color: $flat-color-alizarin;
+            }
           }
         }
-      }
-		}
-		table {
-			font-size: 17px;
-			th {
-				padding-left: 0.8em;
-			}
-			td {
-				padding-top: 0.7em;
-				padding-bottom: 0.7em;
-			}
-		}
-	}
+    }
 
-	@media (min-width: $xxlarge-breakpoint) {
-		.pageContent {
-			p {
-				font-size: 1.5em;
-			}
-			h2 {
-				font-size: 2em;
-				padding-bottom: 1em;
-			}
-			h3 {
-				font-size: 1.75em;
-				padding-bottom: 1em;
-			}
-      .formations {
-        p {
-          .infoOC {
-            font-size: 1.25rem;
-          }
+    table {
+        margin: 0 auto 3em auto;
+        font-size: 13px;
+        th {
+            padding-right: 0.4em;
         }
-      }
-		}
-		table {
-			font-size: 19px;
-			th {
-				padding-right: 1.5em;
-				padding-left: 1.5em;
-			}
-			td {
-				padding-top: 1em;
-				padding-bottom: 1em;
-			}
-		}
-	}
+        td {
+            text-align: center;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+    }
 
-	.fa-angle-up,
-	.fa-angle-right,
-	.fa-angle-down,
-	.fa-angle-left {
-		color: $flat-color-clouds;
-		background-color: $flat-color-darkBlue;
-		
-		&:hover, &:focus {
-			color: black;
-		}
-	}
+    .languages p {
+        white-space: nowrap;
+    }
+
+    .humanSkills,
+    .technicalSkills,
+    .formations {
+        padding: 0 2rem;
+    }
+
+    @media (min-width: 400px) and (max-width: $medium-breakpoint - 1) {
+
+        .pageContent {
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        table {
+            font-size: 15px;
+            th {
+                padding-right: 0.5em;
+                padding-left: 0.5em;
+            }
+            td {
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+            }
+        }
+    }
+
+    @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+        .pageContent {
+            h2 {
+                font-size: 1.75em;
+                padding-bottom: 1em;
+            }
+            h3 {
+                font-size: 1.5em;
+                padding-bottom: 0.7em;
+            }
+            .formations {
+                p {
+                    font-size: 1.25em;
+                }
+            }
+        }
+        table {
+            font-size: 16px;
+            th {
+                padding-right: 1.5em;
+                padding-left: 1.5em;
+            }
+            td {
+                padding-top: 0.7em;
+                padding-bottom: 0.7em;
+            }
+        }
+    }
+
+    @media (min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
+        .pageContent {
+            p {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.75em;
+                padding-bottom: 1em;
+            }
+            h3 {
+                font-size: 1.5em;
+                padding-bottom: 0.9em;
+            }
+        }
+        table {
+            font-size: 17px;
+            th {
+                padding-left: 0.8em;
+            }
+            td {
+                padding-top: 0.7em;
+                padding-bottom: 0.7em;
+            }
+        }
+    }
+
+    @media (min-width: $xxlarge-breakpoint) {
+        .pageContent {
+            p {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 2em;
+                padding-bottom: 1em;
+            }
+            h3 {
+                font-size: 1.75em;
+                padding-bottom: 1em;
+            }
+        }
+        table {
+            font-size: 19px;
+            th {
+                padding-right: 1.5em;
+                padding-left: 1.5em;
+            }
+            td {
+                padding-top: 1em;
+                padding-bottom: 1em;
+            }
+        }
+    }
+
+    .fa-angle-up,
+    .fa-angle-right,
+    .fa-angle-down,
+    .fa-angle-left {
+        color: $flat-color-clouds;
+        background-color: $flat-color-darkBlue;
+        
+        &:hover, &:focus {
+            color: black;
+        }
+    }
 
 }
 
@@ -1079,121 +931,121 @@ p {
 // could/should be improved if content needs to change
 #contact {
 
-	background-color: $flat-color-turquoise;
+    background-color: $flat-color-turquoise;
 
-	.pageContent > .row {
-		min-height: 100%;
-	}
-	
-	.top-bar {
-		background-color: $flat-color-darkBlue;
+    .pageContent > .row {
+        min-height: 100%;
+    }
+    
+    .top-bar {
+        background-color: $flat-color-darkBlue;
 
-		a {
-			color: $flat-color-clouds;			
-		}
-		.top-bar-menu {
-			margin-bottom: 0.2em;
-			li a {
-				&:hover, &:focus {
-					.customBorder {
-						background-color: $flat-color-clouds;
-					}	
-				}
-			}
-		}
-	}
+        a {
+            color: $flat-color-clouds;          
+        }
+        .top-bar-menu {
+            margin-bottom: 0.2em;
+            li a {
+                &:hover, &:focus {
+                    .customBorder {
+                        background-color: $flat-color-clouds;
+                    }   
+                }
+            }
+        }
+    }
 
-	.downloadResumeBtn {
+    .downloadResumeBtn {
 
-		margin-top: 1em;
-		margin-bottom: 2em;
+        margin-top: 1em;
+        margin-bottom: 2em;
 
-		@include button-style($flat-color-turquoise, $flat-color-darkBlue, $flat-color-clouds);
+        @include button-style($flat-color-turquoise, $flat-color-darkBlue, $flat-color-clouds);
 
-		border-color: $flat-color-clouds;
+        border-color: $flat-color-clouds;
 
-		&:hover, &:focus {
-			border-color: $flat-color-darkBlue;
-		}
-	}
+        &:hover, &:focus {
+            border-color: $flat-color-darkBlue;
+        }
+    }
 
-	h1 {
+    h1 {
 
-		font-size: 1.25em;
-		margin-bottom: 1em;
-		span{
-			display: block;
-			margin-top: 1em;
-			margin-bottom: 1em;
-		}
-	}
+        font-size: 1.25em;
+        margin-bottom: 1em;
+        span{
+            display: block;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+    }
 
-	p {
-		font-size: 1.25em;
-		span {
-			display: inline-block;
-			padding-top: 0.5em;
-		}
-	}
-	
-	@media(min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
-		h1, p {
-			font-size: 1.5em;
-		}
-	}
+    p {
+        font-size: 1.25em;
+        span {
+            display: inline-block;
+            padding-top: 0.5em;
+        }
+    }
+    
+    @media(min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+        h1, p {
+            font-size: 1.5em;
+        }
+    }
 
-	@media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-		h1, p {
-			font-size: 1.75em;
-		}
-	}
+    @media(min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+        h1, p {
+            font-size: 1.75em;
+        }
+    }
 
-	@media(min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
-		h1, p {
-			font-size: 2em;
-		}
-	}
+    @media(min-width: $large-breakpoint) and (max-width: $xxlarge-breakpoint - 1) {
+        h1, p {
+            font-size: 2em;
+        }
+    }
 
-	@media(min-width: $xxlarge-breakpoint) {
-		h1, p {
-			font-size: 2.5em;
-		}
-	}
+    @media(min-width: $xxlarge-breakpoint) {
+        h1, p {
+            font-size: 2.5em;
+        }
+    }
 
-	.fa-angle-up,
-	.fa-angle-right,
-	.fa-angle-down,
-	.fa-angle-left {
-		background-color: transparent;
-		color: $flat-color-clouds;
-		
-		&:hover, &:focus {
-			color: black;
-		}
-	}
+    .fa-angle-up,
+    .fa-angle-right,
+    .fa-angle-down,
+    .fa-angle-left {
+        background-color: transparent;
+        color: $flat-color-clouds;
+        
+        &:hover, &:focus {
+            color: black;
+        }
+    }
 }
 
 // ------------------------------------
-// 					BASIC STYLES
+//                  BASIC STYLES
 // ------------------------------------
 
 h1 {
-	font-family: "Jaapokki", "Sans Serif";
-	font-size: 2rem;
+    font-family: "Jaapokki", "Sans Serif";
+    font-size: 2rem;
 }
 
 h2 {
-	font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .button {
-	display: inline-block;
-	font-size: 1rem;
-	padding: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 1rem;
 }
 
 p {
-	font-size: 1rem;
+    font-size: 1rem;
 }
 
 // is repeated each page with position absolute
@@ -1203,208 +1055,208 @@ p {
 
 .top-bar {
 
-	@include top-bar-container;
+    @include top-bar-container;
 
-	position: absolute;
-	top: 0;
+    position: absolute;
+    top: 0;
 
-	width: 100%;
-	margin: 0;
-	// padding-top: 1rem;
-	padding-top: 0.5rem;
-	padding-bottom: 0.25rem;
+    width: 100%;
+    margin: 0;
+    // padding-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.25rem;
 
-	z-index: 1;
+    z-index: 1;
 
-	a {
-		color: $page-color;
-	}
+    a {
+        color: $page-color;
+    }
 
-	.top-bar-title {
-		font-family: "JaapokkiSubtract", "Sans Serif";
-		font-size: 1.1rem;
-	}
+    .top-bar-title {
+        font-family: "JaapokkiSubtract", "Sans Serif";
+        font-size: 1.1rem;
+    }
 
-	.top-bar-right {
-		// padding-top: 1rem;
-		font-size: 0.8rem;
-	}
+    .top-bar-right {
+        // padding-top: 1rem;
+        font-size: 0.8rem;
+    }
 
-	.top-bar-menu {
+    .top-bar-menu {
 
-		margin-left: 0;
-		margin-bottom: 0;
-		list-style-type: none;
+        margin-left: 0;
+        margin-bottom: 0;
+        list-style-type: none;
 
-		li {
-			display: inline-block;
-		}
+        li {
+            display: inline-block;
+        }
 
-		li a {
+        li a {
 
-			display: block;
-			padding: 0.2rem 0.6rem;
-			line-height: 1;
+            display: block;
+            padding: 0.2rem 0.6rem;
+            line-height: 1;
 
-			&:hover, &:focus {
-				.customBorder {
-					background-color: $page-color;
-				}
-			}
-		}
-	}
+            &:hover, &:focus {
+                .customBorder {
+                    background-color: $page-color;
+                }
+            }
+        }
+    }
 
-	.customBorder {
-		margin: 0.3rem auto 0 auto;
-		width: 40%;
-		height: 1px;
-		background-color: transparent;
-	}
+    .customBorder {
+        margin: 0.3rem auto 0 auto;
+        width: 40%;
+        height: 1px;
+        background-color: transparent;
+    }
 
-	@media (max-width: $small-breakpoint - 1) {
-		& {
-			padding-left: 0;
-			padding-right: 0;
-		}
-		.top-bar-menu li a {
-			padding: 0 0.5rem;
-		}
-	}
-	@media (max-width: $medium-breakpoint - 1) {
-		.top-bar-title,
-		.top-bar-menu {
-			width: 100%;
-		}
+    @media (max-width: $small-breakpoint - 1) {
+        & {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .top-bar-menu li a {
+            padding: 0 0.5rem;
+        }
+    }
+    @media (max-width: $medium-breakpoint - 1) {
+        .top-bar-title,
+        .top-bar-menu {
+            width: 100%;
+        }
 
-		.top-bar-menu {
-			
-			margin: 0 auto;
-			text-align: center;
-			li {
-				display: inline-block;
-			}
-		}
-	}
-	@media (min-width: $medium-breakpoint) {
-		.top-bar-right {
-			padding-top: 1rem;
-		}
-	}
-	@media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-		.top-bar-title {
-			font-size: 1.3rem;
-		}
-		.top-bar-right {
-			font-size: 1.15rem;
-		}
-		.top-bar-menu li a {
-			padding: 0.6rem 0.8rem;
-		}
-	}
+        .top-bar-menu {
+            
+            margin: 0 auto;
+            text-align: center;
+            li {
+                display: inline-block;
+            }
+        }
+    }
+    @media (min-width: $medium-breakpoint) {
+        .top-bar-right {
+            padding-top: 1rem;
+        }
+    }
+    @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+        .top-bar-title {
+            font-size: 1.3rem;
+        }
+        .top-bar-right {
+            font-size: 1.15rem;
+        }
+        .top-bar-menu li a {
+            padding: 0.6rem 0.8rem;
+        }
+    }
 
-	@media (min-width: $large-breakpoint) {
-		.top-bar-title {
-			font-size: 1.5rem;
-			margin: 0 1rem;
-		}
-		.top-bar-right {
-			font-size: 1.3rem;
-		}
-		.top-bar-menu li a {
-			padding: 0.7rem 1rem;
-		}
-	}
+    @media (min-width: $large-breakpoint) {
+        .top-bar-title {
+            font-size: 1.5rem;
+            margin: 0 1rem;
+        }
+        .top-bar-right {
+            font-size: 1.3rem;
+        }
+        .top-bar-menu li a {
+            padding: 0.7rem 1rem;
+        }
+    }
 }
 
 .hollowDarkBlueBtn {
-	
-	@include button-style($flat-color-clouds, $flat-color-darkBlue, $flat-color-darkBlue);
+    
+    @include button-style($flat-color-clouds, $flat-color-darkBlue, $flat-color-darkBlue);
 
-	border-color: $flat-color-darkBlue;
+    border-color: $flat-color-darkBlue;
 
-	&:hover, &:focus {
-		color: $flat-color-clouds;
-	}
+    &:hover, &:focus {
+        color: $flat-color-clouds;
+    }
 }
 
 .darkBlueBtn {
-	@include button-style($flat-color-darkBlue, $flat-color-clouds, $flat-color-clouds);
+    @include button-style($flat-color-darkBlue, $flat-color-clouds, $flat-color-clouds);
 
-	border-color: $flat-color-darkBlue;
+    border-color: $flat-color-darkBlue;
 
-	&:hover, &:focus {
-		color: $flat-color-darkBlue;
-	}
+    &:hover, &:focus {
+        color: $flat-color-darkBlue;
+    }
 }
 
 .whiteBackground {
-	background-color: $flat-color-clouds;
-	color: $flat-color-darkBlue;
+    background-color: $flat-color-clouds;
+    color: $flat-color-darkBlue;
 }
 
 .whiteText {
-	color: $flat-color-clouds;
+    color: $flat-color-clouds;
 }
 
 .orangeBackground {
-	background-color: $flat-color-orange;
-	color: $flat-color-darkBlue;
+    background-color: $flat-color-orange;
+    color: $flat-color-darkBlue;
 }
 
 .orangeText {
-	color: $flat-color-orange;
+    color: $flat-color-orange;
 }
 
 .darkBlueText {
-	color: $flat-color-darkBlue;
+    color: $flat-color-darkBlue;
 }
 
 // default behavior is for non touch devices
 // so the content for touch devices is hidden by default
 .show-for-touchscreen {
-	display: none;
+    display: none;
 }
 
 @media (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
-	h1,
-	h2,
-	p {
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-	h1 {
-		font-size: 3rem;
-	}
-	h2 {
-		font-size: 2rem;
-	}
-	.button {
-		font-size: 1.25rem;
-	}
-	p {
-		font-size: 1.5rem;
-	}
+    h1,
+    h2,
+    p {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .button {
+        font-size: 1.25rem;
+    }
+    p {
+        font-size: 1.5rem;
+    }
 }
 
 @media (min-width: $large-breakpoint) {
-	h1,
-	h2,
-	p {
-		padding-left: 4%;
-		padding-right: 4%;
-	}
-	h1 {
-		font-size: 4rem;
-	}
-	h2 {
-		font-size: 2.5rem;
-	}
-	.button {
-		font-size: 1.5rem;
-	}
-	p {
-		font-size: 1.75rem;
-	}
+    h1,
+    h2,
+    p {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+    .button {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1.75rem;
+    }
 
 }
 

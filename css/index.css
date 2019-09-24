@@ -2373,6 +2373,10 @@ html, body {
 .scrollable .fa-angle-right {
   right: 12px; }
 
+@media (min-width: 1024px) {
+  .scrollable .fa-angle-right {
+    right: 17px; } }
+
 body {
   font-family: "Jaapokki", "Sans Serif"; }
 
@@ -2400,7 +2404,6 @@ p {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/backlit_keyboard_good.jpg"); }
 
 #home .basicInfoContainer {
-  margin-bottom: 2rem;
   padding: 3rem 3rem;
   background-color: #ecf0f1;
   color: #1c202b; }
@@ -2414,7 +2417,8 @@ p {
 #home #contactMeBtn {
   background-color: transparent;
   color: #ecf0f1;
-  border-color: #ecf0f1; }
+  border-color: #ecf0f1;
+  margin: 3rem 0; }
   #home #contactMeBtn:hover, #home #contactMeBtn:focus {
     background-color: #ecf0f1;
     color: #ecf0f1; }
@@ -2525,7 +2529,7 @@ p {
 
 @media (min-width: 350px) and (max-width: 639px) {
   #cleeven h3 {
-    font-size: 1.1rem; } }
+    font-size: 1.05rem; } }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   #cleeven .myAchievementsMenu {
@@ -2677,48 +2681,128 @@ p {
 #aboutMe .top-bar .top-bar-menu li a:hover .customBorder, #aboutMe .top-bar .top-bar-menu li a:focus .customBorder {
   background-color: #FF6052; }
 
-#aboutMe .aboutMeInfos {
-  padding-bottom: 1em;
-  background-color: #FF6052; }
-  #aboutMe .aboutMeInfos p {
-    padding-left: 2em;
-    padding-right: 2em; }
-  #aboutMe .aboutMeInfos img {
-    margin-bottom: 2em;
-    max-height: 75vh;
-    max-width: 100%; }
-  #aboutMe .aboutMeInfos h2 {
-    font-family: "JaapokkiSubtract", "Sans Serif";
-    margin-bottom: 1rem; }
-  #aboutMe .aboutMeInfos .aboutMeHeader {
-    margin-top: 3rem; }
-
-#aboutMe .seeMore.arrow {
-  margin-top: 0;
-  padding-bottom: 1rem;
-  background-color: #FF6052; }
-
-#aboutMe h1 {
+#aboutMe .pageContent h1 {
+  font-family: "JaapokkiEnchance", "Sans Serif";
   margin-bottom: 1em; }
 
-#aboutMe #seeMySkillsBtn {
-  margin-top: 1em;
-  background-color: transparent;
-  color: #ecf0f1;
-  border-color: #ecf0f1; }
-  #aboutMe #seeMySkillsBtn:hover, #aboutMe #seeMySkillsBtn:focus {
-    background-color: #ecf0f1;
-    color: #ecf0f1; }
-  #aboutMe #seeMySkillsBtn:hover, #aboutMe #seeMySkillsBtn:focus {
-    background-color: #1c202b;
-    border-color: #1c202b; }
+#aboutMe .pageContent h2 {
+  font-family: "JaapokkiSubtract", "Sans Serif";
+  font-size: 1.25em;
+  padding-top: 1em;
+  padding-bottom: 0.7em; }
+  #aboutMe .pageContent h2 .fa {
+    margin-right: 0.3em; }
+
+#aboutMe .pageContent h3 {
+  font-family: "JaapokkiEnchance", "Sans Serif";
+  font-size: 1.25em;
+  padding-bottom: 0.5em;
+  color: #1c202b; }
+
+#aboutMe .pageContent .humanSkills {
+  background-color: #FF6052;
+  color: #ecf0f1; }
+
+#aboutMe .pageContent .technicalSkills {
+  background-color: #ecf0f1;
+  color: #FF6052;
+  position: relative; }
+
+#aboutMe .pageContent .formations hr {
+  max-width: 1%; }
+
+#aboutMe .pageContent .formations a.orangeText:hover {
+  color: #e74c3c; }
+
+#aboutMe table {
+  margin: 0 auto 3em auto;
+  font-size: 13px; }
+  #aboutMe table th {
+    padding-right: 0.4em; }
+  #aboutMe table td {
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em; }
+
+#aboutMe .languages p {
+  white-space: nowrap; }
+
+#aboutMe .humanSkills,
+#aboutMe .technicalSkills,
+#aboutMe .formations {
+  padding: 0 2rem; }
+
+@media (min-width: 400px) and (max-width: 639px) {
+  #aboutMe .pageContent h2 {
+    font-size: 1.5em; }
+  #aboutMe table {
+    font-size: 15px; }
+    #aboutMe table th {
+      padding-right: 0.5em;
+      padding-left: 0.5em; }
+    #aboutMe table td {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em; } }
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  #aboutMe .pageContent h2 {
+    font-size: 1.75em;
+    padding-bottom: 1em; }
+  #aboutMe .pageContent h3 {
+    font-size: 1.5em;
+    padding-bottom: 0.7em; }
+  #aboutMe .pageContent .formations p {
+    font-size: 1.25em; }
+  #aboutMe table {
+    font-size: 16px; }
+    #aboutMe table th {
+      padding-right: 1.5em;
+      padding-left: 1.5em; }
+    #aboutMe table td {
+      padding-top: 0.7em;
+      padding-bottom: 0.7em; } }
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  #aboutMe .pageContent p {
+    font-size: 1.5em; }
+  #aboutMe .pageContent h2 {
+    font-size: 1.75em;
+    padding-bottom: 1em; }
+  #aboutMe .pageContent h3 {
+    font-size: 1.5em;
+    padding-bottom: 0.9em; }
+  #aboutMe table {
+    font-size: 17px; }
+    #aboutMe table th {
+      padding-left: 0.8em; }
+    #aboutMe table td {
+      padding-top: 0.7em;
+      padding-bottom: 0.7em; } }
+
+@media (min-width: 1440px) {
+  #aboutMe .pageContent p {
+    font-size: 1.5em; }
+  #aboutMe .pageContent h2 {
+    font-size: 2em;
+    padding-bottom: 1em; }
+  #aboutMe .pageContent h3 {
+    font-size: 1.75em;
+    padding-bottom: 1em; }
+  #aboutMe table {
+    font-size: 19px; }
+    #aboutMe table th {
+      padding-right: 1.5em;
+      padding-left: 1.5em; }
+    #aboutMe table td {
+      padding-top: 1em;
+      padding-bottom: 1em; } }
 
 #aboutMe .fa-angle-up,
 #aboutMe .fa-angle-right,
 #aboutMe .fa-angle-down,
 #aboutMe .fa-angle-left {
   color: #ecf0f1;
-  background-color: #FF6052; }
+  background-color: #1c202b; }
   #aboutMe .fa-angle-up:hover, #aboutMe .fa-angle-up:focus,
   #aboutMe .fa-angle-right:hover,
   #aboutMe .fa-angle-right:focus,
@@ -2726,192 +2810,6 @@ p {
   #aboutMe .fa-angle-down:focus,
   #aboutMe .fa-angle-left:hover,
   #aboutMe .fa-angle-left:focus {
-    color: black; }
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  #aboutMe .aboutMeInfos {
-    padding-top: 2em;
-    padding-bottom: 2em; }
-    #aboutMe .aboutMeInfos p {
-      font-size: 1.25em; }
-    #aboutMe .aboutMeInfos img {
-      margin-bottom: 3em; }
-  #aboutMe #seeMySkillsBtn {
-    margin-top: 2em; } }
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-  #aboutMe .aboutMeInfos {
-    padding-top: 3em;
-    padding-bottom: 3em; }
-    #aboutMe .aboutMeInfos img {
-      margin-bottom: 4em; }
-  #aboutMe #seeMySkillsBtn {
-    margin-top: 2em; } }
-
-@media (min-width: 1024px) {
-  #aboutMe .aboutMeInfos p {
-    font-size: 1.5em; } }
-
-@media (min-width: 1440px) {
-  #aboutMe .aboutMeInfos {
-    padding-top: 5em;
-    padding-bottom: 5em; }
-    #aboutMe .aboutMeInfos img {
-      margin-bottom: 0; }
-    #aboutMe .aboutMeInfos #aboutMeInfosTextContainer {
-      margin-left: 10%; }
-    #aboutMe .aboutMeInfos #aboutMeInfosImageContainer {
-      margin-right: 5%; }
-    #aboutMe .aboutMeInfos #seeMySkillsBtn {
-      margin-top: 2em; } }
-
-@media (min-width: 1440px) {
-  #aboutMe .xxlarge-shrink {
-    ms-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-    max-width: 100%; } }
-
-#aboutMeSkills .top-bar a {
-  color: #FF6052; }
-
-#aboutMeSkills .top-bar .top-bar-menu li a:hover .customBorder, #aboutMeSkills .top-bar .top-bar-menu li a:focus .customBorder {
-  background-color: #FF6052; }
-
-#aboutMeSkills .pageContent h1 {
-  font-family: "JaapokkiEnchance", "Sans Serif";
-  margin-bottom: 1em; }
-
-#aboutMeSkills .pageContent h2 {
-  font-family: "JaapokkiSubtract", "Sans Serif";
-  font-size: 1.25em;
-  padding-top: 1em;
-  padding-bottom: 0.7em; }
-  #aboutMeSkills .pageContent h2 .fa {
-    margin-right: 0.3em; }
-
-#aboutMeSkills .pageContent h3 {
-  font-family: "JaapokkiEnchance", "Sans Serif";
-  font-size: 1.25em;
-  padding-bottom: 0.5em;
-  color: #1c202b; }
-
-#aboutMeSkills .pageContent .technicalSkills {
-  background-color: #FF6052;
-  color: #ecf0f1; }
-
-#aboutMeSkills .pageContent .humanSkills {
-  background-color: #ecf0f1;
-  color: #FF6052;
-  position: relative; }
-
-#aboutMeSkills .pageContent .formations hr {
-  max-width: 1%; }
-
-#aboutMeSkills .pageContent .formations a.orangeText:hover {
-  color: #e74c3c; }
-
-#aboutMeSkills .pageContent .formations .infoOC {
-  font-size: 0.8rem;
-  font-style: italic; }
-
-#aboutMeSkills table {
-  margin: 0 auto 3em auto;
-  font-size: 13px; }
-  #aboutMeSkills table th {
-    padding-right: 0.4em; }
-  #aboutMeSkills table td {
-    text-align: center;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em; }
-
-#aboutMeSkills .languages p {
-  white-space: nowrap; }
-
-@media (min-width: 400px) and (max-width: 639px) {
-  #aboutMeSkills .pageContent h2 {
-    font-size: 1.5em; }
-  #aboutMeSkills table {
-    font-size: 15px; }
-    #aboutMeSkills table th {
-      padding-right: 0.5em;
-      padding-left: 0.5em; }
-    #aboutMeSkills table td {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em; } }
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  #aboutMeSkills .pageContent h2 {
-    font-size: 1.75em;
-    padding-bottom: 1em; }
-  #aboutMeSkills .pageContent h3 {
-    font-size: 1.5em;
-    padding-bottom: 0.7em; }
-  #aboutMeSkills .pageContent .formations p {
-    font-size: 1.25em; }
-    #aboutMeSkills .pageContent .formations p .infoOC {
-      font-size: 1rem; }
-  #aboutMeSkills table {
-    font-size: 16px; }
-    #aboutMeSkills table th {
-      padding-right: 1.5em;
-      padding-left: 1.5em; }
-    #aboutMeSkills table td {
-      padding-top: 0.7em;
-      padding-bottom: 0.7em; } }
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-  #aboutMeSkills .pageContent p {
-    font-size: 1.5em; }
-  #aboutMeSkills .pageContent h2 {
-    font-size: 1.75em;
-    padding-bottom: 1em; }
-  #aboutMeSkills .pageContent h3 {
-    font-size: 1.5em;
-    padding-bottom: 0.9em; }
-  #aboutMeSkills .pageContent .formations p .infoOC {
-    font-size: 1.25rem; }
-  #aboutMeSkills table {
-    font-size: 17px; }
-    #aboutMeSkills table th {
-      padding-left: 0.8em; }
-    #aboutMeSkills table td {
-      padding-top: 0.7em;
-      padding-bottom: 0.7em; } }
-
-@media (min-width: 1440px) {
-  #aboutMeSkills .pageContent p {
-    font-size: 1.5em; }
-  #aboutMeSkills .pageContent h2 {
-    font-size: 2em;
-    padding-bottom: 1em; }
-  #aboutMeSkills .pageContent h3 {
-    font-size: 1.75em;
-    padding-bottom: 1em; }
-  #aboutMeSkills .pageContent .formations p .infoOC {
-    font-size: 1.25rem; }
-  #aboutMeSkills table {
-    font-size: 19px; }
-    #aboutMeSkills table th {
-      padding-right: 1.5em;
-      padding-left: 1.5em; }
-    #aboutMeSkills table td {
-      padding-top: 1em;
-      padding-bottom: 1em; } }
-
-#aboutMeSkills .fa-angle-up,
-#aboutMeSkills .fa-angle-right,
-#aboutMeSkills .fa-angle-down,
-#aboutMeSkills .fa-angle-left {
-  color: #ecf0f1;
-  background-color: #1c202b; }
-  #aboutMeSkills .fa-angle-up:hover, #aboutMeSkills .fa-angle-up:focus,
-  #aboutMeSkills .fa-angle-right:hover,
-  #aboutMeSkills .fa-angle-right:focus,
-  #aboutMeSkills .fa-angle-down:hover,
-  #aboutMeSkills .fa-angle-down:focus,
-  #aboutMeSkills .fa-angle-left:hover,
-  #aboutMeSkills .fa-angle-left:focus {
     color: black; }
 
 #contact {
