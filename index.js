@@ -110,6 +110,17 @@ $(function(){
 		goToPreviousPageVertical($(this));
 	});
 
+	$("#cvLanguage").on("change", function(e){
+		var lang = $(this).find(":selected").val();
+		if (lang === "fr") {
+			$("#cvEn").hide();
+			$("#cvFr").show();
+		} else if (lang === "en") {
+			$("#cvEn").show();
+			$("#cvFr").hide();
+		}
+	});
+
 	// links that switch the user from a page to another without scrolling
 	$(".top-bar a, .anchor").on("click", function(e){
 

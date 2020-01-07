@@ -2831,9 +2831,14 @@ p {
       margin-bottom: 0.2em; }
       #contact .top-bar .top-bar-menu li a:hover .customBorder, #contact .top-bar .top-bar-menu li a:focus .customBorder {
         background-color: #ecf0f1; }
+  #contact #cvLanguage {
+    display: inline;
+    width: auto;
+    height: auto;
+    padding-right: 2em; }
   #contact .downloadResumeBtn {
+    line-height: 1.2;
     margin-top: 1em;
-    margin-bottom: 2em;
     background-color: #1abc9c;
     color: #ecf0f1;
     border-color: #ecf0f1; }
@@ -2859,13 +2864,22 @@ p {
       font-size: 1.5em; } }
   @media (min-width: 640px) and (max-width: 1023px) {
     #contact h1, #contact p {
-      font-size: 1.75em; } }
+      font-size: 1.75em; }
+    #contact #cvLanguage {
+      padding-right: 1.5em;
+      margin-left: 0.5em; } }
   @media (min-width: 1024px) and (max-width: 1439px) {
     #contact h1, #contact p {
-      font-size: 2em; } }
+      font-size: 2em; }
+    #contact #cvLanguage {
+      padding-right: 1.5em;
+      margin-left: 0.5em; } }
   @media (min-width: 1440px) {
     #contact h1, #contact p {
-      font-size: 2.5em; } }
+      font-size: 2.5em; }
+    #contact #cvLanguage {
+      padding-right: 1.5em;
+      margin-left: 0.5em; } }
   #contact .fa-angle-up,
   #contact .fa-angle-right,
   #contact .fa-angle-down,

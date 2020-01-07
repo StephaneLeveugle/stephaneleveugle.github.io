@@ -341,8 +341,8 @@
                             <h2 class="text-center">Web application helping women find running partners</h2>
                             <div class="row expanded align-center projectSummaryAndImage">
                                 <div class="small-12 shrink columns">
-                                    <p>Rôle : <span>Developer and Co-founder</span></p>
-                                    <p>Durée : <span>May 2016 - May 2017</span></p>
+                                    <p>Role : <span>Developer and Co-founder</span></p>
+                                    <p>Duration : <span>May 2016 - May 2017</span></p>
                                     <p>Backend : <span>NodeJS (express) - MongoDB</span></p>
                                     <p>Frontend : <span>HTML - CSS - Javascript</span></p>
                                     <p>Frameworks : <span>jQuery - Foundation 6</span></p>
@@ -464,13 +464,6 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>C/C++</td>
-                                                            <td><i class="fa fa-certificate"></i></td>
-                                                            <td><i class="fa fa-certificate"></i></td>
-                                                            <td><i class="fa fa-certificate"></i></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
                                                             <td>PHP</td>
                                                             <td><i class="fa fa-certificate"></i></td>
                                                             <td><i class="fa fa-certificate"></i></td>
@@ -479,6 +472,13 @@
                                                         </tr>
                                                         <tr>
                                                             <td>NodeJS</td>
+                                                            <td><i class="fa fa-certificate"></i></td>
+                                                            <td><i class="fa fa-certificate"></i></td>
+                                                            <td><i class="fa fa-certificate"></i></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>C/C++</td>
                                                             <td><i class="fa fa-certificate"></i></td>
                                                             <td><i class="fa fa-certificate"></i></td>
                                                             <td></td>
@@ -634,12 +634,23 @@
 
                         <div class="pageContent">
                             <div class="row expanded align-middle align-center">
-                                <p class="small-10 columns text-center">
-                                    Contact me at : <br>
-                                    <span class="darkBlueText">stephane.leveugle(at)gmail.com</span>
-                                    <br><br class="show-for-large">
-                                    <a href="./CV/CV_Stephane_Leveugle_Developpeur_Web.pdf" class="button downloadResumeBtn" download="CV_Stephane_Leveugle">Download my CV</a>
-                                </p>
+                                <div class="small-10 columns text-center">
+                                    <p>
+                                        Contact me at : <br>
+                                        <span class="darkBlueText">stephane.leveugle(at)gmail.com</span>
+                                        <br>
+                                    </p>
+                                    <div class="row expanded align-center">
+                                        <div class="columns small-10 text-center">
+                                            <a href="./CV/CV_Stephane_Leveugle_Web_Developer.pdf" class="button downloadResumeBtn" download="CV_Stephane_Leveugle" id="cvEn" target="_blank">Download my CV</a>
+                                            <a href="./CV/CV_Stephane_LEVEUGLE_Developpeur_Web.pdf" class="button downloadResumeBtn" download="CV_Stephane_Leveugle" id="cvFr" style="display:none;" target="_blank">Download my CV</a>
+                                            <select class="button downloadResumeBtn" name="cvLanguage" id="cvLanguage">
+                                                <option value="en">English</option>
+                                                <option value="fr">Français</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -656,7 +667,6 @@
 
     <script src="./resources/jquery.min.js"></script>
     <script src="./resources/foundation.min.js"></script>
-    <!-- <script src="./resources/chartist.js"></script> -->
     <script src="./index.js"></script>
 </body>
 </html>
