@@ -736,6 +736,10 @@ p {
             background-color: $flat-color-clouds;
             color: $flat-color-orange;
             position: relative;
+
+            #skillsBoardContainer {
+                padding-top: 1em;
+            }
         }
         .formations {
             hr {

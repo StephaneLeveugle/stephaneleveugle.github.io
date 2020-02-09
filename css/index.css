@@ -2709,6 +2709,8 @@ p {
   background-color: #ecf0f1;
   color: #FF6052;
   position: relative; }
+  #aboutMe .pageContent .technicalSkills #skillsBoardContainer {
+    padding-top: 1em; }
 
 #aboutMe .pageContent .formations hr {
   max-width: 1%; }
